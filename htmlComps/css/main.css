@@ -179,6 +179,41 @@ nav li{
 	border-right: 1px solid #202020;
 }
 
+nav li.messages_icon{
+	padding-top: 15px;
+	line-height: 20px;
+}
+
+nav li.settings_icon{
+	padding-top: 12px;
+	line-height: 20px;
+}
+
+/*nav li.user_img{
+	border-right: none;
+	padding-right: 0;
+	padding-top: 13px;
+	line-height: 20px;
+}*/
+
+nav li.user_img{
+	padding-top: 13px;
+	line-height: 10px;
+}
+
+nav li.user_img img{
+	width: 24px;
+	height: 24px;
+	padding-right: 10px;
+	float: left;
+	cursor: pointer;
+}
+
+nav li.user_img a{
+	float: left;
+	padding: 8px 0;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Landing
