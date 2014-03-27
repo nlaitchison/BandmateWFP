@@ -3,7 +3,23 @@
 -----Info
 
 -----Color Swatch
+Purple: #2a258e
+Teal: #05959a
+Text: #101010
+H2 & H3 Underline: #d5d5d5
 
+Nav BG: #0f0f0f
+Nav Search BG: #363636
+Nav Dividers: #202020
+Nav Text: #888888
+
+CTA Text: #a2a2a2
+CTA Search BG: #929292
+
+Grey BG: #e9e9e9
+White BG: #f0f0f0
+
+Button BG: #dbdbdb
 -----Sections
 
 ∆ General
@@ -24,6 +40,8 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 
 body{
 	font: 14px Helvetica;
+	color: #101010;
+	background-color: #f0f0f0;
 }
 
 ul{
@@ -45,6 +63,47 @@ li{
 	background:  #ddd;
 }
 
+/* ---------------------------------------------------------------------------------------------------
+		∆ Header
+---------------------------------------------------------------------------------------------------*/
 
+header{
+	height: 50px;
+	background-color: #0f0f0f;
+}
 
+#logo{
+	height: 50px;
+	width: 151px;
+	float: left;
+}
 
+h1{
+	height: 100%;
+	width: 100%;
+	text-indent: -9999px;
+	background: url(../images/logo.png) top center no-repeat;
+}
+
+nav a{
+	color: #888888;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Landing
+---------------------------------------------------------------------------------------------------*/
+
+#cta_image{
+/*	background-attachment: fixed;*/
+    background-image: url("../images/landing-bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
