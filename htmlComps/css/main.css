@@ -98,6 +98,21 @@ p{
 	line-height: 22px;
 }
 
+.user_thumb{
+	padding: 10px 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.user_thumb img{
+	margin-bottom: 10px;
+}
+
+.user_thumb p{
+	font-size: 12px;
+}
+
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
 ---------------------------------------------------------------------------------------------------*/
@@ -111,6 +126,7 @@ header{
 	height: 50px;
 	width: 151px;
 	float: left;
+	cursor: pointer;
 }
 
 h1{
@@ -172,6 +188,34 @@ nav li{
     max-width: 100%;
     width: 100%;
     padding: 0;
+    height: 100%;
+}
+
+#cta_info{
+	position: absolute;
+	top: 190px;
+	text-align: center;
+	width: 100%;
+}
+
+#cta_info p{
+    color: #A2A2A2;
+    font: 300 28px 'Yanone Kaffeesatz', sans-serif;;
+    margin: 0 auto;
+    width: 700px;
+    padding: 15px 0;
+}
+
+#search_cta input[type=search]{
+	background: url(../images/cta-search-icon.png) no-repeat 445px #929292;
+	border: 1px solid #282828;
+	padding: 11px 8px 6px;
+	font: 18px Helvetica, sans-serif;
+	width: 480px;
+}
+
+#cta_image{
+	z-index: -1;
 }
 
 #cta_image img{
@@ -182,17 +226,8 @@ nav li{
 	background-color: #e9e9e9;
 }
 
-.user_thumb{
-	padding: 5px 5px 0;
-	text-align: center;
-}
-
-.user_thumb img{
-	margin-bottom: 10px;
-}
-
-.user_thumb p{
-	font-size: 12px;
+#featured_users .user_thumb:hover{
+	background-color: #ddd;
 }
 
 .about_left p{
