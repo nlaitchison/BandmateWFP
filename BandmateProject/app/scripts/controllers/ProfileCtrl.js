@@ -17,7 +17,15 @@ App.controller('ProfileCtrl', function ($scope) {
 		'twitterUrl' : 'https://twitter.com/nlaitchison',
 		'soundcloudUrl' : 'https://soundcloud.com/todieistoawaken',
 		'youtubeUrl' : 'https://www.youtube.com/channel/UC95R45xK1LH14JsKblg2R_g',
-		'about' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius est in enim lobortis vestibulum. Aliquam congue pretium scelerisque. Nullam at faucibus orci. Etiam nec laoreet nisl. Proin nibh nibh, elementum sit amet metus id, ornare rhoncus tortor. Quisque pulvinar, est a dapibus rhoncus, lectus sapien vestibulum nunc, ut lobortis est turpis at odio. Sed accumsan hendrerit dolor, sit amet vulputate enim ultricies ac. Nunc nec varius elit, quis scelerisque lorem.'
+		'about' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius est in enim lobortis vestibulum. Aliquam congue pretium scelerisque. Nullam at faucibus orci. Etiam nec laoreet nisl. Proin nibh nibh, elementum sit amet metus id, ornare rhoncus tortor. Quisque pulvinar, est a dapibus rhoncus, lectus sapien vestibulum nunc, ut lobortis est turpis at odio. Sed accumsan hendrerit dolor, sit amet vulputate enim ultricies ac. Nunc nec varius elit, quis scelerisque lorem.',
+		'lookingFor' : 'Band',
+		'instruments' : ['Vocals - Advanced', 'Keyboard - Advanced', 'Acoustic Guitar - Intermediate'],
+		'genres' : ['Post-Hardcore', 'Electronic'],
+		'equipment' : 'Fender CJ 290 SCE Acoustic Electric Guitar',
+		'yearsOfExp' : '5',
+		'gigsPlayed' : '25 +',
+		'commitment' : 'Very Commited',
+		'availability' : '4 days per week'
 	};
 
 	$scope.user.age = getAge($scope.user.birthday);

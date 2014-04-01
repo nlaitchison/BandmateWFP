@@ -322,12 +322,12 @@ nav li.user_img a{
 	padding-bottom: 15px;
 }
 
-.profile_basic ul li{
+.profile_basic ul li, .user_details ul li{
 	float: none;
 	padding-bottom: 8px;
 }
 
-.profile_basic ul li:last-child{
+.profile_basic ul li:last-child, .user_details ul li:last-child{
 	padding-bottom: 0;
 }
 
@@ -370,6 +370,16 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 #user_center p{
 	font: lighter 13px/22px Helvetica, sans-serif;
 	padding: 0 0 15px;
+}
+
+.user_details ul li{
+	line-height: 22px;
+}
+
+span.label{
+	font-weight: normal;
+	color: #060606;
+	padding-right: 5px;
 }
 
 /* ---------------------------------------------------------------------------------------------------
