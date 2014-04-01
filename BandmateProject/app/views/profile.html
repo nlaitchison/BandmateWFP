@@ -8,18 +8,24 @@
 		</div>
 		<div class="profile_basic">
 			<h3> {{user.name}} </h3>
-			<ul>
+			<ul class="account_info">
 				<li class="account_type"> {{user.accountType}} </li>
 				<li> {{user.city}}, {{user.state}} </li>
 				<li> {{user.age}} years old</li>
 				<li> {{user.gender}} </li>
 				<li class="active_within"> {{user.lastActive}} </li>
 			</ul>
-				<li><a href="{{user.facebookUrl}}"><img ng-src="images/facebook-icon.png"></a></li>
-				<li><a href="{{user.twitterUrl}}"><img ng-src="images/twitter-icon.png"></a></li>
-				<li><a href="{{user.soundcloudUrl}}"><img ng-src="images/soundcloud-icon.png"></a></li>
-				<li><a href="{{user.youtubeUrl}}"><img ng-src="images/youtube-icon.png"></a></li>
-			<ul>
+			<ul class="user_buttons">
+				<li><button class="{{user.id}}" name="add_studio"> + Studio </button></li>
+				<li><button class="{{user.id}}" name="message"> Message </button></li>
+				<div class="clear_fix"></div>
+			</ul>
+			<ul class="social_icons">
+				<li><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon.png"></a></li>
+				<li><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon.png"></a></li>
+				<li><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon.png"></a></li>
+				<li><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon.png"></a></li>
+				<div class="clear_fix"></div>
 			</ul>
 		</div>
 	</section>
