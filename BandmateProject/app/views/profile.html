@@ -1,0 +1,52 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div class="container">
+
+	<section id="user_sidebar_left" class="column one-5">
+		<div class="profile_pic">
+			<img ng-src="{{user.profileImg}}">
+		</div>
+		<div class="profile_basic">
+			<h3> {{user.name}} </h3>
+			<ul>
+				<li class="account_type"> {{user.accountType}} </li>
+				<li> {{user.city}}, {{user.state}} </li>
+				<li> {{user.age}} years old</li>
+				<li> {{user.gender}} </li>
+				<li class="active_within"> {{user.lastActive}} </li>
+			</ul>
+				<li><a href="{{user.facebookUrl}}"><img ng-src="images/facebook-icon.png"></a></li>
+				<li><a href="{{user.twitterUrl}}"><img ng-src="images/twitter-icon.png"></a></li>
+				<li><a href="{{user.soundcloudUrl}}"><img ng-src="images/soundcloud-icon.png"></a></li>
+				<li><a href="{{user.youtubeUrl}}"><img ng-src="images/youtube-icon.png"></a></li>
+			<ul>
+			</ul>
+		</div>
+	</section>
+
+	<section id="user_center" class="column one-2">
+
+		<section class="user_about">
+			<h3> About </h3>
+			<p> {{user.about}} </p>
+		</section>
+
+		<section class="user_audio">
+			<h3> Audio </h3>
+		</section>
+
+		<section class="user_video">
+			<h3> Video </h3>
+		</section>
+
+	</section>
+
+	<section id="user_sidebar_right" class="column three-10">
+		<section class="user_about">
+			<h3> Info </h3>
+		</section>
+	</section>
+
+</div>
+
+<div ng-include src="'views/footer.html'"></div>
