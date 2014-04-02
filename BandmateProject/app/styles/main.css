@@ -363,6 +363,11 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 	padding: 0 1.5% 0 3%; /*0 15px 0 30px*/
 }
 
+.user_audio{
+	height: 300px;
+	margin-bottom: 20px;
+}
+
 #user_sidebar_right section{
 	padding: 0 4.5%; /*0 15px*/
 }

@@ -21,10 +21,10 @@
 				<div class="clear_fix"></div>
 			</ul>
 			<ul class="social_icons">
-				<li><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon.png"></a></li>
-				<li><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon.png"></a></li>
-				<li><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon.png"></a></li>
-				<li><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon.png"></a></li>
+				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon.png"></a></li>
+				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon.png"></a></li>
+				<li ng-show="user.soundcloudUrl"><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon.png"></a></li>
+				<li ng-show="user.youtubeUrl"><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon.png"></a></li>
 				<div class="clear_fix"></div>
 			</ul>
 		</div>
@@ -32,17 +32,18 @@
 
 	<section id="user_center" class="column one-2">
 
+		<section class="user_audio">
+			<!-- <h3> Audio </h3> -->
+			<!-- <span class="scPlayer"></span> -->
+		</section>
+
 		<section class="user_about">
 			<h3> About </h3>
 			<p> {{user.about}} </p>
 		</section>
 
-		<section class="user_audio">
-			<h3> Audio </h3>
-		</section>
-
 		<section class="user_video">
-			<h3> Video </h3>
+			<h3> Videos </h3>
 		</section>
 
 	</section>
@@ -52,8 +53,8 @@
 			<h3> Info </h3>
 			<ul>
 				<li><span class="label">Looking For: </span>{{user.lookingFor}}</li>
-				<li><span class="label">Instruments: </span>{{user.instruments}}</li>
-				<li><span class="label">Genres: </span>{{user.genres}}</li>
+				<li><span class="label">Instruments: </span><span ng-repeat="string in user.instruments">{{string}}, </span></li>
+				<li><span class="label">Genres: </span><span ng-repeat="string in user.genres">{{string}}, </span></li>
 				<li><span class="label">Equipment: </span>{{user.equipment}}</li>
 				<li><span class="label">Years of Experience: </span>{{user.yearsOfExp}}</li>
 				<li><span class="label">Gigs Played: </span>{{user.gigsPlayed}}</li>

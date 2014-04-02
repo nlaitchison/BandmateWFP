@@ -25,10 +25,9 @@ App.controller('ProfileCtrl', function ($scope) {
 		'yearsOfExp' : '5',
 		'gigsPlayed' : '25 +',
 		'commitment' : 'Very Commited',
-		'availability' : '4 days per week'
+		'availability' : '4 days per week',
+		'sc_url' : 'https://soundcloud.com/fat-wreck-chords/sets/playlist-set'
 	};
-
-	$scope.user.age = getAge($scope.user.birthday);
 
 	function getAge(dateString) {
 	  var today = new Date();
@@ -39,6 +38,29 @@ App.controller('ProfileCtrl', function ($scope) {
 	    age--;
 	  }
 	  return age;
-	};
+	}
+
+	$scope.user.age = getAge($scope.user.birthday);
+
+	$.get(
+	  'http://api.soundcloud.com/resolve.json?url=' + $scope.user.sc_url + '&client_id=dfc5f1fa84c13d3d8888d1fb9c094f89',
+	  function (result) {
+
+	  	$('.user_audio').html('<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' +  result.uri + '&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>');
+
+	    console.log(result.uri);
+	  }
+	);
+
+
+	// SC.initialize({
+	//   client_id: 'dfc5f1fa84c13d3d8888d1fb9c094f89'
+	// });
+
+	// var track_url = 'http://soundcloud.com/forss/flickermood';
+
+	// SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
+	//   console.log('oEmbed response: ' + oEmbed);
+	// });
 
 });
