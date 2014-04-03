@@ -21,10 +21,10 @@
 				<div class="clear_fix"></div>
 			</ul>
 			<ul class="social_icons">
-				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon.png"></a></li>
-				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon.png"></a></li>
-				<li ng-show="user.soundcloudUrl"><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon.png"></a></li>
-				<li ng-show="user.youtubeUrl"><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon.png"></a></li>
+				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon2.png"></a></li>
+				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon2.png"></a></li>
+				<li ng-show="user.soundcloudUrl"><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon2.png"></a></li>
+				<li ng-show="user.youtubeUrl"><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon2.png"></a></li>
 				<div class="clear_fix"></div>
 			</ul>
 		</div>
@@ -44,6 +44,7 @@
 
 		<section class="user_video">
 			<h3> Videos </h3>
+			<span ng-repeat="video in user.ytUrl"><iframe width="560" height="315" src="{{video}}" frameborder="0" allowfullscreen></iframe></span>
 		</section>
 
 	</section>

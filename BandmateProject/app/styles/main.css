@@ -40,10 +40,9 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 }
 
 body{
-	font: 14px Helvetica;
+	font: lighter 13px Helvetica;
 	color: #282828;
 	background-color: #f0f0f0;
-	font-weight: lighter;
 }
 
 h2{
@@ -118,7 +117,13 @@ button{
 	cursor: pointer;
 }
 
+.user_thumb_img{
+	width: 70%;
+	margin: 0 auto;
+}
+
 .user_thumb img{
+	width: 100%;
 	margin-bottom: 10px;
 }
 
@@ -370,6 +375,7 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 
 #user_sidebar_right section{
 	padding: 0 4.5%; /*0 15px*/
+	font-size: 13px;
 }
 
 #user_center p{
@@ -463,4 +469,5 @@ footer a:hover{
 
 @media (max-width:900px) {
 	nav form#search_nav input{ width: 250px; }
+	#cta_info{ top: 135px; }
 }
