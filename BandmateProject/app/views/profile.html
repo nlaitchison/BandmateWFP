@@ -7,9 +7,9 @@
 			<img ng-src="{{user.profileImg}}">
 		</div>
 		<div class="profile_basic">
-			<h3> {{user.name}} </h3>
+			<h2> {{user.name}} </h2>
 			<ul class="account_info">
-				<li class="account_type"> {{user.accountType}} </li>
+				<li class="account_type"> <span class="text_repeat" ng-repeat="string in user.accountType">{{string}} <span class="text_divider"> / </span> </span> </li>
 				<li> {{user.city}}, {{user.state}} </li>
 				<li> {{user.age}} years old</li>
 				<li> {{user.gender}} </li>
@@ -44,7 +44,9 @@
 
 		<section class="user_video">
 			<h3> Videos </h3>
-			<span ng-repeat="video in user.ytUrl"><iframe width="560" height="315" src="{{video}}" frameborder="0" allowfullscreen></iframe></span>
+			<div class="video_repeat" ng-repeat="video in videos">
+				<div class="video_box" my-youtube code="video.code"></div>
+			<div>
 		</section>
 
 	</section>
@@ -54,8 +56,8 @@
 			<h3> Info </h3>
 			<ul>
 				<li><span class="label">Looking For: </span>{{user.lookingFor}}</li>
-				<li><span class="label">Instruments: </span><span ng-repeat="string in user.instruments">{{string}}, </span></li>
-				<li><span class="label">Genres: </span><span ng-repeat="string in user.genres">{{string}}, </span></li>
+				<li><span class="label">Instruments: </span><span class="text_repeat" ng-repeat="string in user.instruments">{{string}}<span class="text_divider">, </span> </span></li>
+				<li><span class="label">Genres: </span><span class="text_repeat" ng-repeat="string in user.genres">{{string}}<span class="text_divider">, </span> </span></li>
 				<li><span class="label">Equipment: </span>{{user.equipment}}</li>
 				<li><span class="label">Years of Experience: </span>{{user.yearsOfExp}}</li>
 				<li><span class="label">Gigs Played: </span>{{user.gigsPlayed}}</li>

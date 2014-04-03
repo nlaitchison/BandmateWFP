@@ -7,7 +7,7 @@ App.controller('ProfileCtrl', function ($scope) {
 		'id' : 1,
 		'profileImg' : 'images/user-img-lrg.png',
 		'name' : 'Rou Reynolds',
-		'accountType' : 'Musician / Instructor',
+		'accountType' : ['Musician', 'Instructor'],
 		'city' : 'Orlando',
 		'state' : 'FL',
 		'birthday' : '1994-03-01',
@@ -27,8 +27,27 @@ App.controller('ProfileCtrl', function ($scope) {
 		'commitment' : 'Very Commited',
 		'availability' : '4 days per week',
 		'scUrl' : 'https://soundcloud.com/fat-wreck-chords/sets/playlist-set',
-		'ytUrl' : ['http://www.youtube.com/embed/Oww-7cxOBUk', 'http://www.youtube.com/embed/PSjaM9E2gr4'],
 	};
+
+	$scope.videos = [
+		{
+			'url' : 'http://www.youtube.com/embed/Oww-7cxOBUk',
+			'code' : 'Oww-7cxOBUk',
+			'userId' : '1'
+		},
+		{
+			'url' : 'http://www.youtube.com/embed/PSjaM9E2gr4',
+			'code' : 'PSjaM9E2gr4',
+			'userId' : '1'
+		},
+		{
+			'url' : 'http://www.youtube.com/embed/PSjaM9E2gr4',
+			'code' : 'PSjaM9E2gr4',
+			'userId' : '1'
+		}
+	];
+
+
 
 	function getAge(dateString) {
 	  var today = new Date();
@@ -53,5 +72,14 @@ App.controller('ProfileCtrl', function ($scope) {
 		}
 	);
 
+	// for(var i=0; i < $scope.user.ytUrl.length; i++){
+	// 	console.log($scope.user.ytUrl[i]);
+	// }
+
+	// var videoId = window.location.search.split('v=')[1];
+	// var ampersandPosition = videoId.indexOf('&');
+	// if(ampersandPosition !== -1) {
+	// 	videoId = videoId.substring(0, ampersandPosition);
+	// }
 
 });

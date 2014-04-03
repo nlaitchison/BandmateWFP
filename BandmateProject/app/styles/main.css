@@ -125,12 +125,16 @@ button{
 .user_thumb img{
 	width: 100%;
 	margin-bottom: 10px;
+	border-radius: 2px;
 }
 
 .user_thumb p{
 	font-size: 12px;
 }
 
+.text_repeat:last-child .text_divider{
+	display: none;
+}
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
@@ -299,18 +303,20 @@ nav li.user_img a{
 
 
 #user_sidebar_left{
-	background-color: #e9e9e9;
-	min-height: 100%;
-	height: 650px;
+	/*background-color: #e9e9e9;*/
+	/*min-height: 100%;
+	height: 650px;*/
 }
 
 .profile_pic, .profile_basic{
-	width: 80%;
+	/*width: 80%;*/
+	padding: 0 4.5%; /*0 15px*/
 	margin: 0 auto;
 }
 
 .profile_pic img{
 	width: 100%;
+	border-radius: 3px;
 }
 
 .profile_basic{
@@ -318,8 +324,8 @@ nav li.user_img a{
 	font-size: 13px;
 }
 
-.profile_basic h3{
-	color: #2a258e;
+.profile_basic h2{
+	/*color: #2a258e;*/
 	margin-bottom: 15px;
 }
 
@@ -359,6 +365,23 @@ ul.user_buttons{
 	border-bottom: 1px solid #d5d5d5;
 }
 
+ul.user_buttons li{
+	width: 47.5%;
+	padding: 0 5% 8px 0;
+}
+
+.symbol_studio{
+	font-size: 16px;
+}
+
+ul.user_buttons li:nth-child(even){
+	padding-right: 0px;
+}
+
+ul.user_buttons li button{
+	width: 100%;
+}
+
 ul.social_icons li:last-child, ul.user_buttons li:last-child{
 	padding-right: 0;
 	padding-bottom: 0;
@@ -369,7 +392,7 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 }
 
 .user_audio{
-	height: 300px;
+	/*height: 300px;*/
 	margin-bottom: 20px;
 }
 
@@ -381,6 +404,22 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 #user_center p{
 	font: lighter 13px/22px Helvetica, sans-serif;
 	padding: 0 0 15px;
+}
+
+.video_repeat{
+    float: left;
+    height: 200px;
+    margin: 5px 3% 10px 0;
+    width: 48.5%;
+}
+
+.video_repeat:nth-child(odd){
+	margin-right: 0;
+}
+
+.video_box{
+	width: 100%;
+	height: 100%;
 }
 
 .user_details ul li{
@@ -470,4 +509,6 @@ footer a:hover{
 @media (max-width:900px) {
 	nav form#search_nav input{ width: 250px; }
 	#cta_info{ top: 135px; }
+	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
+	ul.user_buttons li button{ padding-right: 0px;}
 }
