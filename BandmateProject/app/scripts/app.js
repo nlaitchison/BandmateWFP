@@ -17,6 +17,10 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
       })
+      .when('/edit/:d', {
+        templateUrl: 'views/editProfile.html',
+        controller: 'EditProfileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

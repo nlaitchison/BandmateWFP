@@ -111,6 +111,10 @@ button{
 	cursor: pointer;
 }
 
+.form_input{
+	padding-bottom: 15px;
+}
+
 .user_thumb{
 	padding: 10px 5px;
 	text-align: center;
@@ -136,6 +140,7 @@ button{
 	display: none;
 }
 
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
 ---------------------------------------------------------------------------------------------------*/
@@ -143,6 +148,8 @@ button{
 header{
 	height: 50px;
 	background-color: #0f0f0f;
+	z-index: 2;
+	position: relative;
 }
 
 #logo{
@@ -179,7 +186,7 @@ nav form#search_nav input{
 	background: url(../images/nav-search-icon.png) 97% 60% no-repeat #363636;
 }
 
-nav ul a{
+nav ul a, nav ul li{
 	color: #a3a3a3;
 	text-transform: uppercase;
 	font-size: 13px;
@@ -188,8 +195,9 @@ nav ul a{
 	font-weight: lighter;
 }
 
-nav a:hover{
+nav ul li:hover{
 	opacity: .3;
+	cursor: pointer;
 }
 
 nav ul{
@@ -235,6 +243,50 @@ nav li.user_img img{
 nav li.user_img a{
 	float: left;
 	padding: 8px 0;
+}
+
+#login_form{
+	position: absolute;
+	top: 50px;
+	right: 36px;
+	background-color: #d6d6d6; /*363636*/
+	width: 360px;
+	padding: 20px;
+	border: 1px solid #aaaaaa;
+	border-top: none;
+	border-radius: 2px;
+	z-index: 1;
+}
+
+#login_form input{
+	width: 95%;
+	padding: 10px 2.3%;
+	border: 1px solid #aaaaaa;
+	background-color: #F0F0F0;
+}
+
+#login_form h3{
+	color: #2a258e;
+	border-bottom: none;
+}
+
+#login_form input[type=submit]{
+	float: right;
+	width: 100px;
+	padding: 11px 6px 7px;
+	text-transform: uppercase;
+	border-radius: 2px;
+	border: 1px solid #aaaaaa;
+	background-color: #2a258e;
+	border: none;
+	color: #d0d0d0;
+	font: lighter 13px Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+#login_form input[type=submit]:hover{
+	/*opacity: .8;*/
+	background-color: #1d1c67;
 }
 
 
@@ -370,16 +422,17 @@ ul.user_buttons li{
 	padding: 0 5% 8px 0;
 }
 
-.symbol_studio{
-	font-size: 16px;
-}
-
 ul.user_buttons li:nth-child(even){
 	padding-right: 0px;
 }
 
 ul.user_buttons li button{
 	width: 100%;
+	text-align: center;
+}
+
+ul.user_buttons li button:hover{
+	background-color: #CCC;
 }
 
 ul.social_icons li:last-child, ul.user_buttons li:last-child{
@@ -393,7 +446,7 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 
 .user_audio{
 	/*height: 300px;*/
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 #user_sidebar_right section{
@@ -505,10 +558,13 @@ footer a:hover{
 .seven-10{ width: 70%; }
 .nine-10{ width: 90%; }
 
+@media (max-width:1024px) {
+	.video_repeat{ float: none; height: 250px; margin: 5px 0 10px; width: 100%; }
+}
 
 @media (max-width:900px) {
 	nav form#search_nav input{ width: 250px; }
 	#cta_info{ top: 135px; }
 	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
-	ul.user_buttons li button{ padding-right: 0px;}
+	ul.user_buttons li { padding-right: 0px;}
 }

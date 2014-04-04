@@ -2,7 +2,8 @@
 
 /*global App*/
 
-App.controller('ProfileCtrl', function ($scope) {
+App.controller('EditProfileCtrl', function ($scope) {
+
 	$scope.user = {
 		'id' : 1,
 		'profileImg' : 'images/user-img-lrg.png',
@@ -46,40 +47,5 @@ App.controller('ProfileCtrl', function ($scope) {
 			'userId' : '1'
 		}
 	];
-
-
-
-	function getAge(dateString) {
-	  var today = new Date();
-	  var birthDate = new Date(dateString);
-	  var age = today.getFullYear() - birthDate.getFullYear();
-	  var m = today.getMonth() - birthDate.getMonth();
-	  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-	    age--;
-	  }
-	  return age;
-	}
-
-	$scope.user.age = getAge($scope.user.birthday);
-
-	$.get(
-		'http://api.soundcloud.com/resolve.json?url=' + $scope.user.scPlayerUrl + '&client_id=dfc5f1fa84c13d3d8888d1fb9c094f89',
-		function (result) {
-
-			$('.user_audio').html('<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' +  result.uri + '&amp;color=2a258e&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>');
-
-			console.log(result.uri);
-		}
-	);
-
-	// for(var i=0; i < $scope.user.ytUrl.length; i++){
-	// 	console.log($scope.user.ytUrl[i]);
-	// }
-
-	// var videoId = window.location.search.split('v=')[1];
-	// var ampersandPosition = videoId.indexOf('&');
-	// if(ampersandPosition !== -1) {
-	// 	videoId = videoId.substring(0, ampersandPosition);
-	// }
 
 });

@@ -1,43 +1,45 @@
 <div ng-include src="'views/header.html'"></div>
 
-<section id="cta">
-	<div id="cta_info">
-		<img src="images/cta-logo.png" alt="Bandmate Logo">
-		<p>Search Bandmate for talented musicians or <br>create your own profile and get back on stage and in the studio.</p>
-		<form id="search_cta">
-				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="cta_search">
-		</form>
-	</div>
-	<div id="cta_image"><img src="images/landing-bg.jpg"></div>
-</section>
+<div id="main_content">
+	<section id="cta">
+		<div id="cta_info">
+			<img src="images/cta-logo.png" alt="Bandmate Logo">
+			<p>Search Bandmate for talented musicians or <br>create your own profile and get back on stage and in the studio.</p>
+			<form id="search_cta">
+					<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="cta_search">
+			</form>
+		</div>
+		<div id="cta_image"><img src="images/landing-bg.jpg"></div>
+	</section>
 
-<section id="featured_users">
-	<div class="container">
-		<h2>Featured Users</h2>
-		<div ng-repeat="user in users">
-			<div class="column one-5">
-				<div class="user_thumb">
-					<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
-					<h4>{{user.name}}</h4>
-					<p>{{user.city}}, {{user.state}}</p>
+	<section id="featured_users">
+		<div class="container">
+			<h2>Featured Users</h2>
+			<div ng-repeat="user in users">
+				<div class="column one-5">
+					<div class="user_thumb">
+						<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
+						<h4>{{user.name}}</h4>
+						<p>{{user.city}}, {{user.state}}</p>
+					</div>
 				</div>
 			</div>
+			<div class="clear_fix"></div>
 		</div>
-		<div class="clear_fix"></div>
-	</div>
-</section>
+	</section>
 
-<section id="about_bandmate">
-	<div class="container">
-		<h2>About Bandmate</h2>
-		<div class="column one-2 about_left">
-			<p>Bandmate is a social networking web app designed to promote creativity in musicians by helping them meet and collaborate. Users can easily search through musicians by instrument played, location, experience level and many other filters. The simplified search for talented musicians speeds up the process of finding new members, helping to put bands back on the stage and in the studio. Besides finding new band members or just someone to jam with, Bandmate also allows users to promote themselves as instructors.</p>
+	<section id="about_bandmate">
+		<div class="container">
+			<h2>About Bandmate</h2>
+			<div class="column one-2 about_left">
+				<p>Bandmate is a social networking web app designed to promote creativity in musicians by helping them meet and collaborate. Users can easily search through musicians by instrument played, location, experience level and many other filters. The simplified search for talented musicians speeds up the process of finding new members, helping to put bands back on the stage and in the studio. Besides finding new band members or just someone to jam with, Bandmate also allows users to promote themselves as instructors.</p>
+			</div>
+			<div class="column one-2 about_right">
+				<p>Bandmate was created by Nicole Aitchison, a Web Design and Development student at Full Sail University. Caramels candy canes marshmallow sesame snaps. Cheesecake fruitcake sesame snaps jujubes marzipan cotton candy. Brownie fruitcake sweet roll macaroon soufflé. Marzipan pie marzipan gingerbread.</p>
+			</div>
+			<div class="clear_fix"></div>
 		</div>
-		<div class="column one-2 about_right">
-			<p>Bandmate was created by Nicole Aitchison, a Web Design and Development student at Full Sail University. Caramels candy canes marshmallow sesame snaps. Cheesecake fruitcake sesame snaps jujubes marzipan cotton candy. Brownie fruitcake sweet roll macaroon soufflé. Marzipan pie marzipan gingerbread.</p>
-		</div>
-		<div class="clear_fix"></div>
-	</div>
-</section>
+	</section>
+</div>
 
 <div ng-include src="'views/footer.html'"></div>
