@@ -28,7 +28,6 @@ var user = {
 	'commitment' : '',
 	'availability' : '4 days per week',
 	'scUrl' : '',
-	'ytUrl' : [''],
 };
 
 
@@ -74,5 +73,4 @@ var message = {
 			'text' : '',
 		}
 	]
-
 };

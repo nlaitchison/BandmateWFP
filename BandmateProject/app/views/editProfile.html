@@ -30,41 +30,83 @@
 		</div>
 	</section>
 
-	<section id="user_center" class="column one-2">
+	<div id="account_settings" class="column four-5">
+		<div class="account_container">
+			<h2>Account Settings</h2>
+			<section class="column three-5">
+				<h3>Basic Info</h3>
+				<form name="basic_info" id="basic_info">
+					<fieldset>
+						<div class="form_input">
+							<label for="about">About:</label>
+							<textarea name="about" ng-model="user.about">Write about yourself here...</textarea>
+						</div>
+					</fieldset>
+					<fieldset class="split">
+						<div class="column one-2">
+							<div class="form_input">
+								<label for="lookingFor">Looking For:</label>
+								<select name="lookingFor" id="lookingFor" ng-model="user.lookingFor">
+									<option value="Guitarist"> Guitarist </option>
+									<option value="Band"> Band </option>
+								</select>
+							</div>
+							<div class="form_input">
+								<label for="yearsOfExp">Years of Experience:</label>
+								<input type="number" name="yearsOfExp" id="yearsOfExp" ng-model="user.yearsOfExp">
+							</div>
+							<div class="form_input">
+								<label for="gigsPlayed">Gigs Played:</label>
+								<select name="gigsPlayed" id="gigsPlayed" ng-model="user.gigsPlayed">
+									<option value="0 - 10"> 0 - 10 </option>
+									<option value="10 - 20"> 10 - 20 </option>
+									<option value="20 - 30"> 20 - 30 </option>
+									<option value="30 - 40"> 30 - 40 </option>
+									<option value="40 - 50"> 40 - 50 </option>
+									<option value="50 - 60"> 50 - 60 </option>
+									<option value="60 - 70"> 60 - 70 </option>
+									<option value="70 - 80"> 70 - 80 </option>
+									<option value="90 - 100"> 90 - 100 </option>
+									<option value="100 +"> 100 + </option>
+								</select>
+							</div>
+						</div>
+						<div class="column one-2">
+							<div class="form_input">
+								<label for="commitment">Commitment:</label>
+								<select name="commitment" id="commitment" ng-model="user.commitment">
+									<option value="Just For Fun"> Just For Fun </option>
+									<option value="Somewhat Commited"> Somewhat Commited </option>
+										<option value="Commited"> Commited </option>
+									<option value="Very Commited"> Very Commited </option>
+								</select>
+							</div>
+							<div class="form_input">
+								<label for="availability">Availability:</label>
+								<select name="availability" id="availability" ng-model="user.availability">
+									<option value="1 days per week"> 1 days per week </option>
+									<option value="2 days per week"> 2 days per week </option>
+									<option value="3 days per week"> 3 days per week </option>
+									<option value="4 days per week"> 4 days per week </option>
+									<option value="5 days per week"> 5 days per week </option>
+									<option value="6 days per week"> 6 days per week </option>
+									<option value="7 days per week"> 7 days per week </option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+				</form>
 
-		<section class="user_audio">
-		</section>
+			</section>
 
-		<section class="user_about">
-			<h3> About </h3>
-			<p> {{user.about}} </p>
-		</section>
+			<section id="user_sidebar_right" class="column three-10">
 
-		<section class="user_video">
-			<h3> Videos </h3>
-			<div class="video_repeat" ng-repeat="video in videos">
-				<div class="video_box" my-youtube code="video.code"></div>
-			<div>
-		</section>
+			</section>
 
-	</section>
+			<div class="clear_fix"></div>
 
-	<section id="user_sidebar_right" class="column three-10">
-		<section class="user_details">
-			<h3> Info </h3>
-			<ul>
-				<li><span class="label">Looking For: </span>{{user.lookingFor}}</li>
-				<li><span class="label">Instruments: </span><span class="text_repeat" ng-repeat="string in user.instruments">{{string}}<span class="text_divider">, </span> </span></li>
-				<li><span class="label">Genres: </span><span class="text_repeat" ng-repeat="string in user.genres">{{string}}<span class="text_divider">, </span> </span></li>
-				<li><span class="label">Equipment: </span>{{user.equipment}}</li>
-				<li><span class="label">Years of Experience: </span>{{user.yearsOfExp}}</li>
-				<li><span class="label">Gigs Played: </span>{{user.gigsPlayed}}</li>
-				<li><span class="label">Commitment: </span>{{user.commitment}}</li>
-				<li><span class="label">Availability: </span>{{user.availability}}</li>
-			<ul>
-		</section>
-	</section>
-
+		</div>
+	</div>
 </div>
 
 <div ng-include src="'views/footer.html'"></div>

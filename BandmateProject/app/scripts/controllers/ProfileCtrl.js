@@ -23,7 +23,7 @@ App.controller('ProfileCtrl', function ($scope) {
 		'genres' : ['Post-Hardcore', 'Electronic'],
 		'equipment' : 'Fender CJ 290 SCE Acoustic Electric Guitar',
 		'yearsOfExp' : '5',
-		'gigsPlayed' : '25 +',
+		'gigsPlayed' : '20 - 30',
 		'commitment' : 'Very Commited',
 		'availability' : '4 days per week',
 		'scPlayerUrl' : 'https://soundcloud.com/entershikari/sets/sssnakepit-remixes',

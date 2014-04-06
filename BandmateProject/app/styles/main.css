@@ -21,6 +21,9 @@ White BG: #f0f0f0
 
 Button BG: #dbdbdb
 
+Edit Input BG: #e9e9e9
+Edit Input Border: #d5d5d5
+
 -----Sections
 
 ∆ General
@@ -485,6 +488,84 @@ span.label{
 	padding-right: 5px;
 }
 
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Edit Profile
+---------------------------------------------------------------------------------------------------*/
+
+
+#account_settings{
+	padding-top: 30px;
+}
+
+#account_settings section{
+	padding-top: 0;
+}
+
+.account_container {
+	padding: 0 0 0 1.5%;
+}
+
+#account_settings label, #account_settings input, #account_settings textarea, #account_settings select{
+	width: 100%;
+}
+
+#account_settings input, #account_settings textarea, #account_settings select{
+	margin-top: 5px;
+}
+
+#basic_info fieldset{
+	border-bottom: 1px solid #D5D5D5;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding-top: 15px;
+}
+
+#basic_info fieldset:first-child{
+	padding-top: 0;
+}
+
+#basic_info input, #basic_info textarea, #basic_info select{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #e9e9e9;
+	-webkit-appearance:none;
+	-moz-appearance: none;
+	padding: 6px 3%;
+	max-width: 100%;
+	font-weight: lighter;
+}
+
+#basic_info select option{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	-webkit-appearance:none;
+	-moz-appearance: none;
+}
+
+#basic_info textarea{
+	padding: 6px 2%;
+	width: 96%;
+	height: 80px;
+	max-height: 80px;
+	min-height: 80px;
+	font: lighter 12px/18px Helvetica, sans-serif;
+}
+
+#basic_info fieldset.split input{
+	padding: 6px 4%;
+	width: 92%;
+}
+
+fieldset.split .column:first-child .form_input{
+	padding-right: 4%;
+}
+
+fieldset.split .column:last-child .form_input{
+	padding-left: 4%;
+}
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Footer
 ---------------------------------------------------------------------------------------------------*/
@@ -500,7 +581,7 @@ footer{
 }
 
 footer .footer_content{
-	width: 305px;
+	width: 310px;
 	margin: 0 auto;
 }
 
