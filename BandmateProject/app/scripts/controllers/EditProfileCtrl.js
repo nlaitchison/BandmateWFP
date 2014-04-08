@@ -6,6 +6,7 @@ App.controller('EditProfileCtrl', function ($scope) {
 
 	$scope.user = {
 		'id' : 1,
+		'email' : 'testing123@gmail.com',
 		'profileImg' : 'images/user-img-lrg.png',
 		'name' : 'Rou Reynolds',
 		'accountType' : ['Musician', 'Instructor'],
@@ -28,6 +29,8 @@ App.controller('EditProfileCtrl', function ($scope) {
 		'commitment' : 'Very Commited',
 		'availability' : '4 days per week',
 		'scPlayerUrl' : 'https://soundcloud.com/entershikari/sets/sssnakepit-remixes',
+		'emailUser' : 'true',
+		'hideUser' : 'false'
 	};
 
 	$scope.videos = [

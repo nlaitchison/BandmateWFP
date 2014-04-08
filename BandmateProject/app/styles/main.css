@@ -103,8 +103,8 @@ p{
 	line-height: 22px;
 }
 
-button{
-	padding: 6px 8px 3px;
+button, input[type=submit]{
+	padding: 8px 8px 5px;
 	border-radius: 2px;
 	border: solid 1px #2a258e;
 	background-color: #dbdbdb;
@@ -112,6 +112,10 @@ button{
 	text-transform: uppercase;
 	font: lighter 14px Helvetica, sans-serif;
 	cursor: pointer;
+}
+
+button:hover, input[type=submit]:hover{
+	background-color: #ccc;
 }
 
 .form_input{
@@ -447,13 +451,17 @@ ul.social_icons li:last-child, ul.user_buttons li:last-child{
 	padding: 0 1.5% 0 3%; /*0 15px 0 30px*/
 }
 
+#center_form{
+	padding-right: 1.5%;
+}
+
 .user_audio{
 	/*height: 300px;*/
 	margin-bottom: 10px;
 }
 
 #user_sidebar_right section{
-	padding: 0 4.5%; /*0 15px*/
+	padding: 0 0 0 4.5%; /*0 15px*/
 	font-size: 13px;
 }
 
@@ -514,7 +522,7 @@ span.label{
 	margin-top: 5px;
 }
 
-#basic_info fieldset{
+#account_settings fieldset{
 	border-bottom: 1px solid #D5D5D5;
 	border-top: none;
 	border-left: none;
@@ -522,29 +530,33 @@ span.label{
 	padding-top: 15px;
 }
 
-#basic_info fieldset:first-child{
+#account_settings fieldset:first-child{
 	padding-top: 0;
 }
 
-#basic_info input, #basic_info textarea, #basic_info select{
+#account_settings input[type=text], #account_settings input[type=number], #account_settings input[type=password], #account_settings input[type=url], #account_settings textarea, #account_settings select{
 	border: 1px solid #d5d5d5;
 	border-radius: 2px;
 	background-color: #e9e9e9;
-	-webkit-appearance:none;
+	-webkit-appearance: none;
 	-moz-appearance: none;
 	padding: 6px 3%;
 	max-width: 100%;
 	font-weight: lighter;
 }
 
-#basic_info select option{
+#account_settings input, #account_settings select, #account_settings textarea{
+	color: #333333;
+}
+
+#account_settings select option{
 	border: 1px solid #d5d5d5;
 	border-radius: 2px;
 	-webkit-appearance:none;
 	-moz-appearance: none;
 }
 
-#basic_info textarea{
+#account_settings textarea{
 	padding: 6px 2%;
 	width: 96%;
 	height: 80px;
@@ -564,6 +576,52 @@ fieldset.split .column:first-child .form_input{
 
 fieldset.split .column:last-child .form_input{
 	padding-left: 4%;
+}
+
+#general_section, #audio_section, #video_section{
+	padding: 0 0 0 4.5%;
+}
+
+#checkbox_form input[type=checkbox]{
+	width: 6%;
+	float: left;
+}
+
+#checkbox_form label{
+	line-height: 25px;
+}
+
+#checkbox_form .form_input{
+	padding-bottom: 5px;
+}
+
+#user_sidebar_right input[type=text], #user_sidebar_right input[type=password], #user_sidebar_right input[type=url]{
+	padding: 6px 3%;
+	width: 94%;
+}
+
+#account_settings .related_input input:first-child{
+	border-top: 1px solid #d5d5d5;
+	margin-top: 5px;
+}
+
+#account_settings .related_input input{
+	margin-top: 0;
+	border-top: 0px;
+}
+
+#account_settings .form_input input[type=submit]{
+	float: right;
+	width: 80px;
+	color: #2A258E;
+}
+
+#account_settings label{
+	font-weight: normal;
+}
+
+#account_settings .form_input input[type=submit]{
+	margin-top: 10px;
 }
 
 /* ---------------------------------------------------------------------------------------------------

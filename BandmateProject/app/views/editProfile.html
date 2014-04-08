@@ -34,73 +34,135 @@
 		<div class="account_container">
 			<h2>Account Settings</h2>
 			<section class="column three-5">
-				<h3>Basic Info</h3>
-				<form name="basic_info" id="basic_info">
-					<fieldset>
-						<div class="form_input">
-							<label for="about">About:</label>
-							<textarea name="about" ng-model="user.about">Write about yourself here...</textarea>
-						</div>
-					</fieldset>
-					<fieldset class="split">
-						<div class="column one-2">
+				<div id="center_form">
+					<h3>Basic Info</h3>
+					<form name="basic_info" id="basic_info">
+						<fieldset>
 							<div class="form_input">
-								<label for="lookingFor">Looking For:</label>
-								<select name="lookingFor" id="lookingFor" ng-model="user.lookingFor">
-									<option value="Guitarist"> Guitarist </option>
-									<option value="Band"> Band </option>
-								</select>
+								<label for="about">About:</label>
+								<textarea name="about" ng-model="user.about">Write about yourself here...</textarea>
 							</div>
-							<div class="form_input">
-								<label for="yearsOfExp">Years of Experience:</label>
-								<input type="number" name="yearsOfExp" id="yearsOfExp" ng-model="user.yearsOfExp">
+						</fieldset>
+						<fieldset class="split">
+							<div class="column one-2">
+								<div class="form_input">
+									<label for="lookingFor">Looking For:</label>
+									<select name="lookingFor" id="lookingFor" ng-model="user.lookingFor">
+										<option value="Guitarist"> Guitarist </option>
+										<option value="Band"> Band </option>
+									</select>
+								</div>
+								<div class="form_input">
+									<label for="yearsOfExp">Years of Experience:</label>
+									<input type="number" name="yearsOfExp" id="yearsOfExp" ng-model="user.yearsOfExp">
+								</div>
+								<div class="form_input">
+									<label for="gigsPlayed">Gigs Played:</label>
+									<select name="gigsPlayed" id="gigsPlayed" ng-model="user.gigsPlayed">
+										<option value="0 - 10"> 0 - 10 </option>
+										<option value="10 - 20"> 10 - 20 </option>
+										<option value="20 - 30"> 20 - 30 </option>
+										<option value="30 - 40"> 30 - 40 </option>
+										<option value="40 - 50"> 40 - 50 </option>
+										<option value="50 - 60"> 50 - 60 </option>
+										<option value="60 - 70"> 60 - 70 </option>
+										<option value="70 - 80"> 70 - 80 </option>
+										<option value="90 - 100"> 90 - 100 </option>
+										<option value="100 +"> 100 + </option>
+									</select>
+								</div>
 							</div>
-							<div class="form_input">
-								<label for="gigsPlayed">Gigs Played:</label>
-								<select name="gigsPlayed" id="gigsPlayed" ng-model="user.gigsPlayed">
-									<option value="0 - 10"> 0 - 10 </option>
-									<option value="10 - 20"> 10 - 20 </option>
-									<option value="20 - 30"> 20 - 30 </option>
-									<option value="30 - 40"> 30 - 40 </option>
-									<option value="40 - 50"> 40 - 50 </option>
-									<option value="50 - 60"> 50 - 60 </option>
-									<option value="60 - 70"> 60 - 70 </option>
-									<option value="70 - 80"> 70 - 80 </option>
-									<option value="90 - 100"> 90 - 100 </option>
-									<option value="100 +"> 100 + </option>
-								</select>
+							<div class="column one-2">
+								<div class="form_input">
+									<label for="commitment">Commitment:</label>
+									<select name="commitment" id="commitment" ng-model="user.commitment">
+										<option value="Just For Fun"> Just For Fun </option>
+										<option value="Somewhat Commited"> Somewhat Commited </option>
+											<option value="Commited"> Commited </option>
+										<option value="Very Commited"> Very Commited </option>
+									</select>
+								</div>
+								<div class="form_input">
+									<label for="availability">Availability:</label>
+									<select name="availability" id="availability" ng-model="user.availability">
+										<option value="1 days per week"> 1 days per week </option>
+										<option value="2 days per week"> 2 days per week </option>
+										<option value="3 days per week"> 3 days per week </option>
+										<option value="4 days per week"> 4 days per week </option>
+										<option value="5 days per week"> 5 days per week </option>
+										<option value="6 days per week"> 6 days per week </option>
+										<option value="7 days per week"> 7 days per week </option>
+									</select>
+								</div>
 							</div>
-						</div>
-						<div class="column one-2">
-							<div class="form_input">
-								<label for="commitment">Commitment:</label>
-								<select name="commitment" id="commitment" ng-model="user.commitment">
-									<option value="Just For Fun"> Just For Fun </option>
-									<option value="Somewhat Commited"> Somewhat Commited </option>
-										<option value="Commited"> Commited </option>
-									<option value="Very Commited"> Very Commited </option>
-								</select>
-							</div>
-							<div class="form_input">
-								<label for="availability">Availability:</label>
-								<select name="availability" id="availability" ng-model="user.availability">
-									<option value="1 days per week"> 1 days per week </option>
-									<option value="2 days per week"> 2 days per week </option>
-									<option value="3 days per week"> 3 days per week </option>
-									<option value="4 days per week"> 4 days per week </option>
-									<option value="5 days per week"> 5 days per week </option>
-									<option value="6 days per week"> 6 days per week </option>
-									<option value="7 days per week"> 7 days per week </option>
-								</select>
-							</div>
-						</div>
-					</fieldset>
-				</form>
-
+						</fieldset>
+					</form>
+				</div>
 			</section>
 
-			<section id="user_sidebar_right" class="column three-10">
-
+			<section id="user_sidebar_right" class="column two-5">
+				<div id="general_section">
+					<h3> General </h3>
+					<form id="checkbox_form">
+						<div class="form_input">
+							<label for="emailUser"> <input type="checkbox" id="emailUser" name="emailUser" ng-model="user.emailUser"
+ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Email me when I recieve a new message </label>
+						</div>
+						<div class="form_input">
+							<label for="hideUser"><input type="checkbox" id="hideUser" name="hideUser" name="hideUser" ng-model="user.hideUser"
+ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hide my profile from search results </label>
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="checkboxUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+					<div class="clear_fix"></div>
+					<form id="email_form">
+						<label for="email">Email Address:</label>
+						<!--<p> Changing your email address will also change the email you use for login. </p>-->
+						<div class="related_input">
+							<input type="text" name="email" id="email" ng-model="user.email" placeholder="Email Address" ng-focus="emailUpdate = true">
+							<input type="password" name="password" id="password" placeholder="Password" ng-focus="emailUpdate = true">
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="emailUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+					<form id="password_form">
+						<label for="email">Reset Password:</label>
+						<div class="related_input">
+							<input type="password" name="password_current" id="password_current" placeholder="Current Password" ng-focus="passwordUpdate = true">
+							<input type="password" name="password_new" id="password_new" placeholder="New Password" ng-focus="passwordUpdate = true">
+							<input type="password" name="password_retype" id="password_retype" placeholder="Retype New Password" ng-focus="passwordUpdate = true">
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="passwordUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+				</div>
+				<div id="audio_section">
+					<h3> Audio </h3>
+					<form id="audio_form">
+						<p>Add audio to your profile with <img src="images/soundcloud-logo.png" alt="Soundcloud">.
+Copy the url for your channel, track, or playlist and paste it below to add it to your profile. </p>
+						<div class="form_input">
+							<input type="url" name="scPlayerUrl" id="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true">
+							<div class="clear_fix"></div>
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="scUrlUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+				</div>
+				<div id="video_section">
+					<h3> Video </h3>
+					<form id="video_form">
+					</form>
+				</div>
 			</section>
 
 			<div class="clear_fix"></div>
