@@ -502,11 +502,11 @@ span.label{
 ---------------------------------------------------------------------------------------------------*/
 
 
-#account_settings{
+#edit_profile{
 	padding-top: 30px;
 }
 
-#account_settings section{
+#edit_profile section{
 	padding-top: 0;
 }
 
@@ -514,15 +514,15 @@ span.label{
 	padding: 0 0 0 1.5%;
 }
 
-#account_settings label, #account_settings input, #account_settings textarea, #account_settings select{
+#edit_profile label, #edit_profile input, #edit_profile textarea, #edit_profile select{
 	width: 100%;
 }
 
-#account_settings input, #account_settings textarea, #account_settings select{
+#edit_profile input, #edit_profile textarea, #edit_profile select{
 	margin-top: 5px;
 }
 
-#account_settings fieldset{
+#edit_profile fieldset{
 	border-bottom: 1px solid #D5D5D5;
 	border-top: none;
 	border-left: none;
@@ -530,11 +530,11 @@ span.label{
 	padding-top: 15px;
 }
 
-#account_settings fieldset:first-child{
+#edit_profile fieldset:first-child{
 	padding-top: 0;
 }
 
-#account_settings input[type=text], #account_settings input[type=number], #account_settings input[type=password], #account_settings input[type=url], #account_settings textarea, #account_settings select{
+#edit_profile .edit_input{
 	border: 1px solid #d5d5d5;
 	border-radius: 2px;
 	background-color: #e9e9e9;
@@ -545,36 +545,40 @@ span.label{
 	font-weight: lighter;
 }
 
-#account_settings input, #account_settings select, #account_settings textarea{
+#edit_profile input, #edit_profile select, #edit_profile textarea{
 	color: #333333;
 }
 
-#account_settings select option{
+#edit_profile select option{
 	border: 1px solid #d5d5d5;
 	border-radius: 2px;
 	-webkit-appearance:none;
 	-moz-appearance: none;
 }
 
-#account_settings textarea{
+#edit_profile textarea.edit_input{
 	padding: 6px 2%;
 	width: 96%;
-	height: 80px;
-	max-height: 80px;
-	min-height: 80px;
+	height: 95px;
+	max-height: 95px;
+	min-height: 95px;
 	font: lighter 12px/18px Helvetica, sans-serif;
 }
 
-#basic_info fieldset.split input{
+#edit_profile #basic_info fieldset.split select.edit_input{
+	width: 100%;
+}
+
+#edit_profile #basic_info fieldset.split input.edit_input{
 	padding: 6px 4%;
 	width: 92%;
 }
 
-fieldset.split .column:first-child .form_input{
+#edit_profile fieldset.split .column:first-child .form_input{
 	padding-right: 4%;
 }
 
-fieldset.split .column:last-child .form_input{
+#edit_profile fieldset.split .column:last-child .form_input{
 	padding-left: 4%;
 }
 
@@ -595,33 +599,37 @@ fieldset.split .column:last-child .form_input{
 	padding-bottom: 5px;
 }
 
-#user_sidebar_right input[type=text], #user_sidebar_right input[type=password], #user_sidebar_right input[type=url]{
+#edit_profile .edit_input{
 	padding: 6px 3%;
 	width: 94%;
 }
 
-#account_settings .related_input input:first-child{
+#edit_profile .related_input input:first-child {
 	border-top: 1px solid #d5d5d5;
 	margin-top: 5px;
 }
 
-#account_settings .related_input input{
+#edit_profile .related_input input{
 	margin-top: 0;
 	border-top: 0px;
 }
 
-#account_settings .form_input input[type=submit]{
+#edit_profile .form_input input[type=submit]{
 	float: right;
 	width: 80px;
 	color: #2A258E;
 }
 
-#account_settings label{
+#edit_profile label{
 	font-weight: normal;
 }
 
-#account_settings .form_input input[type=submit]{
+#edit_profile .form_input input[type=submit]{
 	margin-top: 10px;
+}
+
+h3 img{
+	float: right;
 }
 
 /* ---------------------------------------------------------------------------------------------------

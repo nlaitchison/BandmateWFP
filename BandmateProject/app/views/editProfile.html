@@ -1,25 +1,19 @@
 <div ng-include src="'views/header.html'"></div>
 
-<div id="main_content" class="container">
-
+<div id="edit_profile" class="container">
 	<section id="user_sidebar_left" class="column one-5">
 		<div class="profile_pic">
 			<img ng-src="{{user.profileImg}}">
 		</div>
 		<div class="profile_basic">
-			<h2> {{user.name}} </h2>
-			<ul class="account_info">
-				<li class="account_type"> <span class="text_repeat" ng-repeat="string in user.accountType">{{string}} <span class="text_divider"> / </span> </span> </li>
-				<li> {{user.city}}, {{user.state}} </li>
-				<li> {{user.age}} years old</li>
-				<li> {{user.gender}} </li>
-				<li class="active_within"> {{user.lastActive}} </li>
-			</ul>
-			<ul class="user_buttons">
-				<li><button class="{{user.id}}" name="add_studio"> + Studio </button></li>
-				<li><button class="{{user.id}}" name="message"> Message </button></li>
-				<div class="clear_fix"></div>
-			</ul>
+			<form name="account_info" id="account_info">
+				<fieldset>
+					<div class="form_input">
+						<input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="edit_input">
+					</div>
+				</fieldset>
+			</form>
+
 			<ul class="social_icons">
 				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon2.png"></a></li>
 				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon2.png"></a></li>
@@ -40,25 +34,25 @@
 						<fieldset>
 							<div class="form_input">
 								<label for="about">About:</label>
-								<textarea name="about" ng-model="user.about">Write about yourself here...</textarea>
+								<textarea id="about" name="about" ng-model="user.about" class="edit_input">Write about yourself here...</textarea>
 							</div>
 						</fieldset>
 						<fieldset class="split">
 							<div class="column one-2">
 								<div class="form_input">
 									<label for="lookingFor">Looking For:</label>
-									<select name="lookingFor" id="lookingFor" ng-model="user.lookingFor">
+									<select id="lookingFor" name="lookingFor" ng-model="user.lookingFor" class="edit_input">
 										<option value="Guitarist"> Guitarist </option>
 										<option value="Band"> Band </option>
 									</select>
 								</div>
 								<div class="form_input">
 									<label for="yearsOfExp">Years of Experience:</label>
-									<input type="number" name="yearsOfExp" id="yearsOfExp" ng-model="user.yearsOfExp">
+									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input">
 								</div>
 								<div class="form_input">
 									<label for="gigsPlayed">Gigs Played:</label>
-									<select name="gigsPlayed" id="gigsPlayed" ng-model="user.gigsPlayed">
+									<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input">
 										<option value="0 - 10"> 0 - 10 </option>
 										<option value="10 - 20"> 10 - 20 </option>
 										<option value="20 - 30"> 20 - 30 </option>
@@ -75,7 +69,7 @@
 							<div class="column one-2">
 								<div class="form_input">
 									<label for="commitment">Commitment:</label>
-									<select name="commitment" id="commitment" ng-model="user.commitment">
+									<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input">
 										<option value="Just For Fun"> Just For Fun </option>
 										<option value="Somewhat Commited"> Somewhat Commited </option>
 											<option value="Commited"> Commited </option>
@@ -84,7 +78,7 @@
 								</div>
 								<div class="form_input">
 									<label for="availability">Availability:</label>
-									<select name="availability" id="availability" ng-model="user.availability">
+									<select id="availability" name="availability" ng-model="user.availability" class="edit_input">
 										<option value="1 days per week"> 1 days per week </option>
 										<option value="2 days per week"> 2 days per week </option>
 										<option value="3 days per week"> 3 days per week </option>
@@ -102,14 +96,14 @@
 
 			<section id="user_sidebar_right" class="column two-5">
 				<div id="general_section">
-					<h3> General </h3>
+					<h3> General <img src="images/uparrow-icon.png"></h3>
 					<form id="checkbox_form">
 						<div class="form_input">
 							<label for="emailUser"> <input type="checkbox" id="emailUser" name="emailUser" ng-model="user.emailUser"
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Email me when I recieve a new message </label>
 						</div>
 						<div class="form_input">
-							<label for="hideUser"><input type="checkbox" id="hideUser" name="hideUser" name="hideUser" ng-model="user.hideUser"
+							<label for="hideUser"><input type="checkbox" name="hideUser" id="hideUser" name="hideUser" ng-model="user.hideUser"
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hide my profile from search results </label>
 						</div>
 						<div class="form_input">
@@ -122,8 +116,8 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hi
 						<label for="email">Email Address:</label>
 						<!--<p> Changing your email address will also change the email you use for login. </p>-->
 						<div class="related_input">
-							<input type="text" name="email" id="email" ng-model="user.email" placeholder="Email Address" ng-focus="emailUpdate = true">
-							<input type="password" name="password" id="password" placeholder="Password" ng-focus="emailUpdate = true">
+							<input type="text" name="email" id="email" ng-model="user.email" placeholder="Email Address" ng-focus="emailUpdate = true" class="edit_input">
+							<input type="password" name="password" placeholder="Password" ng-focus="emailUpdate = true" class="edit_input">
 						</div>
 						<div class="form_input">
 							<input type="submit" id="checkbox_submit" value="Update" ng-show="emailUpdate">
@@ -131,11 +125,11 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hi
 						</div>
 					</form>
 					<form id="password_form">
-						<label for="email">Reset Password:</label>
+						<label for="password">Reset Password:</label>
 						<div class="related_input">
-							<input type="password" name="password_current" id="password_current" placeholder="Current Password" ng-focus="passwordUpdate = true">
-							<input type="password" name="password_new" id="password_new" placeholder="New Password" ng-focus="passwordUpdate = true">
-							<input type="password" name="password_retype" id="password_retype" placeholder="Retype New Password" ng-focus="passwordUpdate = true">
+							<input type="password" id="password" name="password_current" placeholder="Current Password" ng-focus="passwordUpdate = true" class="edit_input">
+							<input type="password" name="password_new" placeholder="New Password" ng-focus="passwordUpdate = true" class="edit_input">
+							<input type="password" name="password_retype" placeholder="Retype New Password" ng-focus="passwordUpdate = true" class="edit_input">
 						</div>
 						<div class="form_input">
 							<input type="submit" id="checkbox_submit" value="Update" ng-show="passwordUpdate">
@@ -144,12 +138,12 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hi
 					</form>
 				</div>
 				<div id="audio_section">
-					<h3> Audio </h3>
+					<h3> Audio <img src="images/uparrow-icon.png"> </h3>
 					<form id="audio_form">
-						<p>Add audio to your profile with <img src="images/soundcloud-logo.png" alt="Soundcloud">.
-Copy the url for your channel, track, or playlist and paste it below to add it to your profile. </p>
+						<p>Add audio to your profile with <img src="images/soundcloud-logo2.png" alt="Soundcloud">. </p>
+						<p>Copy the url for your channel, track, or playlist and paste it below to add it to your profile. </p>
 						<div class="form_input">
-							<input type="url" name="scPlayerUrl" id="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true">
+							<input type="url" name="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true" class="edit_input">
 							<div class="clear_fix"></div>
 						</div>
 						<div class="form_input">
@@ -159,14 +153,23 @@ Copy the url for your channel, track, or playlist and paste it below to add it t
 					</form>
 				</div>
 				<div id="video_section">
-					<h3> Video </h3>
+					<h3> Video <img src="images/uparrow-icon.png"> </h3>
 					<form id="video_form">
+						<p>Add <img src="images/youtube-logo.png" alt="YouTube"> videos to your profile.</p>
+						<p>Copy the url for your video  and paste it below to add it to your profile. Click the ‘+ Video’ button to add more videos. </p>
+						<div class="form_input">
+							<input type="url" name="ytUrl" placeholder="ex. http://www.youtube.com/embed/Oww-7cxOBUk" ng-focus="ytUrlUpdate = true" class="edit_input">
+							<div class="clear_fix"></div>
+						</div>
+						<div class="form_input">
+							<input type="submit" value="Update" ng-show="ytUrlUpdate">
+							<div class="clear_fix"></div>
+						</div>
 					</form>
 				</div>
 			</section>
 
 			<div class="clear_fix"></div>
-
 		</div>
 	</div>
 </div>
