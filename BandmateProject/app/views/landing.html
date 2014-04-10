@@ -2,11 +2,21 @@
 
 <div id="main_content">
 	<section id="cta">
-		<div id="cta_info">
+		<div id="cta_info" ng-show="!$root.signupClicked">
 			<img src="images/cta-logo.png" alt="Bandmate Logo">
 			<p>Search Bandmate for talented musicians or <br>create your own profile and get back on stage and in the studio.</p>
 			<form id="search_cta">
 					<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="cta_search">
+			</form>
+		</div>
+		<div id="signup_form" ng-show="$root.signupClicked">
+			<img src="images/cta-logo.png" alt="Bandmate Logo">
+			<p>Create your own profile so musicians can find you. You'll also be able to message musicians and follow them by adding them to your personal studio.</p>
+			<form id="signup">
+				<input type="email" name="email_signup" placeholder="Email Address">
+				<input type="password" name="password_signup" placeholder="Password">
+				<input type="password" name="retype_password_signup"  placeholder="Retype Password">
+				<input type="submit" name="signup_button" value="Sign Up">
 			</form>
 		</div>
 		<div id="cta_image"><img src="images/landing-bg.jpg"></div>

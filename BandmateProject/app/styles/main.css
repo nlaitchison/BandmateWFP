@@ -292,7 +292,6 @@ nav li.user_img a{
 }
 
 #login_form input[type=submit]:hover{
-	/*opacity: .8;*/
 	background-color: #1d1c67;
 }
 
@@ -308,14 +307,14 @@ nav li.user_img a{
     height: 100%;
 }
 
-#cta_info{
+#cta_info, #signup_form{
 	position: absolute;
 	top: 190px;
 	text-align: center;
 	width: 100%;
 }
 
-#cta_info p{
+#cta_info p, #signup_form p{
     color: #A2A2A2;
     font: 300 28px 'Yanone Kaffeesatz', sans-serif;;
     margin: 0 auto;
@@ -329,6 +328,8 @@ nav li.user_img a{
 	padding: 11px 8px 6px;
 	font: 18px Helvetica, sans-serif;
 	width: 480px;
+	border-radius: 3px;
+	margin-right: 0px;
 }
 
 #cta_image{
@@ -337,6 +338,33 @@ nav li.user_img a{
 
 #cta_image img{
 	width: 100%;
+}
+
+#signup input{
+	float: none;
+	border: 1px solid #282828;
+	background-color: #929292;
+	padding: 8px 10px;
+	border-radius: 3px;
+	width: 200px;
+	margin-right: 4px;
+}
+
+#signup input[type=submit]{
+	width: 100px;
+	padding: 9px 6px 8px;
+	text-transform: uppercase;
+	border-radius: 2px;
+	border: 1px solid #282828;
+	background-color: #2a258e;
+	border: none;
+	color: #d0d0d0;
+	font: lighter 12px Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+#signup input[type=submit]:hover{
+	background-color: #1d1c67;
 }
 
 #featured_users{
@@ -652,7 +680,7 @@ h3 img{
 	margin-top: 5px;
 }
 
-#edit_profile .bg_related_input:last-child{
+#edit_profile .bg_related_input.last{
 	margin-bottom: 15px;
 }
 
@@ -665,6 +693,14 @@ h3 img{
 #edit_profile #general_section .bg_related_input {
 	padding: 4px 1%;
 	width: 98%
+}
+
+#edit_profile #general_section form#checkbox_form{
+	padding-bottom: 15px;
+}
+
+#edit_profile #general_section form{
+	padding-bottom: 10px;
 }
 
 fieldset#birthday select#birthMonth{
@@ -799,4 +835,5 @@ footer a:hover{
 	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
 	ul.user_buttons li { padding-right: 0px;}
 	#social_urls input { width: 75%; }
+	#signup input { width: 155px; }
 }

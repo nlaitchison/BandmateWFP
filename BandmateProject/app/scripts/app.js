@@ -13,11 +13,11 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/landing.html',
         controller: 'LandingCtrl'
       })
-      .when('/profile/:d', {
+      .when('/profile/:id', {
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
       })
-      .when('/edit/:d', {
+      .when('/edit/:id', {
         templateUrl: 'views/editProfile.html',
         controller: 'EditProfileCtrl'
       })

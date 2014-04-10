@@ -26,7 +26,7 @@ var user = {
 	'yearsOfExp' : '',
 	'gigsPlayed' : '',
 	'commitment' : '',
-	'availability' : '4 days per week',
+	'availability' : '',
 	'scUrl' : '',
 };
 
@@ -43,7 +43,7 @@ Studio collection
 
 var studio = {
 	'userId' : ,
-	'users' : [] //userIds in studio
+	'following' : [] //userIds in studio
 }
 
 
@@ -73,4 +73,18 @@ var message = {
 			'text' : '',
 		}
 	]
-};
+}
+
+Filter Collection //users have a saved default filter for refining search results
+
+var filter = {
+	'userId' : ;
+	'age' : ;
+	'location' : '',
+	'radius' : '',
+	'genre' : [],
+	'yearsOfExp' : '',
+	'gigsPlayed' : '',
+	'commitment' : '',
+	'availability' : '',
+}
