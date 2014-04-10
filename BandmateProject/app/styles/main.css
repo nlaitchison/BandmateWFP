@@ -668,17 +668,45 @@ h3 img{
 }
 
 fieldset#birthday select#birthMonth{
-	width: 28%;
+	width: 49%;
 	margin-right: 2%;
 }
 
 fieldset#birthday input#birthDay{
-	width: 25%;
-		margin-right: 2%;
+	width: 10%;
+	margin-right: 2%;
 }
 
 fieldset#birthday input#birthYear{
-	width: 26%;
+	width: 20%;
+}
+
+fieldset#location input#city{
+	width: 50%;
+	margin-right: 2%;
+}
+
+fieldset#location select#state{
+	width: 39%;
+}
+
+#edit_profile #social_urls .bg_related_input label{
+	height: 27px;
+	float: left;
+	/*width: 12%;
+	min-width: 12%;*/
+	width: 26px;
+	padding: 4px 0;
+}
+
+#social_urls input{
+	background-color: #E9E9E9;
+	border: 0px;
+	width: 84%;
+	float: left;
+	line-height: 40px;
+	margin: 4px 0 0 3%;
+	padding: 6px 0;
 }
 
 /* ---------------------------------------------------------------------------------------------------
@@ -754,8 +782,15 @@ footer a:hover{
 .seven-10{ width: 70%; }
 .nine-10{ width: 90%; }
 
+@media (max-width:1245px) {
+	#social_urls input { width: 78%; }
+	fieldset#birthday select#birthMonth { width: 45%; }
+	fieldset#location input#city { width: 48%; }
+}
+
 @media (max-width:1024px) {
 	.video_repeat{ float: none; height: 250px; margin: 5px 0 10px; width: 100%; }
+
 }
 
 @media (max-width:900px) {
@@ -763,4 +798,5 @@ footer a:hover{
 	#cta_info{ top: 135px; }
 	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
 	ul.user_buttons li { padding-right: 0px;}
+	#social_urls input { width: 75%; }
 }
