@@ -9,9 +9,58 @@
 			<form name="account_info" id="account_info">
 				<fieldset>
 					<div class="form_input">
-						<input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="edit_input">
+						<label for="name">Name:</label>
+						<input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="edit_input" ng-focus="generalUpdate = true">
 					</div>
 				</fieldset>
+				<fieldset>
+					<label>Account Type:</label>
+					<div class="bg_related_input first">
+						<label for="musician"> <input type="checkbox" id="musician" name="musician"
+ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true"> Musician </label>
+					</div>
+					<div class="bg_related_input">
+						<label for="band"> <input type="checkbox" id="band" name="band"
+ng-true-value="Band" ng-false-value="" ng-focus="generalUpdate = true"> Band </label>
+					</div>
+					<div class="bg_related_input">
+						<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
+ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> Instructor </label>
+					</div>
+				</fieldset>
+				<fieldset id="birthday">
+					<div class="form_input">
+						<label for="birthMonth">Birthday:</label>
+						<div class="clear_fix"></div>
+						<select id="birthMonth" name="birthMonth" ng-model="user.birthMonth" class="edit_input" ng-focus="generalUpdate = true">
+							<option value="01"> Jan </option>
+							<option value="02"> Feb </option>
+							<option value="03"> Mar </option>
+							<option value="04"> Mar </option>
+							<option value="05"> May </option>
+							<option value="06"> Jun </option>
+							<option value="07"> Jul </option>
+							<option value="08"> Aug </option>
+							<option value="09"> Sept </option>
+							<option value="10"> Oct </option>
+							<option value="11"> Nov </option>
+							<option value="12"> Dec </option>
+						</select>
+						<input type="text" id="birthDay" name="birthDay" ng-model="user.birthDay" placeholder="Day 00" ng-model="user.birthDay" class="edit_input" ng-focus="generalUpdate = true">
+						<input type="text" id="birthYear" name="birthYear" ng-model="user.birthYear" placeholder="Year 0000" ng-model="user.birthYear" class="edit_input" ng-focus="generalUpdate = true">
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="form_input">
+						<label for="gender">Gender:</label>
+						<select id="gender" name="gender" ng-model="user.gender" class="edit_input">
+							<option value="Unspecified"> Unspecified </option>
+							<option value="Male"> Male </option>
+							<option value="Female"> Female </option>
+						</select>
+					</div>
+				</fieldset>
+
 			</form>
 
 			<ul class="social_icons">
@@ -98,11 +147,11 @@
 				<div id="general_section">
 					<h3> General <img src="images/uparrow-icon.png"></h3>
 					<form id="checkbox_form">
-						<div class="form_input">
+						<div class="bg_related_input first">
 							<label for="emailUser"> <input type="checkbox" id="emailUser" name="emailUser" ng-model="user.emailUser"
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Email me when I recieve a new message </label>
 						</div>
-						<div class="form_input">
+						<div class="bg_related_input">
 							<label for="hideUser"><input type="checkbox" name="hideUser" id="hideUser" name="hideUser" ng-model="user.hideUser"
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hide my profile from search results </label>
 						</div>
