@@ -13,6 +13,10 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/landing.html',
         controller: 'LandingCtrl'
       })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
+      })
       .when('/profile/:id', {
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
