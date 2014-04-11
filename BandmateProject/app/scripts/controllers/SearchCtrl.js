@@ -4,8 +4,6 @@
 
 App.controller('SearchCtrl', function ($scope) {
 
-	$scope.keywords = 'Guitar, Vocals';
-
 	$scope.results = [
 		{
 			'id' : 1,
@@ -61,8 +59,65 @@ App.controller('SearchCtrl', function ($scope) {
 			'birthday' : '1994-03-01',
 			'gender' : 'Male',
 			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
+		},
+		{
+			'id' : 6,
+			'profileImg' : 'images/user-img-lrg.png',
+			'name' : 'Rou Reynolds',
+			'accountType' : 'Musician / Instructor',
+			'city' : 'Orlando',
+			'state' : 'FL',
+			'birthday' : '1994-03-01',
+			'gender' : 'Male',
+			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
+		},
+		{
+			'id' :7,
+			'profileImg' : 'images/user-img-lrg.png',
+			'name' : 'Rou Reynolds',
+			'accountType' : 'Musician / Instructor',
+			'city' : 'Orlando',
+			'state' : 'FL',
+			'birthday' : '1994-03-01',
+			'gender' : 'Male',
+			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
+		},
+		{
+			'id' : 8,
+			'profileImg' : 'images/user-img-lrg.png',
+			'name' : 'Rou Reynolds',
+			'accountType' : 'Musician / Instructor',
+			'city' : 'Orlando',
+			'state' : 'FL',
+			'birthday' : '1994-03-01',
+			'gender' : 'Male',
+			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
+		},
+		{
+			'id' : 9,
+			'profileImg' : 'images/user-img-lrg.png',
+			'name' : 'Rou Reynolds',
+			'accountType' : 'Musician / Instructor',
+			'city' : 'Orlando',
+			'state' : 'FL',
+			'birthday' : '1994-03-01',
+			'gender' : 'Male',
+			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
+		},
+		{
+			'id' : 10,
+			'profileImg' : 'images/user-img-lrg.png',
+			'name' : 'Rou Reynolds',
+			'accountType' : 'Musician / Instructor',
+			'city' : 'Orlando',
+			'state' : 'FL',
+			'birthday' : '1994-03-01',
+			'gender' : 'Male',
+			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
 		}
 	];
+
+	$scope.keywords ='Guitar, Vocals';
 
 	// console.log($scope.users);
 

@@ -114,6 +114,17 @@ button, input[type=submit]{
 	cursor: pointer;
 }
 
+#edit_profile .edit_input, #search_header .edit_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #e9e9e9;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 6px 3%;
+	width: 94%;
+	font-weight: lighter;
+}
+
 button:hover, input[type=submit]:hover{
 	background-color: #ccc;
 }
@@ -395,9 +406,31 @@ nav li.user_img a{
 
 input#search_keywords{
 	width: 100%;
-	font: 25px Helvetica, sans-serif,
+	font: lighter 48px Helvetica, sans-serif;
+	border: none;
+	background-color: #e9e9e9;
+	color: #383838;
 }
 
+#search_page .form_input{
+	padding: 12px 0 0;
+}
+
+#search_page .form_input label{
+	line-height: 22px;
+}
+
+#search_results{
+	min-height: 500px;
+}
+
+#search_results .user_thumb:hover{
+	background-color: #e9e9e9;
+}
+
+#search_filter{
+	padding-top: 20px;
+}
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Profile
@@ -821,6 +854,8 @@ footer a:hover{
 
 .one-2{ width: 50%; }
 .two-2{ width: 100%; }
+
+.one-3{ width: 33.33%; }
 
 .one-5{ width: 20%; min-width: 150px;}
 .two-5{ width: 40%; }
