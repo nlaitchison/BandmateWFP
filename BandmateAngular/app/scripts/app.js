@@ -13,11 +13,11 @@ App.config(function ($routeProvider) {
         controller: 'SearchCtrl'
       })
       .when('/profile/:id', {
-        templateUrl: 'views/profile.html',
+        templateUrl: 'views/userView.html',
         controller: 'UserViewCtrl'
       })
       .when('/edit/:id', {
-        templateUrl: 'views/editProfile.html',
+        templateUrl: 'views/userEdit.html',
         controller: 'UserEditCtrl'
       })
       .otherwise({
