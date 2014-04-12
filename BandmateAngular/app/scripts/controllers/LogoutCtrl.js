@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('LogoutController', function (AuthService, $location) {
+App.controller('LogoutCtrl', function (AuthService, $location) {
   AuthService.setloggedOut();
   console.log(AuthService.isLoggedIn());
 

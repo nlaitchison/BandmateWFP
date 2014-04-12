@@ -18,12 +18,12 @@
 
 <div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}">
 	<h3> Login to Bandmate </h3>
-	<form name="login">
+	<form name="login" ng-controller="LoginCtrl" ng-submit="submit()">
 		<div class="form_input">
-			<input type="text" name="login_email" id="login_email" placeholder="Email Address">
+			<input type="text" name="login_email" id="login_email" placeholder="Email Address" ng-model="login.email">
 		</div>
 		<div class="form_input">
-			<input type="password" name="login_password" id="login_password" placeholder="Password">
+			<input type="password" name="login_password" id="login_password" placeholder="Password" ng-model="login.password">
 		</div>
 		<input type="submit" id="login_button" value="login">
 		<div clas="clear_fix"></div>

@@ -10,8 +10,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
 
   attributes: {
-
-      email: {
+     email: {
       type: 'string',
       required: true,
       unique: true
@@ -30,7 +29,7 @@ module.exports = {
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) {
-          console.log(err);
+          console.log('yo', err);
           cb(err);
         }else{
           user.password = hash;
