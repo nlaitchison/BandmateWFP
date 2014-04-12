@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('ProfileCtrl', function ($scope) {
+App.controller('UserViewCtrl', function ($scope) {
 	$scope.user = {
 		'id' : 1,
 		'profileImg' : 'images/user-img-lrg.png',
