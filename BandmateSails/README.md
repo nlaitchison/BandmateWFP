@@ -1,0 +1,2 @@
+# BandmateSails
+### a Sails application

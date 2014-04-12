@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('EditProfileCtrl', function ($scope) {
+App.controller('UserEditCtrl', function ($scope) {
 
 	$scope.user = {
 		'id' : 1,

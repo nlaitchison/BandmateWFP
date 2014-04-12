@@ -1,11 +1,6 @@
 'use strict';
 
-var App = angular.module('bandmateProjectApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
-]);
+var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular']);
 
 App.config(function ($routeProvider) {
     $routeProvider
@@ -23,7 +18,7 @@ App.config(function ($routeProvider) {
       })
       .when('/edit/:id', {
         templateUrl: 'views/editProfile.html',
-        controller: 'EditProfileCtrl'
+        controller: 'UserEditCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -46,3 +41,10 @@ App.directive('myYoutube', function($sce) {
     }
   };
 });
+
+App.config(['RestangularProvider', function(RestangularProvider){
+  RestangularProvider.setBaseUrl('http://localhost:1337');
+  RestangularProvider.setRestangularFields({
+    id: '_.id.$oid'
+  });
+}]);
