@@ -1,0 +1,70 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div id="main_content" class="container">
+
+	<section id="user_sidebar_left" class="column one-5">
+		<div class="profile_pic">
+			<img ng-src="{{user.profileImg}}">
+		</div>
+		<div class="profile_basic">
+			<h2> {{user.name}} </h2>
+			<ul class="account_info">
+				<li class="account_type"> <span class="text_repeat" ng-repeat="string in user.accountType">{{string}} <span class="text_divider"> / </span> </span> </li>
+				<li> {{user.city}}, {{user.state}} </li>
+				<li> {{user.age}} years old</li>
+				<li> {{user.gender}} </li>
+				<li class="active_within"> {{user.lastActive}} </li>
+			</ul>
+			<ul class="user_buttons">
+				<li><button class="{{user.id}}" name="add_studio"> + Studio </button></li>
+				<li><button class="{{user.id}}" name="message"> Message </button></li>
+				<div class="clear_fix"></div>
+			</ul>
+			<ul class="social_icons">
+				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon2.png"></a></li>
+				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon2.png"></a></li>
+				<li ng-show="user.soundcloudUrl"><a href="{{user.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon2.png"></a></li>
+				<li ng-show="user.youtubeUrl"><a href="{{user.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon2.png"></a></li>
+				<div class="clear_fix"></div>
+			</ul>
+		</div>
+	</section>
+
+	<section id="user_center" class="column one-2">
+
+		<section class="user_audio">
+		</section>
+
+		<section class="user_about">
+			<h3> About </h3>
+			<p> {{user.about}} </p>
+		</section>
+
+		<section class="user_video">
+			<h3> Videos </h3>
+			<div class="video_repeat" ng-repeat="video in videos">
+				<div class="video_box" my-youtube code="video.code"></div>
+			<div>
+		</section>
+
+	</section>
+
+	<section id="user_sidebar_right" class="column three-10">
+		<section class="user_details">
+			<h3> Info </h3>
+			<ul>
+				<li><span class="label">Looking For: </span>{{user.lookingFor}}</li>
+				<li><span class="label">Instruments: </span><span class="text_repeat" ng-repeat="string in user.instruments">{{string}}<span class="text_divider">, </span> </span></li>
+				<li><span class="label">Genres: </span><span class="text_repeat" ng-repeat="string in user.genres">{{string}}<span class="text_divider">, </span> </span></li>
+				<li><span class="label">Equipment: </span>{{user.equipment}}</li>
+				<li><span class="label">Years of Experience: </span>{{user.yearsOfExp}}</li>
+				<li><span class="label">Gigs Played: </span>{{user.gigsPlayed}}</li>
+				<li><span class="label">Commitment: </span>{{user.commitment}}</li>
+				<li><span class="label">Availability: </span>{{user.availability}}</li>
+			<ul>
+		</section>
+	</section>
+
+</div>
+
+<div ng-include src="'views/footer.html'"></div>

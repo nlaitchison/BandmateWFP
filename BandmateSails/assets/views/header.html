@@ -1,0 +1,52 @@
+<header ng-controller="NavCtrl">
+	<div class="container">
+		<div id="logo">
+			<a href="#"><h1> Bandmate </h1></a>
+		</div>
+
+		<nav>
+			<form id="search_nav">
+				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search">
+			</form>
+			<ul>
+				<li ng-click="$root.loginClicked = !$root.loginClicked">LOGIN</li>
+				<li ng-click="$root.signupClicked = !$root.signupClicked"><a href="#">SIGNUP</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}">
+	<h3> Login to Bandmate </h3>
+	<form name="login" ng-controller="LoginCtrl" ng-submit="submit()">
+		<div class="form_input">
+			<input type="text" name="login_email" id="login_email" placeholder="Email Address" ng-model="login.email">
+		</div>
+		<div class="form_input">
+			<input type="password" name="login_password" id="login_password" placeholder="Password" ng-model="login.password">
+		</div>
+		<input type="submit" id="login_button" value="login">
+		<div clas="clear_fix"></div>
+	</form>
+</div>
+
+<!-- <header ng-controller="NavCtrl">
+	<div class="container">
+		<div id="logo">
+			<a href="#"><h1> Bandmate </h1></a>
+		</div>
+
+		<nav>
+			<form id="search_nav">
+				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search">
+			</form>
+			<ul>
+				<li><a href="#">Studio</a></li>
+				<li class="messages_icon"><a href="#"><img src="images/messages-icon.png"></a></li>
+				<li class="settings_icon"><a href="#"><img src="images/settings-icon.png"></a></li>
+				<li class="user_img"><img src="images/user_img.png" alt="user img"><a href="#">Jason</a></li>
+			</ul>
+			<div class="clear_fix"></div>
+		</nav>
+	</div>
+</header> -->

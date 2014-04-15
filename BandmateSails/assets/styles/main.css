@@ -1,0 +1,889 @@
+/* ---------------------------------------------------------------------------------------------------
+
+-----Info
+
+-----Color Swatch
+Purple: #2a258e
+Teal: #05959a
+Text: #282828
+H2 & H3 Underline: #d5d5d5
+
+Nav BG: #0f0f0f
+Nav Search BG: #363636
+Nav Dividers: #202020
+Nav Text: #a3a3a3
+
+CTA Text: #a2a2a2
+CTA Search BG: #929292
+
+Grey BG: #e9e9e9
+White BG: #f0f0f0
+
+Button BG: #dbdbdb
+
+Edit Input BG: #e9e9e9
+Edit Input Border: #d5d5d5
+
+-----Sections
+
+∆ General
+
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ General
+---------------------------------------------------------------------------------------------------*/
+
+
+html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,figcaption {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: lighter 13px Helvetica;
+	color: #282828;
+	background-color: #f0f0f0;
+}
+
+h2{
+	color: #2a258e;
+	text-transform: uppercase;
+	font-weight: lighter;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #d5d5d5;
+	margin-bottom: 20px;
+	letter-spacing: .5px;
+	word-spacing: 5px;
+	font-size: 20px;
+}
+
+h3{
+	color: #05959a;
+	text-transform: uppercase;
+	font-weight: lighter;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #d5d5d5;
+	margin-bottom: 10px;
+	letter-spacing: .5px;
+	word-spacing: 2px;
+	font-size: 17px;
+}
+
+h4{
+	color: #05959a;
+	text-transform: uppercase;
+	font-weight: lighter;
+	font-size: 16px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+li{
+	float: left;
+}
+
+.clear_fix{
+	clear: both;
+}
+
+input{
+	border-radius: 2px;
+}
+
+section{
+	padding: 30px 0;
+}
+
+p{
+	line-height: 22px;
+}
+
+button, input[type=submit]{
+	padding: 8px 8px 5px;
+	border-radius: 2px;
+	border: solid 1px #2a258e;
+	background-color: #dbdbdb;
+	color: #2a258e;
+	text-transform: uppercase;
+	font: lighter 14px Helvetica, sans-serif;
+	cursor: pointer;
+}
+
+#edit_profile .edit_input, #search_header .edit_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #e9e9e9;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 6px 3%;
+	width: 94%;
+	font-weight: lighter;
+}
+
+button:hover, input[type=submit]:hover{
+	background-color: #ccc;
+}
+
+.form_input{
+	padding-bottom: 15px;
+}
+
+.user_thumb{
+	padding: 10px 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.user_thumb_img{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.user_thumb img{
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 2px;
+}
+
+.user_thumb p{
+	font-size: 12px;
+}
+
+.text_repeat:last-child .text_divider{
+	display: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Header
+---------------------------------------------------------------------------------------------------*/
+
+header{
+	height: 50px;
+	background-color: #0f0f0f;
+	z-index: 2;
+	position: relative;
+}
+
+#logo{
+	height: 50px;
+	width: 151px;
+	float: left;
+	cursor: pointer;
+}
+
+h1{
+	height: 100%;
+	width: 100%;
+	text-indent: -9999px;
+	background: url(../images/logo.png) top center no-repeat;
+}
+
+nav{
+	float: right;
+}
+
+nav ul, nav form#search_nav{
+	float: left;
+}
+
+nav form#search_nav{
+	line-height: 50px;
+}
+
+nav form#search_nav input{
+	padding: 5px;
+	margin-right: 15px;
+	width: 340px;
+	border: 1px solid #202020;
+	background: url(../images/nav-search-icon.png) 97% 60% no-repeat #363636;
+}
+
+nav ul a, nav ul li{
+	color: #a3a3a3;
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	font-weight: lighter;
+}
+
+nav ul li:hover{
+	opacity: .3;
+	cursor: pointer;
+}
+
+nav ul{
+	border-left: 1px solid #202020;
+}
+
+nav li{
+	line-height: 46px;
+	padding: 3px 15px 0;
+	border-right: 1px solid #202020;
+}
+
+nav li.messages_icon{
+	padding-top: 15px;
+	line-height: 20px;
+}
+
+nav li.settings_icon{
+	padding-top: 12px;
+	line-height: 20px;
+}
+
+/*nav li.user_img{
+	border-right: none;
+	padding-right: 0;
+	padding-top: 13px;
+	line-height: 20px;
+}*/
+
+nav li.user_img{
+	padding-top: 13px;
+	line-height: 10px;
+}
+
+nav li.user_img img{
+	width: 24px;
+	height: 24px;
+	padding-right: 10px;
+	float: left;
+	cursor: pointer;
+}
+
+nav li.user_img a{
+	float: left;
+	padding: 8px 0;
+}
+
+#login_form{
+	position: absolute;
+	top: 50px;
+	right: 36px;
+	background-color: #d6d6d6; /*363636*/
+	width: 360px;
+	padding: 20px;
+	border: 1px solid #aaaaaa;
+	border-top: none;
+	border-radius: 2px;
+	z-index: 1;
+}
+
+#login_form input{
+	width: 95%;
+	padding: 10px 2.3%;
+	border: 1px solid #aaaaaa;
+	background-color: #F0F0F0;
+}
+
+#login_form h3{
+	color: #2a258e;
+	border-bottom: none;
+}
+
+#login_form input[type=submit]{
+	float: right;
+	width: 100px;
+	padding: 11px 6px 7px;
+	text-transform: uppercase;
+	border-radius: 2px;
+	border: 1px solid #aaaaaa;
+	background-color: #2a258e;
+	border: none;
+	color: #d0d0d0;
+	font: lighter 13px Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+#login_form input[type=submit]:hover{
+	background-color: #1d1c67;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Landing
+---------------------------------------------------------------------------------------------------*/
+
+#cta{
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+}
+
+#cta_info, #signup_form{
+	position: absolute;
+	top: 190px;
+	text-align: center;
+	width: 100%;
+}
+
+#cta_info p, #signup_form p{
+    color: #A2A2A2;
+    font: 300 28px 'Yanone Kaffeesatz', sans-serif;;
+    margin: 0 auto;
+    width: 700px;
+    padding: 15px 0;
+}
+
+#search_cta input[type=search]{
+	background: url(../images/cta-search-icon.png) no-repeat 445px #929292;
+	border: 1px solid #282828;
+	padding: 11px 8px 6px;
+	font: 18px Helvetica, sans-serif;
+	width: 480px;
+	border-radius: 3px;
+	margin-right: 0px;
+}
+
+#cta_image{
+	z-index: -1;
+}
+
+#cta_image img{
+	width: 100%;
+}
+
+#signup input{
+	float: none;
+	border: 1px solid #282828;
+	background-color: #929292;
+	padding: 8px 10px;
+	border-radius: 3px;
+	width: 200px;
+	margin-right: 4px;
+}
+
+#signup input[type=submit]{
+	width: 100px;
+	padding: 9px 6px 8px;
+	text-transform: uppercase;
+	border-radius: 2px;
+	border: 1px solid #282828;
+	background-color: #2a258e;
+	border: none;
+	color: #d0d0d0;
+	font: lighter 12px Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+#signup input[type=submit]:hover{
+	background-color: #1d1c67;
+}
+
+#featured_users{
+	background-color: #e9e9e9;
+}
+
+#featured_users .user_thumb:hover{
+	background-color: #ddd;
+}
+
+.about_left p{
+	padding-right: 10px;
+}
+
+.about_right p{
+	padding-left: 10px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Search
+---------------------------------------------------------------------------------------------------*/
+
+
+#search_header{
+	background-color: #e9e9e9;
+}
+
+input#search_keywords{
+	width: 100%;
+	font: lighter 48px Helvetica, sans-serif;
+	border: none;
+	background-color: #e9e9e9;
+	color: #383838;
+}
+
+#search_page .form_input{
+	padding: 12px 0 0;
+}
+
+#search_page .form_input label{
+	line-height: 22px;
+}
+
+#search_results{
+	min-height: 500px;
+}
+
+#search_results .user_thumb:hover{
+	background-color: #e9e9e9;
+}
+
+#search_filter{
+	padding-top: 20px;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Profile
+---------------------------------------------------------------------------------------------------*/
+
+
+#user_sidebar_left{
+	/*background-color: #e9e9e9;*/
+	/*min-height: 100%;
+	height: 650px;*/
+}
+
+.profile_pic, .profile_basic{
+	/*width: 80%;*/
+	padding: 0 4.5%; /*0 15px*/
+	margin: 0 auto;
+}
+
+.profile_pic img{
+	width: 100%;
+	border-radius: 3px;
+}
+
+.profile_basic{
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+.profile_basic h2{
+	/*color: #2a258e;*/
+	margin-bottom: 15px;
+}
+
+.profile_basic ul.account_info{
+	padding-bottom: 15px;
+}
+
+.profile_basic ul li, .user_details ul li{
+	float: none;
+	padding-bottom: 8px;
+}
+
+.profile_basic ul li:last-child, .user_details ul li:last-child{
+	padding-bottom: 0;
+}
+
+.account_type{
+	text-transform: uppercase;
+}
+
+.active_within{
+	opacity: .6;
+	font-style: italic;
+}
+
+ul.social_icons, ul.user_buttons{
+	padding: 15px 0 8px 0;
+}
+
+ul.social_icons li, ul.user_buttons li{
+	padding: 0 10px 8px 0;
+	float: left;
+}
+
+ul.user_buttons{
+	border-top: 1px solid #d5d5d5;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+ul.user_buttons li{
+	width: 47.5%;
+	padding: 0 5% 8px 0;
+}
+
+ul.user_buttons li:nth-child(even){
+	padding-right: 0px;
+}
+
+ul.user_buttons li button{
+	width: 100%;
+	text-align: center;
+}
+
+ul.user_buttons li button:hover{
+	background-color: #CCC;
+}
+
+ul.social_icons li:last-child, ul.user_buttons li:last-child{
+	padding-right: 0;
+	padding-bottom: 0;
+}
+
+#user_center section{
+	padding: 0 1.5% 0 3%; /*0 15px 0 30px*/
+}
+
+#center_form{
+	padding-right: 1.5%;
+}
+
+.user_audio{
+	/*height: 300px;*/
+	margin-bottom: 10px;
+}
+
+#user_sidebar_right section{
+	padding: 0 0 0 4.5%; /*0 15px*/
+	font-size: 13px;
+}
+
+#user_center p{
+	font: lighter 13px/22px Helvetica, sans-serif;
+	padding: 0 0 15px;
+}
+
+.video_repeat{
+    float: left;
+    height: 200px;
+    margin: 5px 3% 10px 0;
+    width: 48.5%;
+}
+
+.video_repeat:nth-child(odd){
+	margin-right: 0;
+}
+
+.video_box{
+	width: 100%;
+	height: 100%;
+}
+
+.user_details ul li{
+	line-height: 22px;
+}
+
+span.label{
+	font-weight: normal;
+	color: #060606;
+	padding-right: 5px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Edit Profile
+---------------------------------------------------------------------------------------------------*/
+
+
+#edit_profile{
+	padding-top: 30px;
+}
+
+#edit_profile section{
+	padding-top: 0;
+}
+
+.account_container {
+	padding: 0 0 0 1.5%;
+}
+
+#edit_profile label, #edit_profile input, #edit_profile textarea, #edit_profile select{
+	width: 100%;
+}
+
+#edit_profile input, #edit_profile textarea, #edit_profile select{
+	margin-top: 5px;
+}
+
+#edit_profile fieldset{
+	border-bottom: 1px solid #D5D5D5;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding-top: 15px;
+}
+
+#edit_profile fieldset:first-child{
+	padding-top: 0;
+}
+
+#edit_profile .edit_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #e9e9e9;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 6px 3%;
+	width: 94%;
+	font-weight: lighter;
+}
+
+#edit_profile select.edit_input{
+	width: 100%;
+	padding: 4px 3%;
+}
+
+#edit_profile input, #edit_profile select, #edit_profile textarea{
+	color: #333333;
+}
+
+#edit_profile select option{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	-webkit-appearance:none;
+	-moz-appearance: none;
+}
+
+#edit_profile textarea.edit_input{
+	padding: 6px 2%;
+	width: 96%;
+	height: 95px;
+	max-height: 95px;
+	min-height: 95px;
+	font: lighter 12px/18px Helvetica, sans-serif;
+}
+
+#edit_profile #basic_info fieldset.split select.edit_input{
+	width: 100%;
+}
+
+#edit_profile #basic_info fieldset.split input.edit_input{
+	padding: 6px 4%;
+	width: 92%;
+}
+
+#edit_profile fieldset.split .column:first-child .form_input{
+	padding-right: 4%;
+}
+
+#edit_profile fieldset.split .column:last-child .form_input{
+	padding-left: 4%;
+}
+
+#general_section, #audio_section, #video_section{
+	padding: 0 0 0 4.5%;
+}
+
+#checkbox_form input[type=checkbox]{
+	width: 6%;
+	float: left;
+}
+
+#checkbox_form label{
+	line-height: 25px;
+}
+
+#checkbox_form .form_input{
+	padding-bottom: 5px;
+}
+
+#edit_profile .related_input input:first-child {
+	border-top: 1px solid #d5d5d5;
+	margin-top: 5px;
+}
+
+#edit_profile .related_input input{
+	margin-top: 0;
+	border-top: 0px;
+}
+
+#edit_profile .form_input input[type=submit]{
+	float: right;
+	width: 80px;
+	color: #2A258E;
+}
+
+#edit_profile label{
+	font-weight: normal;
+}
+
+#edit_profile .form_input input[type=submit]{
+	margin-top: 10px;
+}
+
+h3 img{
+	float: right;
+}
+
+#edit_profile .bg_related_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #e9e9e9;
+	padding: 1px 3%;
+	width: 94%;
+	border-top: 0;
+	line-height: 26px;
+}
+
+#edit_profile .bg_related_input label{
+	font: 12px Helvetica, sans-serif;
+	color: #282828;
+}
+
+#edit_profile .bg_related_input.first{
+	border-top: 1px solid #d5d5d5;
+	margin-top: 5px;
+}
+
+#edit_profile .bg_related_input.last{
+	margin-bottom: 15px;
+}
+
+#edit_profile .bg_related_input input[type=checkbox]{
+	width: 6%;
+	float: left;
+	margin-right: 8px;
+}
+
+#edit_profile #general_section .bg_related_input {
+	padding: 4px 1%;
+	width: 98%
+}
+
+#edit_profile #general_section form#checkbox_form{
+	padding-bottom: 15px;
+}
+
+#edit_profile #general_section form{
+	padding-bottom: 10px;
+}
+
+fieldset#birthday select#birthMonth{
+	width: 49%;
+	margin-right: 2%;
+}
+
+fieldset#birthday input#birthDay{
+	width: 10%;
+	margin-right: 2%;
+}
+
+fieldset#birthday input#birthYear{
+	width: 20%;
+}
+
+fieldset#location input#city{
+	width: 50%;
+	margin-right: 2%;
+}
+
+fieldset#location select#state{
+	width: 39%;
+}
+
+#edit_profile #social_urls .bg_related_input label{
+	height: 27px;
+	float: left;
+	/*width: 12%;
+	min-width: 12%;*/
+	width: 26px;
+	padding: 4px 0;
+}
+
+#social_urls input{
+	background-color: #E9E9E9;
+	border: 0px;
+	width: 84%;
+	float: left;
+	line-height: 40px;
+	margin: 4px 0 0 3%;
+	padding: 6px 0;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Footer
+---------------------------------------------------------------------------------------------------*/
+
+
+footer{
+	background-color: #0f0f0f;
+	padding: 8px 0;
+	color: #a3a3a3;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+}
+
+footer .footer_content{
+	width: 310px;
+	margin: 0 auto;
+}
+
+footer p{
+	line-height: 30px;
+	padding-right: 10px;
+}
+
+footer p, footer ul{
+	float: left;
+}
+
+footer li{
+	padding: 0 5px 0 0;
+}
+
+footer a{
+	color: #05959a;
+	text-decoration: none;
+}
+
+footer a:hover{
+	text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Grid & Queries
+---------------------------------------------------------------------------------------------------*/
+
+
+.container{
+	width: 95%; /*1370px*/
+	max-width: 1370px;
+	min-width: 750px;
+	margin: 0 auto;
+	clear: both;
+}
+
+.column{
+	float: left;
+}
+
+.one-2{ width: 50%; }
+.two-2{ width: 100%; }
+
+.one-3{ width: 33.33%; }
+
+.one-5{ width: 20%; min-width: 150px;}
+.two-5{ width: 40%; }
+.three-5{ width: 60%; }
+.four-5{ width: 80%; }
+
+.one-10{ width: 10%; }
+.three-10{ width: 30%; }
+.four-10{ width: 40%; }
+.seven-10{ width: 70%; }
+.nine-10{ width: 90%; }
+
+@media (max-width:1245px) {
+	#social_urls input { width: 78%; }
+	fieldset#birthday select#birthMonth { width: 45%; }
+	fieldset#location input#city { width: 48%; }
+}
+
+@media (max-width:1024px) {
+	.video_repeat{ float: none; height: 250px; margin: 5px 0 10px; width: 100%; }
+
+}
+
+@media (max-width:900px) {
+	nav form#search_nav input{ width: 250px; }
+	#cta_info{ top: 135px; }
+	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
+	ul.user_buttons li { padding-right: 0px;}
+	#social_urls input { width: 75%; }
+	#signup input { width: 155px; }
+}

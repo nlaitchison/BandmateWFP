@@ -1,0 +1,301 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div id="edit_profile" class="container">
+	<section id="user_sidebar_left" class="column one-5">
+		<div class="profile_pic">
+			<img ng-src="{{user.profileImg}}">
+		</div>
+		<div class="profile_basic">
+			<form name="account_info" id="account_info">
+				<fieldset>
+					<div class="form_input">
+						<label for="name">Name:</label>
+						<input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="edit_input" ng-focus="generalUpdate = true">
+					</div>
+				</fieldset>
+				<fieldset>
+					<label>Account Type:</label>
+					<div class="bg_related_input first">
+						<label for="musician"> <input type="checkbox" id="musician" name="musician"
+ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true"> Musician </label>
+					</div>
+					<div class="bg_related_input">
+						<label for="band"> <input type="checkbox" id="band" name="band"
+ng-true-value="Band" ng-false-value="" ng-focus="generalUpdate = true"> Band </label>
+					</div>
+					<div class="bg_related_input last">
+						<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
+ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> Instructor </label>
+					</div>
+				</fieldset>
+				<fieldset id="location">
+					<div class="form_input">
+						<label for="city">Location:</label>
+						<div class="clear_fix"></div>
+						<input type="text" id="city" name="city" ng-model="user.city" placeholder="Year 0000" class="edit_input" ng-focus="generalUpdate = true">
+						<select id="state" name="state" ng-model="user.state" class="edit_input" ng-focus="generalUpdate = true">
+							<option value="AL">Alabama</option>
+							<option value="AK">Alaska</option>
+							<option value="AZ">Arizona</option>
+							<option value="AR">Arkansas</option>
+							<option value="CA">California</option>
+							<option value="CO">Colorado</option>
+							<option value="CT">Connecticut</option>
+							<option value="DE">Delaware</option>
+							<option value="DC">District Of Columbia</option>
+							<option value="FL">Florida</option>
+							<option value="GA">Georgia</option>
+							<option value="HI">Hawaii</option>
+							<option value="ID">Idaho</option>
+							<option value="IL">Illinois</option>
+							<option value="IN">Indiana</option>
+							<option value="IA">Iowa</option>
+							<option value="KS">Kansas</option>
+							<option value="KY">Kentucky</option>
+							<option value="LA">Louisiana</option>
+							<option value="ME">Maine</option>
+							<option value="MD">Maryland</option>
+							<option value="MA">Massachusetts</option>
+							<option value="MI">Michigan</option>
+							<option value="MN">Minnesota</option>
+							<option value="MS">Mississippi</option>
+							<option value="MO">Missouri</option>
+							<option value="MT">Montana</option>
+							<option value="NE">Nebraska</option>
+							<option value="NV">Nevada</option>
+							<option value="NH">New Hampshire</option>
+							<option value="NJ">New Jersey</option>
+							<option value="NM">New Mexico</option>
+							<option value="NY">New York</option>
+							<option value="NC">North Carolina</option>
+							<option value="ND">North Dakota</option>
+							<option value="OH">Ohio</option>
+							<option value="OK">Oklahoma</option>
+							<option value="OR">Oregon</option>
+							<option value="PA">Pennsylvania</option>
+							<option value="RI">Rhode Island</option>
+							<option value="SC">South Carolina</option>
+							<option value="SD">South Dakota</option>
+							<option value="TN">Tennessee</option>
+							<option value="TX">Texas</option>
+							<option value="UT">Utah</option>
+							<option value="VT">Vermont</option>
+							<option value="VA">Virginia</option>
+							<option value="WA">Washington</option>
+							<option value="WV">West Virginia</option>
+							<option value="WI">Wisconsin</option>
+							<option value="WY">Wyoming</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset id="birthday">
+					<div class="form_input">
+						<label for="birthMonth">Birthday:</label>
+						<div class="clear_fix"></div>
+						<select id="birthMonth" name="birthMonth" ng-model="user.birthMonth" class="edit_input" ng-focus="generalUpdate = true">
+							<option value="01"> January </option>
+							<option value="02"> February </option>
+							<option value="03"> March </option>
+							<option value="04"> Mar </option>
+							<option value="05"> May </option>
+							<option value="06"> June </option>
+							<option value="07"> July </option>
+							<option value="08"> August </option>
+							<option value="09"> September </option>
+							<option value="10"> October </option>
+							<option value="11"> November </option>
+							<option value="12"> December </option>
+						</select>
+						<input type="text" id="birthDay" name="birthDay" ng-model="user.birthDay" placeholder="Day 00"  class="edit_input" ng-focus="generalUpdate = true">
+						<input type="text" id="birthYear" name="birthYear" ng-model="user.birthYear" placeholder="Year 0000" class="edit_input" ng-focus="generalUpdate = true">
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="form_input">
+						<label for="gender">Gender:</label>
+						<select id="gender" name="gender" ng-model="user.gender" class="edit_input">
+							<option value="Unspecified"> Unspecified </option>
+							<option value="Male"> Male </option>
+							<option value="Female"> Female </option>
+						</select>
+					</div>
+				</fieldset>
+
+				<fieldset id="social_urls">
+					<label>Social Media Accounts:</label>
+					<div class="bg_related_input first">
+						<label for="facebookUrl"><img ng-src="images/facebook-icon.png"></label><input type="url" id="facebookUrl" name="facebookUrl" ng-focus="generalUpdate = true" ng-model="user.facebookUrl">
+						<div class="clear_fix"></div>
+					</div>
+					<div class="bg_related_input">
+						<label for="twitterUrl"><img ng-src="images/twitter-icon.png"></label><input type="url" id="twitterUrl" name="twitterUrl" ng-focus="generalUpdate = true" ng-model="user.twitterUrl">
+						<div class="clear_fix"></div>
+					</div>
+					<div class="bg_related_input">
+						<label for="soundcloudUrl"><img ng-src="images/soundcloud-icon.png"></label><input type="url" id="soundcloudUrl" name="soundcloudUrl" ng-focus="generalUpdate = true" ng-model="user.soundcloudUrl">
+						<div class="clear_fix"></div>
+					</div>
+					<div class="bg_related_input last">
+						<label for="youtubeUrl"><img ng-src="images/youtube-icon.png"></label><input type="url" id="youtubeUrl" name="youtubeUrl" ng-focus="generalUpdate = true" ng-model="user.youtubeUrl">
+						<div class="clear_fix"></div>
+					</div>
+				</fieldset>
+				<div class="form_input">
+					<input type="submit" id="checkbox_submit" value="Update" ng-show="generalUpdate">
+					<div class="clear_fix"></div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<div id="account_settings" class="column four-5">
+		<div class="account_container">
+			<h2>Account Settings</h2>
+			<section class="column three-5">
+				<div id="center_form">
+					<h3>Basic Info</h3>
+					<form name="basic_info" id="basic_info">
+						<fieldset>
+							<div class="form_input">
+								<label for="about">About:</label>
+								<textarea id="about" name="about" ng-model="user.about" class="edit_input">Write about yourself here...</textarea>
+							</div>
+						</fieldset>
+						<fieldset class="split">
+							<div class="column one-2">
+								<div class="form_input">
+									<label for="lookingFor">Looking For:</label>
+									<select id="lookingFor" name="lookingFor" ng-model="user.lookingFor" class="edit_input">
+										<option value="Guitarist"> Guitarist </option>
+										<option value="Band"> Band </option>
+									</select>
+								</div>
+								<div class="form_input">
+									<label for="yearsOfExp">Years of Experience:</label>
+									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input">
+								</div>
+								<div class="form_input">
+									<label for="gigsPlayed">Gigs Played:</label>
+									<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input">
+										<option value="0 - 10"> 0 - 10 </option>
+										<option value="10 - 20"> 10 - 20 </option>
+										<option value="20 - 30"> 20 - 30 </option>
+										<option value="30 - 40"> 30 - 40 </option>
+										<option value="40 - 50"> 40 - 50 </option>
+										<option value="50 - 60"> 50 - 60 </option>
+										<option value="60 - 70"> 60 - 70 </option>
+										<option value="70 - 80"> 70 - 80 </option>
+										<option value="90 - 100"> 90 - 100 </option>
+										<option value="100 +"> 100 + </option>
+									</select>
+								</div>
+							</div>
+							<div class="column one-2">
+								<div class="form_input">
+									<label for="commitment">Commitment:</label>
+									<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input">
+										<option value="Just For Fun"> Just For Fun </option>
+										<option value="Somewhat Commited"> Somewhat Commited </option>
+											<option value="Commited"> Commited </option>
+										<option value="Very Commited"> Very Commited </option>
+									</select>
+								</div>
+								<div class="form_input">
+									<label for="availability">Availability:</label>
+									<select id="availability" name="availability" ng-model="user.availability" class="edit_input">
+										<option value="1 days per week"> 1 days per week </option>
+										<option value="2 days per week"> 2 days per week </option>
+										<option value="3 days per week"> 3 days per week </option>
+										<option value="4 days per week"> 4 days per week </option>
+										<option value="5 days per week"> 5 days per week </option>
+										<option value="6 days per week"> 6 days per week </option>
+										<option value="7 days per week"> 7 days per week </option>
+									</select>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</section>
+
+			<section id="user_sidebar_right" class="column two-5">
+				<div id="general_section">
+					<h3> General <img src="images/uparrow-icon.png"></h3>
+					<form id="checkbox_form">
+						<div class="bg_related_input first">
+							<label for="emailUser"> <input type="checkbox" id="emailUser" name="emailUser" ng-model="user.emailUser"
+ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Email me when I recieve a new message </label>
+						</div>
+						<div class="bg_related_input">
+							<label for="hideUser"><input type="checkbox" name="hideUser" id="hideUser" name="hideUser" ng-model="user.hideUser"
+ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hide my profile from search results </label>
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="checkboxUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+					<div class="clear_fix"></div>
+					<form id="email_form">
+						<label for="email">Email Address:</label>
+						<!--<p> Changing your email address will also change the email you use for login. </p>-->
+						<div class="related_input">
+							<input type="text" name="email" id="email" ng-model="user.email" placeholder="Email Address" ng-focus="emailUpdate = true" class="edit_input">
+							<input type="password" name="password" placeholder="Password" ng-focus="emailUpdate = true" class="edit_input">
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="emailUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+					<form id="password_form">
+						<label for="password">Reset Password:</label>
+						<div class="related_input">
+							<input type="password" id="password" name="password_current" placeholder="Current Password" ng-focus="passwordUpdate = true" class="edit_input">
+							<input type="password" name="password_new" placeholder="New Password" ng-focus="passwordUpdate = true" class="edit_input">
+							<input type="password" name="password_retype" placeholder="Retype New Password" ng-focus="passwordUpdate = true" class="edit_input">
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="passwordUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+				</div>
+				<div id="audio_section">
+					<h3> Audio <img src="images/uparrow-icon.png"> </h3>
+					<form id="audio_form">
+						<p>Add audio to your profile with <img src="images/soundcloud-logo2.png" alt="Soundcloud">. </p>
+						<p>Copy the url for your channel, track, or playlist and paste it below to add it to your profile. </p>
+						<div class="form_input">
+							<input type="url" name="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true" class="edit_input">
+							<div class="clear_fix"></div>
+						</div>
+						<div class="form_input">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="scUrlUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+				</div>
+				<div id="video_section">
+					<h3> Video <img src="images/uparrow-icon.png"> </h3>
+					<form id="video_form">
+						<p>Add <img src="images/youtube-logo.png" alt="YouTube"> videos to your profile.</p>
+						<p>Copy the url for your video  and paste it below to add it to your profile. Click the ‘+ Video’ button to add more videos. </p>
+						<div class="form_input">
+							<input type="url" name="ytUrl" placeholder="ex. http://www.youtube.com/embed/Oww-7cxOBUk" ng-focus="ytUrlUpdate = true" class="edit_input">
+							<div class="clear_fix"></div>
+						</div>
+						<div class="form_input">
+							<input type="submit" value="Update" ng-show="ytUrlUpdate">
+							<div class="clear_fix"></div>
+						</div>
+					</form>
+				</div>
+			</section>
+
+			<div class="clear_fix"></div>
+		</div>
+	</div>
+</div>
+
+<div ng-include src="'views/footer.html'"></div>
