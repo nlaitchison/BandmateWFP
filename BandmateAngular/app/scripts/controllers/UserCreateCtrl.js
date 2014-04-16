@@ -8,7 +8,7 @@ App.controller('UserCreateCtrl', function ($scope, Restangular) {
 
     if($scope.signup.password === $scope.validate.password){
       console.log('match');
-      u.post($scope.signup.email).then(function(item){
+      u.post($scope.signup).then(function(item){
         console.log(item);
       });
     }else{

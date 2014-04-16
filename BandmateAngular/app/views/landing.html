@@ -13,7 +13,7 @@
 			<img src="images/cta-logo.png" alt="Bandmate Logo">
 			<p>Create your own profile so musicians can find you. You'll also be able to message musicians and follow them by adding them to your personal studio.</p>
 			<form id="signup" ng-controller="UserCreateCtrl" ng-submit="submit()">
-				<input type="email" name="email_signup" placeholder="Email Address" ng-model="signup.email">
+				<input type="email" name="email_signup" placeholder="Email Address" ng-model="signup.username">
 				<input type="password" name="password_signup" placeholder="Password" ng-model="signup.password">
 				<input type="password" name="retype_password_signup"  placeholder="Retype Password" ng-model="validate.password">
 				<input type="submit" name="signup_button" value="Sign Up">
