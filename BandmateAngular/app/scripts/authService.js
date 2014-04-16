@@ -38,7 +38,7 @@
     this.setloggedOut = function(){
       $http.defaults.headers.common['Authorization'] = '';
       $cookieStore.put('authData', '');
-      loggedIn =false;
+      loggedIn = false;
     };
 
     this.isLoggedIn = function(){
