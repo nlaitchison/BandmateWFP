@@ -14,7 +14,7 @@ App.controller('LoginCtrl', function ($scope, Restangular, $http, AuthService, B
       console.log(data);
       if (data.message === 'login successful'){
         AuthService.setLoggedIn($scope.login.username, encoded);
-        console.log(AuthService.isLoggedIn());
+        console.log('login ctrl:', AuthService.isLoggedIn());
         $location.path('/');
 
       }else{

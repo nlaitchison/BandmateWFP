@@ -4,10 +4,13 @@
 
 App.controller('NavCtrl', function ($scope, AuthService) {
 
-	$scope.user = [];
+	console.log('nav', AuthService.isLoggedIn());
+	$scope.loggedIn = AuthService.isLoggedIn();
 
-	$scope.user.loggedIn = AuthService.isLoggedIn();
-
-	console.log('logged in:', $scope.user.loggedIn);
+	$scope.logout = function(){
+		AuthService.setloggedOut();
+		$scope.loggedIn = AuthService.isLoggedIn();
+		console.log('logout nav:', $scope.loggedIn);
+	};
 
 });
