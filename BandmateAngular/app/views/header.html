@@ -22,16 +22,16 @@
 	</div>
 </header>
 
-<div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}">
+<div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}" ng-controller="NavCtrl" ng-hide="loggedIn">
 	<h3> Login to Bandmate </h3>
-	<form name="login" ng-controller="LoginCtrl" ng-submit="submit()">
+	<form name="login" ng-submit="submit()">
 		<div class="form_input">
 			<input type="text" name="login_email" id="login_email" placeholder="Email Address" ng-model="login.username">
 		</div>
 		<div class="form_input">
 			<input type="password" name="login_password" id="login_password" placeholder="Password" ng-model="login.password">
 		</div>
-		<input type="submit" id="login_button" value="login">
+		<input type="submit" id="login_button" value="login" ng-click="!$root.loginClicked">
 		<div clas="clear_fix"></div>
 	</form>
 </div>
