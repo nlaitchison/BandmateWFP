@@ -9,8 +9,22 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
 	// get user from db
 	Restangular.one('users', $routeParams.id).get().then(function(u){
+
+		//set scope to db
 		$scope.user = u;
+
 	});
+
+	// when the account_info form is submmitted
+	$scope.accountInfoSubmit = function() {
+
+		console.log('accountInfoSubmit');
+
+		// update the user data
+		$scope.user.put().then(function(){
+		});
+
+    };
 
 	// $scope.user = {
 	// 	'id' : 1,

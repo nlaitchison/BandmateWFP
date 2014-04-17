@@ -6,7 +6,7 @@
 			<img ng-src="{{user.profileImg}}">
 		</div>
 		<div class="profile_basic">
-			<form name="account_info" id="account_info">
+			<form name="account_info" id="account_info" ng-submit="accountInfoSubmit()">
 				<fieldset>
 					<div class="form_input">
 						<label for="name">Name:</label>
@@ -17,7 +17,7 @@
 					<label>Account Type:</label>
 					<div class="bg_related_input first">
 						<label for="musician"> <input type="checkbox" id="musician" name="musician"
-ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true"> Musician </label>
+ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true" ng-model="user.accountType"> Musician </label>
 					</div>
 					<div class="bg_related_input">
 						<label for="band"> <input type="checkbox" id="band" name="band"
@@ -113,7 +113,7 @@ ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> In
 				<fieldset>
 					<div class="form_input">
 						<label for="gender">Gender:</label>
-						<select id="gender" name="gender" ng-model="user.gender" class="edit_input">
+						<select id="gender" name="gender" ng-model="user.gender" class="edit_input" ng-focus="generalUpdate = true">
 							<option value="Unspecified"> Unspecified </option>
 							<option value="Male"> Male </option>
 							<option value="Female"> Female </option>
@@ -141,7 +141,7 @@ ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> In
 					</div>
 				</fieldset>
 				<div class="form_input">
-					<input type="submit" id="checkbox_submit" value="Update" ng-show="generalUpdate">
+					<input type="submit" id="checkbox_submit" value="Update" ng-show="generalUpdate" ng-click="generalUpdate = false">
 					<div class="clear_fix"></div>
 				</div>
 			</form>
