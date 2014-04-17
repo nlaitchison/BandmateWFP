@@ -26,6 +26,12 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
         'instructor' : 'false'
       };
 
+      //set default email User
+      $scope.signup.emailUser = 'true';
+
+      //set default hide profile
+      $scope.signup.hideUser = 'false';
+
       // add the user to the database then login the new user
       u.post($scope.signup).then(function(user){
 

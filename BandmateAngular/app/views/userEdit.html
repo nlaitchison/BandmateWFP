@@ -221,7 +221,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 			<section id="user_sidebar_right" class="column two-5">
 				<div id="general_section">
 					<h3> General <img src="images/uparrow-icon.png"></h3>
-					<form id="checkbox_form">
+					<form id="checkbox_form" ng-submit="checkboxFormSubmit()">
 						<div class="bg_related_input first">
 							<label for="emailUser"> <input type="checkbox" id="emailUser" name="emailUser" ng-model="user.emailUser"
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Email me when I recieve a new message </label>
@@ -231,7 +231,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Em
 ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hide my profile from search results </label>
 						</div>
 						<div class="form_input">
-							<input type="submit" id="checkbox_submit" value="Update" ng-show="checkboxUpdate">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="checkboxUpdate" ng-click="checkboxUpdate = false">
 							<div class="clear_fix"></div>
 						</div>
 					</form>
