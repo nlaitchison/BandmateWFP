@@ -15,7 +15,7 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 				if (data.message === 'login successful'){
 					AuthService.setLoggedIn($scope.login.username, encoded, data.user);
 					console.log('nav ctrl:', AuthService.isLoggedIn());
-					$location.path('/edit/' + data.user.id);
+					$location.path('/account/' + data.user.id);
 					$scope.loggedIn = AuthService.isLoggedIn();
 				}else{
 					alert('Invalid Username or Password!');
