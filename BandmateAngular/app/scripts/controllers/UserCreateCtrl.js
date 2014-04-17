@@ -16,6 +16,16 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
       //set email to also equal the username field
       $scope.signup.email = $scope.signup.username;
 
+      //set default profile img
+      $scope.signup.profileImg = 'images/default-user-lrg.png';
+
+      //set default accountType
+      $scope.signup.accountType = {
+        'musician' : 'false',
+        'band' : 'false',
+        'instructor' : 'false'
+      };
+
       // add the user to the database then login the new user
       u.post($scope.signup).then(function(user){
 

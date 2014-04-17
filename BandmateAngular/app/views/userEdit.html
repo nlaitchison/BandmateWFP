@@ -17,15 +17,15 @@
 					<label>Account Type:</label>
 					<div class="bg_related_input first">
 						<label for="musician"> <input type="checkbox" id="musician" name="musician"
-ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true" ng-model="user.accountType"> Musician </label>
+ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-model="user.accountType.musician"> Musician </label>
 					</div>
 					<div class="bg_related_input">
 						<label for="band"> <input type="checkbox" id="band" name="band"
-ng-true-value="Band" ng-false-value="" ng-focus="generalUpdate = true"> Band </label>
+ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-model="user.accountType.band"> Band </label>
 					</div>
 					<div class="bg_related_input last">
 						<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
-ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> Instructor </label>
+ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-model="user.accountType.instructor"> Instructor </label>
 					</div>
 				</fieldset>
 				<fieldset id="location">
