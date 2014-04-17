@@ -32,7 +32,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 					<div class="form_input">
 						<label for="city">Location:</label>
 						<div class="clear_fix"></div>
-						<input type="text" id="city" name="city" ng-model="user.city" placeholder="Year 0000" class="edit_input" ng-focus="generalUpdate = true">
+						<input type="text" id="city" name="city" ng-model="user.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
 						<select id="state" name="state" ng-model="user.state" class="edit_input" ng-focus="generalUpdate = true">
 							<option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
@@ -106,15 +106,15 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 							<option value="11"> November </option>
 							<option value="12"> December </option>
 						</select>
-						<input type="text" id="birthDay" name="birthDay" ng-model="user.birthDay" placeholder="Day 00"  class="edit_input" ng-focus="generalUpdate = true">
-						<input type="text" id="birthYear" name="birthYear" ng-model="user.birthYear" placeholder="Year 0000" class="edit_input" ng-focus="generalUpdate = true">
+						<input type="text" id="birthDay" name="birthDay" ng-model="user.birthDay" placeholder="Day 00"  class="edit_input" ng-focus="generalUpdate = true" maxlength="2" minlength="2">
+						<input type="text" id="birthYear" name="birthYear" ng-model="user.birthYear" placeholder="Year 0000" class="edit_input" ng-focus="generalUpdate = true" maxlength="4" minlength="4">
 					</div>
 				</fieldset>
 				<fieldset>
 					<div class="form_input">
 						<label for="gender">Gender:</label>
 						<select id="gender" name="gender" ng-model="user.gender" class="edit_input" ng-focus="generalUpdate = true">
-							<option value="Unspecified"> Unspecified </option>
+							<option selected="selected" value="Unspecified"> Unspecified </option>
 							<option value="Male"> Male </option>
 							<option value="Female"> Female </option>
 						</select>
@@ -124,19 +124,19 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 				<fieldset id="social_urls">
 					<label>Social Media Accounts:</label>
 					<div class="bg_related_input first">
-						<label for="facebookUrl"><img ng-src="images/facebook-icon.png"></label><input type="url" id="facebookUrl" name="facebookUrl" ng-focus="generalUpdate = true" ng-model="user.facebookUrl">
+						<label for="facebookUrl"><img ng-src="images/facebook-icon.png"></label><input type="url" id="facebookUrl" name="facebookUrl" ng-focus="generalUpdate = true" ng-model="user.facebookUrl" placeholder="ex. https://www.facebook.com/example">
 						<div class="clear_fix"></div>
 					</div>
 					<div class="bg_related_input">
-						<label for="twitterUrl"><img ng-src="images/twitter-icon.png"></label><input type="url" id="twitterUrl" name="twitterUrl" ng-focus="generalUpdate = true" ng-model="user.twitterUrl">
+						<label for="twitterUrl"><img ng-src="images/twitter-icon.png"></label><input type="url" id="twitterUrl" name="twitterUrl" ng-focus="generalUpdate = true" ng-model="user.twitterUrl" placeholder="ex. https://www.twitter.com/example">
 						<div class="clear_fix"></div>
 					</div>
 					<div class="bg_related_input">
-						<label for="soundcloudUrl"><img ng-src="images/soundcloud-icon.png"></label><input type="url" id="soundcloudUrl" name="soundcloudUrl" ng-focus="generalUpdate = true" ng-model="user.soundcloudUrl">
+						<label for="soundcloudUrl"><img ng-src="images/soundcloud-icon.png"></label><input type="url" id="soundcloudUrl" name="soundcloudUrl" ng-focus="generalUpdate = true" ng-model="user.soundcloudUrl" placeholder="ex. https://www.soundcloud.com/example">
 						<div class="clear_fix"></div>
 					</div>
 					<div class="bg_related_input last">
-						<label for="youtubeUrl"><img ng-src="images/youtube-icon.png"></label><input type="url" id="youtubeUrl" name="youtubeUrl" ng-focus="generalUpdate = true" ng-model="user.youtubeUrl">
+						<label for="youtubeUrl"><img ng-src="images/youtube-icon.png"></label><input type="url" id="youtubeUrl" name="youtubeUrl" ng-focus="generalUpdate = true" ng-model="user.youtubeUrl" placeholder="ex. https://www.youtube.com/channel/example">
 						<div class="clear_fix"></div>
 					</div>
 				</fieldset>
@@ -263,15 +263,15 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hi
 				</div>
 				<div id="audio_section">
 					<h3> Audio <img src="images/uparrow-icon.png"> </h3>
-					<form id="audio_form">
+					<form id="audio_form" ng-submit="audioFormSubmit()">
 						<p>Add audio to your profile with <img src="images/soundcloud-logo2.png" alt="Soundcloud">. </p>
 						<p>Copy the url for your channel, track, or playlist and paste it below to add it to your profile. </p>
 						<div class="form_input">
-							<input type="url" name="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true" class="edit_input">
+							<input type="url" name="scPlayerUrl" placeholder="ex. https://soundcloud.com/example/playlist" ng-focus="scUrlUpdate = true" class="edit_input" ng-model="user.scPlayerUrl">
 							<div class="clear_fix"></div>
 						</div>
 						<div class="form_input">
-							<input type="submit" id="checkbox_submit" value="Update" ng-show="scUrlUpdate">
+							<input type="submit" id="checkbox_submit" value="Update" ng-show="scUrlUpdate" ng-click="scUrlUpdate = false">
 							<div class="clear_fix"></div>
 						</div>
 					</form>
