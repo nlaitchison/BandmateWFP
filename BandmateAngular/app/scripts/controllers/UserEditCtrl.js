@@ -27,6 +27,17 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
     };
 
     // when the audio form is submitted
+    $scope.basicInfoSubmit = function() {
+
+    	console.log('basicInfoSubmit');
+
+		// update the user data
+		$scope.user.put().then(function(){
+		});
+
+    };
+
+    // when the audio form is submitted
     $scope.audioFormSubmit = function() {
 
     	console.log('audioFormSubmit');

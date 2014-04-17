@@ -154,29 +154,29 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 			<section class="column three-5">
 				<div id="center_form">
 					<h3>Basic Info</h3>
-					<form name="basic_info" id="basic_info">
+					<form name="basic_info" id="basic_info" ng-submit="basicInfoSubmit()">
 						<fieldset>
 							<div class="form_input">
 								<label for="about">About:</label>
-								<textarea id="about" name="about" ng-model="user.about" class="edit_input">Write about yourself here...</textarea>
+								<textarea id="about" name="about" ng-model="user.about" class="edit_input" ng-focus="basicInfoUpdate = true">Write about yourself here...</textarea>
 							</div>
 						</fieldset>
 						<fieldset class="split">
 							<div class="column one-2">
 								<div class="form_input">
 									<label for="lookingFor">Looking For:</label>
-									<select id="lookingFor" name="lookingFor" ng-model="user.lookingFor" class="edit_input">
+									<select id="lookingFor" name="lookingFor" ng-model="user.lookingFor" class="edit_input" ng-focus="basicInfoUpdate = true">
 										<option value="Guitarist"> Guitarist </option>
 										<option value="Band"> Band </option>
 									</select>
 								</div>
 								<div class="form_input">
 									<label for="yearsOfExp">Years of Experience:</label>
-									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input">
+									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input" ng-focus="basicInfoUpdate = true">
 								</div>
 								<div class="form_input">
 									<label for="gigsPlayed">Gigs Played:</label>
-									<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input">
+									<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input" ng-focus="basicInfoUpdate = true">
 										<option value="0 - 10"> 0 - 10 </option>
 										<option value="10 - 20"> 10 - 20 </option>
 										<option value="20 - 30"> 20 - 30 </option>
@@ -193,7 +193,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 							<div class="column one-2">
 								<div class="form_input">
 									<label for="commitment">Commitment:</label>
-									<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input">
+									<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input" ng-focus="basicInfoUpdate = true">
 										<option value="Just For Fun"> Just For Fun </option>
 										<option value="Somewhat Commited"> Somewhat Commited </option>
 											<option value="Commited"> Commited </option>
@@ -202,7 +202,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 								</div>
 								<div class="form_input">
 									<label for="availability">Availability:</label>
-									<select id="availability" name="availability" ng-model="user.availability" class="edit_input">
+									<select id="availability" name="availability" ng-model="user.availability" class="edit_input" ng-focus="basicInfoUpdate = true">
 										<option value="1 days per week"> 1 days per week </option>
 										<option value="2 days per week"> 2 days per week </option>
 										<option value="3 days per week"> 3 days per week </option>
@@ -214,6 +214,16 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 								</div>
 							</div>
 						</fieldset>
+						<fieldset>
+							<div class="form_input">
+								<label for="equipment">Equipment:</label>
+								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
+							</div>
+						</fieldset>
+						<div class="form_input">
+							<input type="submit" id="basic_info_submit" value="Update" ng-show="basicInfoUpdate" ng-click="scUrlUpdate = false">
+							<div class="clear_fix"></div>
+						</div>
 					</form>
 				</div>
 			</section>
