@@ -8,17 +8,14 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 	$scope.loggedIn = AuthService.isLoggedIn();
 
 	$scope.submit = function() {
-		console.log('meow');
 		var encoded = Base64.encode($scope.login.username + ':' + $scope.login.password);
-		console.log(encoded);
 
 		$http({method: 'POST', url: 'http://localhost:1337/auth/login', headers: {'Authorization': 'Basic ' + encoded}}).
 			success(function(data, status, headers, config){
-				console.log(data);
 				if (data.message === 'login successful'){
-					AuthService.setLoggedIn($scope.login.username, encoded);
+					AuthService.setLoggedIn($scope.login.username, encoded, data.user);
 					console.log('nav ctrl:', AuthService.isLoggedIn());
-					$location.path('/profile/1');
+					$location.path('/edit/' + data.user.id);
 					$scope.loggedIn = AuthService.isLoggedIn();
 				}else{
 					alert('Invalid Username or Password!');

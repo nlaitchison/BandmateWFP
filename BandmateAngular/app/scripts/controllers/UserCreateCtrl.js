@@ -11,20 +11,19 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
       u.post($scope.signup).then(function(user){
         console.log(user);
 
-        var encoded = Base64.encode($scope.signup.username + ':' + $scope.signup.password);
-        console.log(encoded);
+        var encoded = Base64.encode($scope.login.username + ':' + $scope.login.password);
 
         $http({method: 'POST', url: 'http://localhost:1337/auth/login', headers: {'Authorization': 'Basic ' + encoded}}).
-        success(function(data, status, headers, config){
-          console.log(data);
-          if (data.message === 'login successful'){
-            AuthService.setLoggedIn($scope.signup.username, encoded);
-            console.log(AuthService.isLoggedIn());
-            $location.path('/');
-          }else{
-            alert('Invalid Username or Password!');
-          }
-        });
+          success(function(data, status, headers, config){
+            if (data.message === 'login successful'){
+              AuthService.setLoggedIn($scope.login.username, encoded, data.user);
+              console.log('nav ctrl:', AuthService.isLoggedIn());
+              $location.path('/account/' + data.user.id);
+              $scope.loggedIn = AuthService.isLoggedIn();
+            }else{
+              alert('Invalid Username or Password!');
+            }
+          });
 
       });
     }else{

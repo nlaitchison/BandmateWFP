@@ -29,28 +29,32 @@
       }
     };
 
-    this.setLoggedIn = function(username, encoded){
+    this.setLoggedIn = function(username, encoded, user){
       $http.defaults.headers.common['Authorization'] = 'Basic ' + encoded;
       $cookieStore.put('authData', encoded);
+      $cookieStore.put('userId', user.id);
       this.setHeader();
     };
 
     this.setloggedOut = function(){
       $http.defaults.headers.common['Authorization'] = '';
       $cookieStore.put('authData', '');
+      $cookieStore.put('userId', '');
       loggedIn = false;
     };
 
     this.isLoggedIn = function(){
       var user = $cookieStore.get('authData');
-      console.log('auth isLoggedIn:', user);
+
       console.log('auth loggedIn', loggedIn);
+
       if(user !== ''){
         loggedIn = true;
+      }else{
+        loggedIn = false;
       }
       return loggedIn;
     };
-
     // this.setHeader();
   });
 

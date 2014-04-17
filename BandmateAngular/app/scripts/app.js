@@ -16,7 +16,7 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/userView.html',
         controller: 'UserViewCtrl'
       })
-      .when('/edit/:id', {
+      .when('/account/:id', {
         templateUrl: 'views/userEdit.html',
         controller: 'UserEditCtrl'
       })
