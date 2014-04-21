@@ -14,7 +14,12 @@ App.config(function ($routeProvider) {
       })
       .when('/profile/:id', {
         templateUrl: 'views/userView.html',
-        controller: 'UserViewCtrl'
+        controller: 'UserViewCtrl',
+        resolve: {
+          user: ['Restangular', '$route', function(Restangular, $route) {
+              return Restangular.one('users', $route.current.params.id).get();
+          }]
+        }
       })
       .when('/account/:id', {
         templateUrl: 'views/userEdit.html',
