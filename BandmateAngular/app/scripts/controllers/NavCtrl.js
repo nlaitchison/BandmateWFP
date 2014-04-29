@@ -22,19 +22,28 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
             // if the user logged in
             if (data.message === 'login successful'){
 
-              // set all the data for the user
-              AuthService.setLoggedIn($scope.login.username, encoded, data.user);
+				// set all the data for the user
+				AuthService.setLoggedIn($scope.login.username, encoded, data.user);
 
-              console.log('nav ctrl:', AuthService.isLoggedIn());
+				console.log('nav ctrl:', AuthService.isLoggedIn());
 
-              // take user to account page
-              $location.path('/account/' + data.user.id);
+				// take user to account page
+				$location.path('/account/' + data.user.id);
 
-              // set scope var for nav show and hide ul
-              $scope.loggedIn = AuthService.isLoggedIn();
+				// set scope var for nav show and hide ul
+				$scope.loggedIn = AuthService.isLoggedIn();
+
+				// get user from db to set scope for nav info
+				Restangular.one('users', data.user.id).get().then(function(u){
+
+					//set scope to db
+					$scope.user = u;
+					console.log($scope.user);
+
+				});
 
             }else{
-              alert('Invalid Username or Password!');
+             	alert('Invalid Username or Password!');
             }
           });
 	};
