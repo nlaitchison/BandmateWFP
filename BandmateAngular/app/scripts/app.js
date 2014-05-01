@@ -18,6 +18,9 @@ App.config(function ($routeProvider) {
         resolve: {
           user: ['Restangular', '$route', function(Restangular, $route) {
               return Restangular.one('users', $route.current.params.id).get();
+          }],
+          videos: ['Restangular', '$route', function(Restangular, $route) {
+              return Restangular.one('videos', $route.current.params.id).get();
           }]
         }
       })

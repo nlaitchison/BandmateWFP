@@ -2,13 +2,14 @@
 
 /*global App*/
 
-App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $location, AuthService, user) {
+App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $location, AuthService, user, videos) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
 
 	//set scope to db
 	$scope.user = user;
+	$scope.videos = videos;
 
 	console.log($scope.user);
 
