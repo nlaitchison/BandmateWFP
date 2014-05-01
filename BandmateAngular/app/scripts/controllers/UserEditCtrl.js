@@ -21,6 +21,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
 		//set scope to db
 		$scope.videos = v;
+
 	});
 
 	// when the account_info form is submmitted
@@ -69,6 +70,21 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
     // when the video form is submitted
     $scope.videoFormSubmit = function() {
+
+    	for (var i=0;i<$scope.videos.urls.length;i++)
+		{
+			var url= $scope.videos.urls[i].url;
+			var regExp = /(youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([\w'-]+))/;
+			var match = url.match(regExp);
+			if (match&&match[2].length==11){
+				$scope.videos.urls[i].code = match[2];
+			    console.log($scope.videos.urls[i]);
+			}else{
+			    //error
+			}
+		}
+
+    	// update the video data
     	$scope.videos.put().then(function(){
     		console.log('meow');
 		});
