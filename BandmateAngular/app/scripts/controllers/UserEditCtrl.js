@@ -15,6 +15,14 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
 	});
 
+	// get video urls
+	// var v = Restangular.all('videos');
+	Restangular.one('videos', $routeParams.id).get().then(function(v){
+
+		//set scope to db
+		$scope.videos = v;
+	});
+
 	// when the account_info form is submmitted
 	$scope.accountInfoSubmit = function() {
 
@@ -59,6 +67,39 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
     };
 
+    // when the video form is submitted
+    $scope.videoFormSubmit = function() {
+    	$scope.videos.put().then(function(){
+    		console.log('meow');
+		});
+    };
+
+    // when add input for videos is clicked
+    $scope.addInput = function() {
+    	$scope.videos.urls.push({'url':'', 'code':''});
+    };
+
+ //       $scope.videos = {
+ //    	'id' : '53505cd2c544c1d859281e2b',
+ //    	'urls' : [
+ //    		{
+	// 			'url' : 'http://www.youtube.com/embed/Oww-7cxOBUk',
+	// 			'code' : 'Oww-7cxOBUk',
+	// 		},
+	// 		{
+	// 			'url' : 'http://www.youtube.com/embed/PSjaM9E2gr4',
+	// 			'code' : 'PSjaM9E2gr4',
+	// 		},
+	// 		{
+	// 			'url' : 'http://www.youtube.com/embed/PSjaM9E2gr4',
+	// 			'code' : 'PSjaM9E2gr4',
+	// 		}
+ //    	]
+	// };
+
+	// v.post($scope.videos).then(function(item){
+	// 	console.log(item);
+	// });
 
 	// $scope.user = {
 	// 	'id' : 1,
