@@ -46,7 +46,7 @@
     this.isLoggedIn = function(){
       var user = $cookieStore.get('authData');
 
-      console.log('auth loggedIn', loggedIn);
+      // console.log('auth loggedIn', loggedIn);
 
       if(user !== ''){
         loggedIn = true;

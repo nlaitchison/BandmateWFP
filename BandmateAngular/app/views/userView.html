@@ -16,7 +16,9 @@
 				<li class="active_within"> {{user.lastActive}} </li>
 			</ul>
 			<ul class="user_buttons">
-				<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> + Studio </button></li>
+				<p>{{exists}}</p>
+				<div class="clear_fix"></div>
+				<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
 				<li><button class="{{user.id}}" name="message"> Message </button></li>
 				<div class="clear_fix"></div>
 			</ul>

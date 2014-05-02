@@ -4,7 +4,7 @@
 
 App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location, $cookieStore) {
 
-	console.log('nav', AuthService.isLoggedIn());
+	// console.log('nav', AuthService.isLoggedIn());
 
 	//set var for show and hide nav ul
 	$scope.loggedIn = AuthService.isLoggedIn();
