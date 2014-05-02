@@ -22,6 +22,10 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 		//set scope to db
 		$scope.videos = v;
 
+		if($scope.videos.urls.length < 1){
+			$scope.videos.urls.push({'url':'', 'code':''});
+		}
+
 	});
 
 	// when the account_info form is submmitted
