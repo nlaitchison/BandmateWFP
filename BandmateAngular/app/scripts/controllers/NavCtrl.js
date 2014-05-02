@@ -2,12 +2,21 @@
 
 /*global App*/
 
-App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location) {
+App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location, $cookieStore) {
 
 	console.log('nav', AuthService.isLoggedIn());
 
 	//set var for show and hide nav ul
 	$scope.loggedIn = AuthService.isLoggedIn();
+
+	var currentUserId = $cookieStore.get('userId');
+
+	Restangular.one('users', currentUserId).get().then(function(u){
+
+		//set scope to db
+		$scope.currentUser = u;
+
+	});
 
 	// on login submit
 	$scope.submit = function() {
