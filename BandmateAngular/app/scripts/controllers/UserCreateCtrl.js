@@ -52,6 +52,9 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
 
               console.log('nav ctrl:', AuthService.isLoggedIn());
 
+              // create studio and video object for user
+              createObjects(data.user.id);
+
               // take user to account page
               $location.path('/account/' + data.user.id);
 
@@ -70,4 +73,32 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
       console.log('dont match');
     }
   };
+
+  var createObjects = function(id){
+
+    // get users db
+    var s = Restangular.all('studios');
+
+    $scope.studio = {
+      'id' : id,
+      'following' : []
+    };
+
+    s.post($scope.studio).then(function(studio){
+      console.log(studio);
+    });
+
+    // get users db
+    var v = Restangular.all('videos');
+
+    $scope.videos = {
+      'id' : id,
+      'urls' : []
+    };
+
+    v.post($scope.videos).then(function(videos){
+      console.log(videos);
+    });
+  };
+
 });
