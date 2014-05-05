@@ -13,10 +13,10 @@
 				<li ng-click="$root.signupClicked = !$root.signupClicked"><a href="#">SIGNUP</a></li>
 			</ul>
 			<ul ng-show="loggedIn">
-				<li><a href="#/studio">Studio</a></li>
-				<li class="messages_icon"><a href="#"><img src="images/messages-icon.png"></a></li>
-				<li class="settings_icon" ng-click="logout()"><img src="images/settings-icon.png"></li>
-				<li class="user_img"><img ng-src="{{currentUser.profileImg}}" alt="user img"><a href="#/profile/{{currentUser.id}}">{{currentUser.name}}</a></li>
+				<li><a href="#/studio" ng-click="$root.settingsClicked = !$root.settingsClicked">Studio</a></li>
+				<li class="messages_icon" ng-click="$root.settingsClicked = !$root.settingsClicked"><a href="#"><img src="images/messages-icon.png"></a></li>
+				<li class="settings_icon" ng-click="$root.settingsClicked = !$root.settingsClicked"><img src="images/settings-icon.png"></li>
+				<li class="user_img" ng-click="$root.settingsClicked = !$root.settingsClicked"><img ng-src="{{currentUser.profileImg}}" alt="user img"><a href="#/profile/{{currentUser.id}}">{{currentUser.name}}</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -34,6 +34,13 @@
 		<input type="submit" id="login_button" value="login" ng-click="!$root.loginClicked">
 		<div clas="clear_fix"></div>
 	</form>
+</div>
+
+<div id="settings_menu" ng-show="settingsClicked">
+	<ul>
+		<li ng-click="$root.settingsClicked = !$root.settingsClicked"> <a href="#/account"> Edit Account </a> </li>
+		<li class="logout_link" ng-click="logout()" ng-click="$root.settingsClicked = !$root.settingsClicked"> Logout </li>
+	</ul>
 </div>
 
 <!-- <header ng-controller="NavCtrl">

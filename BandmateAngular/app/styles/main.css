@@ -162,6 +162,10 @@ button:hover, input[type=submit]:hover{
 	display: none;
 }
 
+.user_thumb:hover{
+	background-color: #ddd;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
@@ -310,10 +314,33 @@ nav li.user_img a{
 	background-color: #1d1c67;
 }
 
-.user_thumb:hover{
-	background-color: #ddd;
+
+
+#settings_menu{
+	position: absolute;
+	top: 50px;
+	right: 95px;
+	background-color: #d6d6d6; /*363636*/
+	width: 85px;
+	padding: 20px;
+	border: 1px solid #aaaaaa;
+	border-top: none;
+	border-radius: 2px;
+	z-index: 1;
 }
 
+#settings_menu ul li{
+	clear: both;
+	width: 100%;
+}
+
+#settings_menu ul li:first-child{
+	padding-bottom: 10px;
+}
+
+.logout_link{
+	cursor: pointer;
+}
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Landing
