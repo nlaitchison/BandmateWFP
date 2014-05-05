@@ -2,13 +2,18 @@
 
 /*global App*/
 
-App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $location, AuthService) {
+App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
 
+	// get cuurent user's id
+	var userId = $cookieStore.get('userId');
+
+	console.log(userId);
+
 	// get user from db
-	Restangular.one('users', $routeParams.id).get().then(function(u){
+	Restangular.one('users', userId).get().then(function(u){
 
 		//set scope to db
 		$scope.user = u;
@@ -17,7 +22,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 
 	// get video urls
 	// var v = Restangular.all('videos');
-	Restangular.one('videos', $routeParams.id).get().then(function(v){
+	Restangular.one('videos', userId).get().then(function(v){
 
 		//set scope to db
 		$scope.videos = v;
@@ -34,75 +39,75 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 		console.log('accountInfoSubmit');
 
 		// update the user data
-		$scope.user.put().then(function(){
-		});
+		$scope.user.put().then(function(){});
 
-    };
+	};
 
-    // when the audio form is submitted
-    $scope.basicInfoSubmit = function() {
+	// when the audio form is submitted
+	$scope.basicInfoSubmit = function() {
 
-    	console.log('basicInfoSubmit');
-
-		// update the user data
-		$scope.user.put().then(function(){
-		});
-
-    };
-
-    // when the audio form is submitted
-    $scope.audioFormSubmit = function() {
-
-    	console.log('audioFormSubmit');
+		console.log('basicInfoSubmit');
 
 		// update the user data
-		$scope.user.put().then(function(){
-		});
+		$scope.user.put().then(function(){});
 
-    };
+	};
 
-    // when the check box form is submitted
-    $scope.checkboxFormSubmit = function() {
+	// when the audio form is submitted
+	$scope.audioFormSubmit = function() {
 
-    	console.log('checkboxFormSubmit');
+		console.log('audioFormSubmit');
 
 		// update the user data
-		$scope.user.put().then(function(){
-		});
+		$scope.user.put().then(function(){});
 
-    };
+	};
 
-    // when the video form is submitted
-    $scope.videoFormSubmit = function() {
+	// when the check box form is submitted
+	$scope.checkboxFormSubmit = function() {
 
-    	for (var i=0;i<$scope.videos.urls.length;i++)
+		console.log('checkboxFormSubmit');
+
+		// update the user data
+		$scope.user.put().then(function(){});
+
+	};
+
+	// when the video form is submitted
+	$scope.videoFormSubmit = function() {
+
+		for (var i=0;i<$scope.videos.urls.length;i++)
 		{
+
 			var url= $scope.videos.urls[i].url;
 			var regExp = /(youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([\w'-]+))/;
 			var match = url.match(regExp);
-			if (match&&match[2].length==11){
+
+			if (match&&match[2].length===11){
+
 				$scope.videos.urls[i].code = match[2];
-			    console.log($scope.videos.urls[i]);
+				console.log($scope.videos.urls[i]);
+
 			}else{
-			    //error
+			//error
 			}
 		}
 
-    	// update the video data
-    	$scope.videos.put().then(function(){
-    		console.log('meow');
+		// update the video data
+		$scope.videos.put().then(function(){
+			console.log('meow');
 		});
-    };
+	};
 
-    // when add input for videos is clicked
-    $scope.addInput = function() {
-    	$scope.videos.urls.push({'url':'', 'code':''});
-    };
+	// when add input for videos is clicked
+	$scope.addInput = function() {
+		$scope.videos.urls.push({'url':'', 'code':''});
+	};
 
- //       $scope.videos = {
- //    	'id' : '53505cd2c544c1d859281e2b',
- //    	'urls' : [
- //    		{
+ 	//       $scope.videos = {
+	//    	'id' : '53505cd2c544c1d859281e2b',
+ 	//    	'urls' : [
+ 	//    		{
 	// 			'url' : 'http://www.youtube.com/embed/Oww-7cxOBUk',
 	// 			'code' : 'Oww-7cxOBUk',
 	// 		},
@@ -114,7 +119,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $routeParams, $loc
 	// 			'url' : 'http://www.youtube.com/embed/PSjaM9E2gr4',
 	// 			'code' : 'PSjaM9E2gr4',
 	// 		}
- //    	]
+	//    	]
 	// };
 
 	// v.post($scope.videos).then(function(item){

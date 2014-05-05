@@ -24,11 +24,11 @@ App.config(function ($routeProvider) {
           }]
         }
       })
-      .when('/studio/:id', {
+      .when('/studio', {
         templateUrl: 'views/studio.html',
         controller: 'StudioCtrl'
       })
-      .when('/account/:id', {
+      .when('/account', {
         templateUrl: 'views/userEdit.html',
         controller: 'UserEditCtrl'
       })
