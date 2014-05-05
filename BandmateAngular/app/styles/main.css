@@ -306,6 +306,10 @@ nav li.user_img a{
 	background-color: #1d1c67;
 }
 
+.user_thumb:hover{
+	background-color: #ddd;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Landing

@@ -17,10 +17,17 @@ App.controller('StudioCtrl', function ($scope, Restangular, $routeParams, $locat
 		//set scope to db
 		$scope.studio = s;
 
+		//set scope
+		$scope.studioUsers = [];
+
 		if($scope.studio.following.length > 0){
 			console.log('run loop');
 			for (var i=0;i<$scope.studio.following.length;i++)
 			{
+				Restangular.one('users', $scope.studio.following[i].userId).get().then(function(u){
+					$scope.studioUsers.push(u);
+				});
+
 				if($scope.studio.following[i].userId === $routeParams.id){
 					$scope.exists = true;
 					$scope.position = i;
@@ -35,6 +42,15 @@ App.controller('StudioCtrl', function ($scope, Restangular, $routeParams, $locat
 		console.log('get studio:', $scope.exists, $scope.position);
 
 	});
+
+	// Restangular.all('users').getList().then(function(u){
+
+ //    	var allUsers = u;
+
+ //    	$scope.studioUsers = [];
+
+ //    	console.log($scope.studio.following);
+ //    });
 
 	// when the account_info form is submmitted
 	$scope.addRemoveStudio = function() {
@@ -61,8 +77,6 @@ App.controller('StudioCtrl', function ($scope, Restangular, $routeParams, $locat
 		}
 
 		console.log('addRemoveStudio');
-
-
 
     };
 

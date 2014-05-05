@@ -1,0 +1,24 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div id="main_content">
+
+	<section id="studio">
+		<div class="container">
+			<h2>Your Studio</h2>
+			<div ng-repeat="user in studioUsers">
+				<div class="column one-5">
+					<a href="#/profile/{{user.id}}">
+						<div class="user_thumb">
+							<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
+							<h4>{{user.name}}</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="clear_fix"></div>
+		</div>
+	</section>
+
+</div>
+
+<div ng-include src="'views/footer.html'"></div>

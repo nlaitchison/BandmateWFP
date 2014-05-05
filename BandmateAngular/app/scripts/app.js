@@ -24,6 +24,10 @@ App.config(function ($routeProvider) {
           }]
         }
       })
+      .when('/studio/:id', {
+        templateUrl: 'views/studio.html',
+        controller: 'StudioCtrl'
+      })
       .when('/account/:id', {
         templateUrl: 'views/userEdit.html',
         controller: 'UserEditCtrl'
