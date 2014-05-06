@@ -1,7 +1,22 @@
 <div ng-include src="'views/header.html'"></div>
 
-<div id="main_content">
- meow
+<div id="main_content" class="container">
+ 	<section id="inbox" class="column three-10">
+ 		<h2> Inbox </h2>
+ 		<div>
+	 		<div class="inbox_msg" ng-repeat="m in allMessages">
+	 			<div class="thumb_img"><img ng-src="{{m.recipientImg}}"></div>
+	 			<ul>
+	 				<li> {{m.recipientName}}</li>
+	 				<li> {{m.conversation[m.lastMsgIndex].text}}</li>
+	  				<li> {{m.updated}}</li>
+	  			</ul>
+	  			<div class="clear_fix"></div>
+	 		</div>
+	 	</div>
+ 	</section>
+ 	<section id="current_message" class="column three-5">
+ 	</section>
 </div>
 
 <div ng-include src="'views/footer.html'"></div>

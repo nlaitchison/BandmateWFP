@@ -45,11 +45,13 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 				'recipientName' : u.name,
 				'recipientImg' : u.profileImg,
 				'updated' : m.updatedAt,
-				'conversation' : m.conversation
+				'conversation' : m.conversation,
+				'lastMsgIndex' : m.conversation.length - 1
 			};
 
 			$scope.allMessages.push(c);
 
+			console.log($scope.allMessages);
 		});
 
     };
@@ -64,13 +66,15 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 				'recipientName' : u.name,
 				'recipientImg' : u.profileImg,
 				'updated' : m.updatedAt,
-				'conversation' : m.conversation
+				'conversation' : m.conversation,
+				'lastMsgIndex' : m.conversation.length - 1
 			};
 
 			$scope.allMessages.push(c);
 
-		});
+			console.log($scope.allMessages);
 
+		});
     };
 
 

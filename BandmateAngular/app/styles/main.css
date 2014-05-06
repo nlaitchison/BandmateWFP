@@ -829,6 +829,39 @@ fieldset#location select#state{
 }
 
 /* ---------------------------------------------------------------------------------------------------
+		∆ Messaging
+---------------------------------------------------------------------------------------------------*/
+
+.inbox_msg{
+	max-width: 100%;
+	clear: both;
+	border-top: 1px solid #d5d5d5;
+	border-left: 1px solid #d5d5d5;
+	border-right: 1px solid #d5d5d5;
+	padding: 10px 10px;
+}
+
+.inbox_msg:last-child{
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.inbox_msg:hover{
+	background-color: #ececec;
+	cursor: pointer;
+}
+
+.inbox_msg .thumb_img img{
+	width: 18%;
+	float: left;
+}
+
+.inbox_msg ul{
+	margin-left: 2%;
+	width: 68%;
+	float: left;
+}
+
+/* ---------------------------------------------------------------------------------------------------
 		∆ Footer
 ---------------------------------------------------------------------------------------------------*/
 
