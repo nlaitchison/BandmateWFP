@@ -36,10 +36,10 @@
 	</form>
 </div>
 
-<div id="settings_menu" ng-show="settingsClicked">
+<div id="settings_menu" ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked">
 	<ul>
-		<li ng-click="$root.settingsClicked = !$root.settingsClicked"> <a href="#/account"> Edit Account </a> </li>
-		<li class="logout_link" ng-click="logout()" ng-click="$root.settingsClicked = !$root.settingsClicked"> Logout </li>
+		<li> <a href="#/account"> Edit Account </a> </li>
+		<li class="logout_link" ng-controller="NavCtrl" ng-click="logout()" > Logout </li>
 	</ul>
 </div>
 

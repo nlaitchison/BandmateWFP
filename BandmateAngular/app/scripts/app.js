@@ -32,6 +32,10 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/userEdit.html',
         controller: 'UserEditCtrl'
       })
+      .when('/messages', {
+        templateUrl: 'views/message.html',
+        controller: 'MessageCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
