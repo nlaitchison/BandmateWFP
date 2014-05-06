@@ -82,7 +82,23 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			$scope.currentMsg = m;
 
 		});
-    }
+    };
+
+    $scope.sendMsg = function(){
+    	 var t = new Date();
+    	var m = {
+    		'userId' : userId,
+    		'timeSent' : t,
+    		'text' : $scope.newMsg.text
+    	};
+
+    	$scope.currentMsg.conversation.push(m);
+    	$scope.currentMsg.put().then(function(){
+    		$scope.newMsg.text = '';
+    	});
+
+    	console.log($scope.newMsg.text);
+    };
 
 
 

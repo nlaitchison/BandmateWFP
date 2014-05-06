@@ -861,6 +861,16 @@ fieldset#location select#state{
 	float: left;
 }
 
+#msg_container{
+	border: 1px solid #d5d5d5;
+	padding: 10px;
+	min-height: 370px;
+}
+
+.current_container{
+	padding-left: 20px;
+}
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Footer
 ---------------------------------------------------------------------------------------------------*/
