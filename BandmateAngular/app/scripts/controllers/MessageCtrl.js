@@ -10,14 +10,77 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
-	// get db
-     var m = Restangular.all('messages');
+	$scope.allMessages = [];
+
+	Restangular.all('messages').getList().then(function(m){
+
+    	console.log(m);
+
+    	for (var i=0;i<m.length;i++)
+		{
+			if(m[i].userOneId === userId){
+				console.log('one match');
+
+				getUserOne(m[i]);
+
+			}
+
+			if(m[i].userTwoId === userId){
+				console.log('two match');
+
+				getUserTwo(m[i]);
+
+			}
+		}
+
+    });
+
+    var getUserOne = function(m){
+
+    	// get their user data from the users db
+		Restangular.one('users', m.userTwoId).get().then(function(u){
+
+			var c = {
+				'recipientId' : u.id,
+				'recipientName' : u.name,
+				'recipientImg' : u.profileImg,
+				'updated' : m.updatedAt,
+				'conversation' : m.conversation
+			};
+
+			$scope.allMessages.push(c);
+
+		});
+
+    };
+
+    var getUserTwo = function(m){
+
+    	// get their user data from the users db
+		Restangular.one('users', m.userOneId).get().then(function(u){
+
+			var c = {
+				'recipientId' : u.id,
+				'recipientName' : u.name,
+				'recipientImg' : u.profileImg,
+				'updated' : m.updatedAt,
+				'conversation' : m.conversation
+			};
+
+			$scope.allMessages.push(c);
+
+		});
+
+    };
+
+
 
 	// var postMessages = function(){
-	// 	$scope.allMessages =
+	// var m = Restangular.all('messages');
+	// 		$scope.allMessages =
 	// 				{
-	// 			'userOneId' : '53630c5932c0536477c042a0',
-	// 			'userTwoId' : '53505cd2c544c1d859281e2b',
+	// 			'userOneId' : '53505cd2c544c1d859281e2b',
+	// 			'userTwoId' : '53630c5932c0536477c042a0',
 	// 			'conversation' :
 	// 			[
 	// 				{
