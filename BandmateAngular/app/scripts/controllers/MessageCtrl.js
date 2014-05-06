@@ -10,7 +10,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
-	$scope.allMessages = [];
+	$scope.allMsg = [];
 
 	Restangular.all('messages').getList().then(function(m){
 
@@ -41,17 +41,16 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 		Restangular.one('users', m.userTwoId).get().then(function(u){
 
 			var c = {
+				'id' : m.id,
 				'recipientId' : u.id,
 				'recipientName' : u.name,
 				'recipientImg' : u.profileImg,
 				'updated' : m.updatedAt,
-				'conversation' : m.conversation,
-				'lastMsgIndex' : m.conversation.length - 1
+				'conversation' : m.conversation[m.conversation.length - 1]
 			};
 
-			$scope.allMessages.push(c);
+			$scope.allMsg.push(c);
 
-			console.log($scope.allMessages);
 		});
 
     };
@@ -62,20 +61,28 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 		Restangular.one('users', m.userOneId).get().then(function(u){
 
 			var c = {
+				'id' : m.id,
 				'recipientId' : u.id,
 				'recipientName' : u.name,
 				'recipientImg' : u.profileImg,
 				'updated' : m.updatedAt,
-				'conversation' : m.conversation,
-				'lastMsgIndex' : m.conversation.length - 1
+				'conversation' : m.conversation[m.conversation.length - 1]
 			};
 
-			$scope.allMessages.push(c);
-
-			console.log($scope.allMessages);
+			$scope.allMsg.push(c);
 
 		});
     };
+
+    $scope.loadMsg = function(id){
+    	console.log(id);
+
+    	Restangular.one('messages', id).get().then(function(m){
+
+			$scope.currentMsg = m;
+
+		});
+    }
 
 
 
