@@ -31,6 +31,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 				getUserTwo(m[i]);
 
 			}
+
+
 		}
 
     });
@@ -50,6 +52,12 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			};
 
 			$scope.allMsg.push(c);
+
+			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
+				console.log($scope.allMsg.length);
+				$scope.loadMsg($scope.allMsg[0].id);
+			}
+
 
 		});
 
@@ -72,6 +80,11 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			$scope.allMsg.push(c);
 
 		});
+
+			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
+				console.log($scope.allMsg.length);
+				$scope.loadMsg($scope.allMsg[0].id);
+			}
     };
 
     $scope.loadMsg = function(id){
