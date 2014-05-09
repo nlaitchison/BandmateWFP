@@ -1,7 +1,40 @@
 <div ng-include src="'views/header.html'"></div>
 
 <div id="main_content" class="container">
- 	<section id="inbox" class="column three-10">
+
+	<!-- <section id="user_sidebar_left" class="column one-5">
+		<div ng-if="currentUser == userOne.id">
+			<div class="profile_pic">
+				<img ng-src="{{userOne.profileImg}}">
+			</div>
+			<div class="profile_basic">
+				<h2> {{userOne.name}} </h2>
+				<ul class="account_info">
+					<li class="account_type"> <span class="text_repeat" ng-repeat="string in userOne.account">{{string}} <span class="text_divider"> / </span> </span> </li>
+					<li> {{userOne.city}}, {{userOne.state}} </li>
+					<li> {{userOne.age}} years old</li>
+					<li> {{userOne.gender}} </li>
+					<li class="active_within"> {{userOne.lastActive}} </li>
+				</ul>
+				<ul class="user_buttons">
+					<p>{{exists}}</p>
+					<div class="clear_fix"></div>
+					<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
+					<li><button class="{{user.id}}" name="message"> Message </button></li>
+					<div class="clear_fix"></div>
+				</ul>
+				<ul class="social_icons">
+					<li ng-show="user.facebookUrl"><a href="{{userOne.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon2.png"></a></li>
+					<li ng-show="user.twitterUrl"><a href="{{userOne.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon2.png"></a></li>
+					<li ng-show="user.soundcloudUrl"><a href="{{userOne.soundcloudUrl}}" target="_blank"><img ng-src="images/soundcloud-icon2.png"></a></li>
+					<li ng-show="user.youtubeUrl"><a href="{{userOne.youtubeUrl}}" target="_blank"><img ng-src="images/youtube-icon2.png"></a></li>
+					<div class="clear_fix"></div>
+				</ul>
+			</div>
+		</div>
+	</section> -->
+
+	<section id="inbox" class="column three-10">
  		<h2> Inbox </h2>
  		<div>
 	 		<div class="inbox_msg" ng-repeat="m in allMsg">
@@ -9,34 +42,65 @@
 		 			<div class="thumb_img"><img ng-src="{{m.recipientImg}}"></div>
 		 			<ul>
 		 				<li> {{m.recipientName}}</li>
+		 				<li> {{m.updated}}</li>
 		 				<li> {{m.conversation.text}}</li>
-		  				<li> {{m.updated}}</li>
 		  			</ul>
 		  			<div class="clear_fix"></div>
 		  		</div>
 	 		</div>
 	 	</div>
  	</section>
+
  	<section id="current_message" class="column seven-10">
  		<div class="current_container">
 	 		<h2> Your Conversation w/ Name Here</h2>
 	 		<div id="msg_container">
-		 		<div ng-repeat="m in currentMsg.conversation">
-		 			<ul>
-		 				<li ng-show="m.userId === userOne.id"> {{userOne.name}}</li>
-		 				<li ng-show="m.userId === userTwo.id"> {{userTwo.name}}</li>
-		 				<li> {{m.timeSent}}</li>
-		 				<li> {{m.text}}</li>
-		  			</ul>
+		 		<div class="msg" ng-repeat="m in currentMsg.conversation">
+		 			<div ng-if="m.userId != currentUser">
+			 			<div class="convo_img_left" ng-if="m.userId === userOne.id">
+			 				<img ng-src="{{userOne.profileImg}}">
+			 			</div>
+			 			<div class="convo_img_left" ng-if="m.userId === userTwo.id">
+			 				<img ng-src="{{userTwo.profileImg}}">
+			 			</div>
+		 				<ul class="msg_info_left">
+		 					<li class="msg_name" ng-if="m.userId === userOne.id"> {{userOne.name}}</li>
+		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> {{userTwo.name}}</li>
+		 					<li class="msg_date"> {{m.timeSent}}</li>
+		 					<div class="clear_fix"></div>
+		 				</ul>
+		 				<p class="msg_text_left"> {{m.text}}</p>
+		 			</div>
+		 			<div ng-if="m.userId === currentUser">
+			 			<div class="convo_img_right" ng-if="m.userId === userOne.id">
+			 				<img ng-src="{{userOne.profileImg}}">
+			 			</div>
+			 			<div class="convo_img_right" ng-if="m.userId === userTwo.id">
+			 				<img ng-src="{{userTwo.profileImg}}">
+			 			</div>
+		 				<ul class="msg_info_right">
+		 					<li class="msg_name" ng-if="m.userId === userOne.id"> {{userOne.name}}</li>
+		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> {{userTwo.name}}</li>
+		 					<li class="msg_date"> {{m.timeSent}}</li>
+		 					<div class="clear_fix"></div>
+		 				</ul>
+		 				<p class="msg_text_right"> {{m.text}}</p>
+		 			</div>
 		  			<div class="clear_fix"></div>
 			 	</div>
 			</div>
 			<form id="send_msg" name="send_msg" ng-submit="sendMsg()">
-				<textarea name="newMsg" id="newMsg" class="edit_input" ng-model="newMsg.text"> Type your reply... </textarea>
-				<input type="submit" name="submit_message" value="Send">
+				<div class="send_container">
+					<textarea name="newMsg" id="newMsg" class="edit_input" ng-model="newMsg.text"> Type your reply... </textarea>
+				</div>
+				<div class="send_container">
+					<input type="submit" name="submit_message" value="Send">
+					<div class="clear_fix"></div>
+				</div>
 			</form>
 		</div>
  	</section>
+
 </div>
 
 <div ng-include src="'views/footer.html'"></div>

@@ -10,6 +10,10 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
+
+	$scope.currentUser = userId;
+
+
 	// $scope.testing = $filter('filter')(t, {userOneId: userId});
 	// console.log('filter', $scope.testing);
 
@@ -121,6 +125,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     $scope.sendMsg = function(){
     	 var t = new Date();
+
+    	console.log('month', t);
     	var m = {
     		'userId' : userId,
     		'timeSent' : t,

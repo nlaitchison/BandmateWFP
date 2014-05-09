@@ -45,7 +45,7 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 body{
 	font: lighter 13px Helvetica;
 	color: #282828;
-	background-color: #f6f6f6;
+	background-color: #f7f7f7;
 }
 
 h2{
@@ -839,6 +839,7 @@ fieldset#location select#state{
 	border-left: 1px solid #d5d5d5;
 	border-right: 1px solid #d5d5d5;
 	padding: 10px 10px;
+	border-radius: 2px;
 }
 
 .inbox_msg:last-child{
@@ -851,7 +852,8 @@ fieldset#location select#state{
 }
 
 .inbox_msg .thumb_img img{
-	width: 18%;
+	width: 50px;
+	height: 50px;
 	float: left;
 }
 
@@ -865,10 +867,108 @@ fieldset#location select#state{
 	border: 1px solid #d5d5d5;
 	padding: 10px;
 	min-height: 370px;
+	max-height: 370px;
+	overflow-y: scroll;
+	border-radius: 2px;
 }
 
 .current_container{
 	padding-left: 20px;
+}
+
+.msg{
+	margin-bottom: 25px;
+}
+
+.convo_img_left{
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-right: 10px;
+}
+
+.convo_img_right{
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-left: 10px;
+}
+
+.convo_img_left img, .convo_img_right img{
+	width: 100%;
+	height: 100%;
+}
+
+.msg_info_left li{
+	float: left;
+}
+
+.msg_info_right li{
+	float: right;
+}
+
+.msg_name{
+	color: #05959a;
+	font-size: 14px;
+}
+
+li.msg_date{
+	line-height: 18px;
+	color: #999;
+}
+
+.msg_info_left li.msg_date{
+	padding-left: 8px;
+
+}
+
+.msg_info_right li.msg_date{
+	padding-right: 8px;
+}
+
+.msg p{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	padding: 10px;
+	margin-top: -25px;
+}
+
+p.msg_text_left{
+	margin-left: 60px;
+}
+
+p.msg_text_right{
+	margin-right: 60px;
+	background-color: #ececec;
+}
+
+textarea#newMsg{
+	box-sizing: border-box;
+	padding: 10px;
+	background-color: #f7f7f7;
+	border: none;
+	border-radius: 2px;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	outline: none;
+}
+
+.send_container{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	width: 100%;
+}
+
+.send_container:first-child{
+	height: 90px;
+	margin-top: 20px;
+	border-bottom: none;
+}
+
+.send_container input[type=submit]{
+	margin: 10px;
+	float: right;
 }
 
 /* ---------------------------------------------------------------------------------------------------
