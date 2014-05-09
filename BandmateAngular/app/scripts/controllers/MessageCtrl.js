@@ -121,10 +121,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     	console.log($scope.newMsg.text);
     };
 
-    $scope.newMsg = function(id){
-    	console.log('newMsg', id, userId);
-
-
+    $scope.clickMsg = function(id){
 
     	Restangular.all('messages').getList().then(function(m){
     		var testingOne = $filter('filter')(m, {userOneId: id, userTwoId: userId});
@@ -133,8 +130,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     		console.log(testingOne);
     		console.log(testingTwo);
 
-
-
     		if(testingOne.length > 0 && testingTwo.length < 1){
     			$location.path('/messages');
     			$scope.loadMsg(testingOne[0].id);
@@ -142,10 +137,27 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     			$location.path('/messages');
     			$scope.loadMsg(testingTwo[0].id);
     		}else{
-    			console.log('new message');
+    			newMsg(id);
     		}
     	});
 
+    };
+
+    var newMsg = function(id){
+    	console.log('newMsg');
+
+    	var m = Restangular.all('messages');
+		var newMsg =
+				{
+			'userOneId' : userId,
+			'userTwoId' : id,
+			'conversation' : []
+		};
+
+		m.post(newMsg).then(function(item){
+			$location.path('/messages');
+			$scope.loadMsg(item.id);
+ 	  	});
     };
 
     $scope.loadMsg = function(id){
