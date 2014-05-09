@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore) {
+App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $filter, t) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -10,11 +10,12 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
+	// $scope.testing = $filter('filter')(t, {userOneId: userId});
+	// console.log('filter', $scope.testing);
+
 	$scope.allMsg = [];
 
 	Restangular.all('messages').getList().then(function(m){
-
-    	console.log(m);
 
     	for (var i=0;i<m.length;i++)
 		{
@@ -31,8 +32,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 				getUserTwo(m[i]);
 
 			}
-
-
 		}
 
     });
@@ -94,7 +93,30 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
 			$scope.currentMsg = m;
 
+			getUserInfo();
+
 		});
+
+
+
+    };
+
+    var getUserInfo = function(){
+
+    	console.log('console.log', $scope.currentMsg);
+
+    	Restangular.one('users', $scope.currentMsg.userOneId).get().then(function(u){
+
+			$scope.userOne = u;
+
+		});
+
+		Restangular.one('users', $scope.currentMsg.userTwoId).get().then(function(u){
+
+			$scope.userTwo = u;
+
+		});
+
     };
 
     $scope.sendMsg = function(){

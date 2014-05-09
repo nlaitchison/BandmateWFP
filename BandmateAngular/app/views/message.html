@@ -23,9 +23,10 @@
 	 		<div id="msg_container">
 		 		<div ng-repeat="m in currentMsg.conversation">
 		 			<ul>
-		 				<li> {{m.userId}}</li>
+		 				<li ng-show="m.userId === userOne.id"> {{userOne.name}}</li>
+		 				<li ng-show="m.userId === userTwo.id"> {{userTwo.name}}</li>
+		 				<li> {{m.timeSent}}</li>
 		 				<li> {{m.text}}</li>
-		  				<li> {{m.timeSent}}</li>
 		  			</ul>
 		  			<div class="clear_fix"></div>
 			 	</div>
