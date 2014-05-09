@@ -19,7 +19,7 @@
 				<p>{{exists}}</p>
 				<div class="clear_fix"></div>
 				<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
-				<li><button class="{{user.id}}" name="message"> Message </button></li>
+				<li><button class="{{user.id}}" name="message" ng-controller="MessageCtrl" ng-click="newMsg(user.id)"> Message </button></li>
 				<div class="clear_fix"></div>
 			</ul>
 			<ul class="social_icons">

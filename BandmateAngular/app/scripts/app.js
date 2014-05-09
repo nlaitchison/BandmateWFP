@@ -34,12 +34,7 @@ App.config(function ($routeProvider) {
       })
       .when('/messages', {
         templateUrl: 'views/message.html',
-        controller: 'MessageCtrl',
-        resolve: {
-          t: ['Restangular', '$route', function(Restangular, $route) {
-              return Restangular.all('messages').getList();
-          }]
-        }
+        controller: 'MessageCtrl'
       })
       .otherwise({
         redirectTo: '/'

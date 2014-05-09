@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $filter, t) {
+App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $filter) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -10,9 +10,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
-
 	$scope.currentUser = userId;
-
 
 	// $scope.testing = $filter('filter')(t, {userOneId: userId});
 	// console.log('filter', $scope.testing);
@@ -25,16 +23,13 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 		{
 			if(m[i].userOneId === userId){
 				console.log('one match');
-
 				getUserOne(m[i]);
 
 			}
 
 			if(m[i].userTwoId === userId){
 				console.log('two match');
-
 				getUserTwo(m[i]);
-
 			}
 		}
 
@@ -90,21 +85,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			}
     };
 
-    $scope.loadMsg = function(id){
-    	console.log(id);
-
-    	Restangular.one('messages', id).get().then(function(m){
-
-			$scope.currentMsg = m;
-
-			getUserInfo();
-
-		});
-
-
-
-    };
-
     var getUserInfo = function(){
 
     	console.log('console.log', $scope.currentMsg);
@@ -139,6 +119,46 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     	});
 
     	console.log($scope.newMsg.text);
+    };
+
+    $scope.newMsg = function(id){
+    	console.log('newMsg', id, userId);
+
+
+
+    	Restangular.all('messages').getList().then(function(m){
+    		var testingOne = $filter('filter')(m, {userOneId: id, userTwoId: userId});
+    		var testingTwo = $filter('filter')(m, {userOneId: userId, userTwoId: id});
+
+    		console.log(testingOne);
+    		console.log(testingTwo);
+
+
+
+    		if(testingOne.length > 0 && testingTwo.length < 1){
+    			$location.path('/messages');
+    			$scope.loadMsg(testingOne[0].id);
+    		}else if(testingTwo.length > 0 && testingOne.length < 1){
+    			$location.path('/messages');
+    			$scope.loadMsg(testingTwo[0].id);
+    		}else{
+    			console.log('new message');
+    		}
+    	});
+
+    };
+
+    $scope.loadMsg = function(id){
+    	console.log(id);
+
+    	Restangular.one('messages', id).get().then(function(m){
+
+			$scope.currentMsg = m;
+
+			getUserInfo();
+
+		});
+
     };
 
 
@@ -185,7 +205,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 	// 	// ];
 
 	// 	m.post($scope.allMessages).then(function(item){
- //      });
+ 	//   });
 
 	// };
 

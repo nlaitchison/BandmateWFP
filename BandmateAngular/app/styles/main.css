@@ -907,9 +907,10 @@ fieldset#location select#state{
 	float: right;
 }
 
-.msg_name{
+.msg_name a{
 	color: #05959a;
 	font-size: 14px;
+	text-decoration: none;
 }
 
 li.msg_date{

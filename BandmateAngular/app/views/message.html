@@ -58,14 +58,14 @@
 		 		<div class="msg" ng-repeat="m in currentMsg.conversation">
 		 			<div ng-if="m.userId != currentUser">
 			 			<div class="convo_img_left" ng-if="m.userId === userOne.id">
-			 				<img ng-src="{{userOne.profileImg}}">
+			 				<a ng-href="#/profile/{{userOne.id}}"><img ng-src="{{userOne.profileImg}}"></a>
 			 			</div>
 			 			<div class="convo_img_left" ng-if="m.userId === userTwo.id">
-			 				<img ng-src="{{userTwo.profileImg}}">
+			 				<a ng-href="#/profile/{{userTwo.id}}"><img ng-src="{{userTwo.profileImg}}"></a>
 			 			</div>
 		 				<ul class="msg_info_left">
-		 					<li class="msg_name" ng-if="m.userId === userOne.id"> {{userOne.name}}</li>
-		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> {{userTwo.name}}</li>
+		 					<li class="msg_name" ng-if="m.userId === userOne.id"> <a ng-href="#/profile/{{userOne.id}}">{{userOne.name}}</a></li>
+		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> <a ng-href="#/profile/{{userTwo.id}}">{{userTwo.name}}</a></li>
 		 					<li class="msg_date"> {{m.timeSent}}</li>
 		 					<div class="clear_fix"></div>
 		 				</ul>
@@ -73,14 +73,14 @@
 		 			</div>
 		 			<div ng-if="m.userId === currentUser">
 			 			<div class="convo_img_right" ng-if="m.userId === userOne.id">
-			 				<img ng-src="{{userOne.profileImg}}">
+			 				<a ng-href="#/profile/{{userOne.id}}"><img ng-src="{{userOne.profileImg}}"></a>
 			 			</div>
 			 			<div class="convo_img_right" ng-if="m.userId === userTwo.id">
-			 				<img ng-src="{{userTwo.profileImg}}">
+			 				<a ng-href="#/profile/{{userTwo.id}}"><img ng-src="{{userTwo.profileImg}}"></a>
 			 			</div>
 		 				<ul class="msg_info_right">
-		 					<li class="msg_name" ng-if="m.userId === userOne.id"> {{userOne.name}}</li>
-		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> {{userTwo.name}}</li>
+		 					<li class="msg_name" ng-if="m.userId === userOne.id"> <a ng-href="#/profile/{{userOne.id}}">{{userOne.name}}</a></li>
+		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> <a ng-href="#/profile/{{userTwo.id}}">{{userTwo.name}}</a></li>
 		 					<li class="msg_date"> {{m.timeSent}}</li>
 		 					<div class="clear_fix"></div>
 		 				</ul>
