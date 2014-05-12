@@ -855,12 +855,28 @@ fieldset#location select#state{
 	width: 50px;
 	height: 50px;
 	float: left;
+	padding-right: 10px;
 }
 
 .inbox_msg ul{
-	margin-left: 2%;
-	width: 68%;
+	width: 80%;
 	float: left;
+}
+
+.inbox_msg li{
+	float: none;
+}
+
+.inbox_msg li.msg_name{
+	color: #05959a;
+}
+
+.inbox_msg li.msg_date{
+	font-size: 12px;
+}
+
+.inbox_msg li{
+	line-height: 18px;
 }
 
 #msg_container{
@@ -1051,11 +1067,12 @@ footer a:hover{
 	#social_urls input { width: 78%; }
 	fieldset#birthday select#birthMonth { width: 45%; }
 	fieldset#location input#city { width: 48%; }
+	.inbox_msg ul{ width: 75%; }
 }
 
 @media (max-width:1024px) {
 	.video_repeat{ float: none; height: 250px; margin: 5px 0 10px; width: 100%; }
-
+	.inbox_msg ul{ width: 70%; }
 }
 
 @media (max-width:900px) {
@@ -1065,4 +1082,6 @@ footer a:hover{
 	ul.user_buttons li { padding-right: 0px;}
 	#social_urls input { width: 75%; }
 	#signup input { width: 155px; }
+	.inbox_msg ul{ width: 65%; }
 }
+
