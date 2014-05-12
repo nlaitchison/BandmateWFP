@@ -112,6 +112,7 @@ button, input[type=submit]{
 	text-transform: uppercase;
 	font: lighter 14px Helvetica, sans-serif;
 	cursor: pointer;
+	transition: background-color 0.5s ease;
 }
 
 #edit_profile .edit_input, #search_header .edit_input{
@@ -137,7 +138,7 @@ button:hover, input[type=submit]:hover{
 	padding: 10px 5px;
 	text-align: center;
 	cursor: pointer;
-	transition: background-color 0.8s ease;
+	transition: background-color 0.5s ease;
 }
 
 .user_thumb_img{

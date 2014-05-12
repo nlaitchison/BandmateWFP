@@ -103,24 +103,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     };
 
-    $scope.sendMsg = function(){
-    	 var t = new Date();
-
-    	console.log('month', t);
-    	var m = {
-    		'userId' : userId,
-    		'timeSent' : t,
-    		'text' : $scope.newMsg.text
-    	};
-
-    	$scope.currentMsg.conversation.push(m);
-    	$scope.currentMsg.put().then(function(){
-    		$scope.newMsg.text = '';
-    	});
-
-    	console.log($scope.newMsg.text);
-    };
-
     $scope.clickMsg = function(id){
 
     	Restangular.all('messages').getList().then(function(m){
@@ -141,6 +123,24 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     		}
     	});
 
+    };
+
+    $scope.sendMsg = function(){
+    	 var t = new Date();
+
+    	console.log('month', t);
+    	var m = {
+    		'userId' : userId,
+    		'timeSent' : t,
+    		'text' : $scope.newMsg.text
+    	};
+
+    	$scope.currentMsg.conversation.push(m);
+    	$scope.currentMsg.put().then(function(){
+    		$scope.newMsg.text = '';
+    	});
+
+    	console.log($scope.newMsg.text);
     };
 
     var newMsg = function(id){
@@ -170,6 +170,14 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			getUserInfo();
 
 		});
+
+    };
+
+    $scope.deleteMsg = function(id){
+    	console.log('delete');
+
+    	$scope.currentMsg.remove().then(function(){
+      	});
 
     };
 

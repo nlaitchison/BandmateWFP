@@ -53,8 +53,7 @@
 
  	<section id="current_message" class="column seven-10">
  		<div class="current_container">
-	 		<h2 ng-if="currentMsg.userOneId != currentUser"> Your Conversation with {{userOne.name}}</h2>
-	 		<h2 ng-if="currentMsg.userTwoId != currentUser"> Your Conversation with {{userTwo.name}}</h2>
+	 		<h2> Your Conversation with <span ng-if="currentMsg.userOneId != currentUser">{{userOne.name}}</span><span ng-if="currentMsg.userTwoId != currentUser"> {{userTwo.name}}</span> <input type="submit" name="delete_message" ng-click="deleteMsg(currentMsg.id)" value="Delete"></h2>
 	 		<div id="msg_container">
 		 		<div class="msg" ng-repeat="m in currentMsg.conversation">
 		 			<div ng-if="m.userId != currentUser">

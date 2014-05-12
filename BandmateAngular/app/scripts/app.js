@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular']);
+var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead']);
 
 App.config(function ($routeProvider) {
     $routeProvider
@@ -35,6 +35,10 @@ App.config(function ($routeProvider) {
       .when('/messages', {
         templateUrl: 'views/message.html',
         controller: 'MessageCtrl'
+      })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
       })
       .otherwise({
         redirectTo: '/'
