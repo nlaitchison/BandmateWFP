@@ -41,8 +41,8 @@
 	 			<div ng-click="loadMsg(m.id)">
 		 			<div class="thumb_img"><img ng-src="{{m.recipientImg}}"></div>
 		 			<ul>
-		 				<li> {{m.recipientName}}</li>
-		 				<li> {{m.updated}}</li>
+		 				<li> {{m.recipientName}} </li>
+		 				<li> {{ m.updated | date : 'MMM d'}}</li>
 		 				<li> {{m.conversation.text}}</li>
 		  			</ul>
 		  			<div class="clear_fix"></div>
@@ -66,7 +66,7 @@
 		 				<ul class="msg_info_left">
 		 					<li class="msg_name" ng-if="m.userId === userOne.id"> <a ng-href="#/profile/{{userOne.id}}">{{userOne.name}}</a></li>
 		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> <a ng-href="#/profile/{{userTwo.id}}">{{userTwo.name}}</a></li>
-		 					<li class="msg_date"> {{m.timeSent}}</li>
+		 					<li class="msg_date"> {{ m.timeSent | date : 'h:mm a - MMM d'}}</li>
 		 					<div class="clear_fix"></div>
 		 				</ul>
 		 				<p class="msg_text_left"> {{m.text}}</p>
@@ -81,7 +81,7 @@
 		 				<ul class="msg_info_right">
 		 					<li class="msg_name" ng-if="m.userId === userOne.id"> <a ng-href="#/profile/{{userOne.id}}">{{userOne.name}}</a></li>
 		 					<li class="msg_name" ng-if="m.userId === userTwo.id"> <a ng-href="#/profile/{{userTwo.id}}">{{userTwo.name}}</a></li>
-		 					<li class="msg_date"> {{m.timeSent}}</li>
+		 					<li class="msg_date"> {{ m.timeSent | date : 'h:mm a - MMM d'}}</li>
 		 					<div class="clear_fix"></div>
 		 				</ul>
 		 				<p class="msg_text_right"> {{m.text}}</p>
