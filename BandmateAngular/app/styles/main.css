@@ -137,6 +137,7 @@ button:hover, input[type=submit]:hover{
 	padding: 10px 5px;
 	text-align: center;
 	cursor: pointer;
+	transition: background-color 0.8s ease;
 }
 
 .user_thumb_img{
@@ -164,6 +165,10 @@ button:hover, input[type=submit]:hover{
 
 .user_thumb:hover{
 	background-color: #ddd;
+}
+
+#studio .user_thumb:hover{
+	background-color: #ececec;
 }
 
 
@@ -219,10 +224,11 @@ nav ul a, nav ul li{
 	letter-spacing: 1px;
 	text-decoration: none;
 	font-weight: lighter;
+	transition: opacity 0.5s ease;
 }
 
 nav ul li:hover{
-	opacity: .3;
+	opacity: .5;
 	cursor: pointer;
 }
 
@@ -840,6 +846,7 @@ fieldset#location select#state{
 	border-right: 1px solid #d5d5d5;
 	padding: 10px 10px;
 	border-radius: 2px;
+	transition: background-color 0.5s ease;
 }
 
 .inbox_msg:last-child{
