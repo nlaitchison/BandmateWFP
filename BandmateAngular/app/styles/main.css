@@ -115,7 +115,7 @@ button, input[type=submit]{
 	transition: background-color 0.5s ease;
 }
 
-#edit_profile .edit_input, #search_header .edit_input{
+#edit_profile .edit_input{
 	border: 1px solid #d5d5d5;
 	border-radius: 2px;
 	background-color: #e9e9e9;
@@ -172,6 +172,9 @@ button:hover, input[type=submit]:hover{
 	background-color: #ececec;
 }
 
+fieldset{
+	border: none;
+}
 
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
@@ -472,6 +475,78 @@ input#search_keywords{
 
 #search_filter{
 	padding-top: 20px;
+}
+
+.filter_one{
+	padding: 5px 12px 5px 0;
+}
+
+.filter_two{
+	padding: 5px 12px;
+}
+
+.filter_three{
+	padding: 5px 0 5px 10px;
+}
+
+#search_header .form_input{
+	padding-bottom: 10px;
+}
+
+#search_header .bg_related_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #F0F0F0;
+	padding: 5px;
+}
+
+#search_header .bg_related_input.first{
+	border-bottom: none;
+	margin-top: 2px;
+	padding-bottom: 4px;
+}
+
+#search_header .bg_related_input.last{
+	border-top: none;
+	margin-bottom: 13px;
+	padding-bottom: 4px;
+}
+
+#search_header .edit_input{
+	border: 1px solid #d5d5d5;
+	border-radius: 2px;
+	background-color: #F0F0F0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 6px 0 6px 2%;
+	width: 98%;
+	font-weight: lighter;
+	float: none;
+	clear: both;
+}
+
+#search_header textarea.edit_input {
+	max-height: 71px;
+	min-height: 71px;
+	max-width: 434px;
+}
+
+#search_header label{
+	float: none;
+	clear: both;
+	line-height: 18px;
+}
+
+#search_header select.edit_input{
+	width: 100%
+}
+
+.filter_three input#city{
+	width: 60%;
+}
+.filter_three select#state{
+	width: 33%;
+	margin-left: 10px;
 }
 
 /* ---------------------------------------------------------------------------------------------------
@@ -1081,15 +1156,17 @@ footer a:hover{
 @media (max-width:1024px) {
 	.video_repeat{ float: none; height: 250px; margin: 5px 0 10px; width: 100%; }
 	.inbox_msg ul{ width: 70%; }
+	.filter_three select#state{ margin-left: 5px;}
 }
 
 @media (max-width:900px) {
-	nav form#search_nav input{ width: 250px; }
+	nav form#search_nav input{ width: 240px; }
 	#cta_info{ top: 135px; }
 	ul.user_buttons li, ul.user_buttons li button{ width: 100%; }
 	ul.user_buttons li { padding-right: 0px;}
 	#social_urls input { width: 75%; }
 	#signup input { width: 155px; }
 	.inbox_msg ul{ width: 65%; }
+
 }
 
