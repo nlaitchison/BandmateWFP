@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore) {
+App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $http) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -38,8 +38,23 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 
 		console.log('accountInfoSubmit');
 
-		// update the user data
-		$scope.user.put().then(function(){});
+		// set url for geocoding request
+		var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.user.city +','+'+'+ $scope.user.state +'&sensor=true_or_false&key=AIzaSyBbKDdBIm2VtMBr5Xdq1slh0IU39dm33tM';
+
+		// call to google geocoding api to get lng and lat
+		$http({method: 'GET', url: url}).success(function(data, status, headers, config) {
+
+			// set user loc
+      		$scope.user.loc = { 'type' : "Point", 'coordinates': [ data.results[0].geometry.location.lng, data.results[0].geometry.location.lng ] }
+
+    		// update the user data
+			$scope.user.put().then(function(){});
+
+    	}).
+    	error(function(data, status, headers, config) {
+      	// called asynchronously if an error occurs
+      	// or server returns response with an error status.
+    	});
 
 	};
 
