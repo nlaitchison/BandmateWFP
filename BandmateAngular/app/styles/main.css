@@ -544,9 +544,17 @@ input#search_keywords{
 .filter_three input#city{
 	width: 60%;
 }
+
 .filter_three select#state{
 	width: 33%;
 	margin-left: 10px;
+}
+
+.filter_buttons{
+	border-top: 1px solid #d5d5d5;
+	text-align: right;
+	width: 100%;
+	padding-top: 15px;
 }
 
 /* ---------------------------------------------------------------------------------------------------
@@ -805,6 +813,7 @@ span.label{
 #edit_profile .related_input input{
 	margin-top: 0;
 	border-top: 0px;
+	margin-bottom: 0px;
 }
 
 #edit_profile .form_input input[type=submit]{
