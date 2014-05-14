@@ -15,7 +15,7 @@
 				</div>
 				<div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
-ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> Use my set search filters </label>
+ng-true-value="true" ng-false-value="false" checked="true" > Use my set search filters </label>
 				</div>
 			</form>
 			<form id="search_filter" ng-hide="checked">
@@ -26,15 +26,15 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 							<label>Looking For:</label>
 							<div class="bg_related_input first">
 								<label for="musician"> <input type="checkbox" id="musician" name="musician"
-		ng-true-value="Musician" ng-false-value="" ng-focus="generalUpdate = true"> Musician </label>
+		ng-true-value="Musician" ng-false-value="" > Musician </label>
 							</div>
 							<div class="bg_related_input">
 								<label for="band"> <input type="checkbox" id="band" name="band"
-		ng-true-value="Band" ng-false-value="" ng-focus="generalUpdate = true"> Band </label>
+		ng-true-value="Band" ng-false-value="" > Band </label>
 							</div>
 							<div class="bg_related_input last">
 								<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
-		ng-true-value="Instructor" ng-false-value="" ng-focus="generalUpdate = true"> Instructor </label>
+		ng-true-value="Instructor" ng-false-value="" > Instructor </label>
 							</div>
 							<div class="form_input">
 								<label for="genre"> Genres:
@@ -50,11 +50,11 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 						<fieldset>
 							<div class="form_input">
 								<label for="yearsOfExp">Years of Experience:</label>
-								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input">
+								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="filter.yearsOfExp" class="edit_input">
 							</div>
 							<div class="form_input">
 								<label for="gigsPlayed">Gigs Played:</label>
-								<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input">
+								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input">
 									<option value="0 - 10"> 0 - 10 </option>
 									<option value="10 - 20"> 10 - 20 </option>
 									<option value="20 - 30"> 20 - 30 </option>
@@ -69,7 +69,7 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 							</div>
 							<div class="form_input">
 								<label for="commitment">Commitment:</label>
-								<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input">
+								<select id="commitment" name="commitment" ng-model="filter.commitment" class="edit_input">
 									<option value="Just For Fun"> Just For Fun </option>
 									<option value="Somewhat Commited"> Somewhat Commited </option>
 										<option value="Commited"> Commited </option>
@@ -78,7 +78,7 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 							</div>
 							<div class="form_input">
 								<label for="availability">Availability:</label>
-								<select id="availability" name="availability" ng-model="user.availability" class="edit_input">
+								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input">
 									<option value="1 days per week"> 1 days per week </option>
 									<option value="2 days per week"> 2 days per week </option>
 									<option value="3 days per week"> 3 days per week </option>
@@ -96,11 +96,11 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 					<fieldset>
 						<div class="form_input">
 								<label for="age">Age:</label>
-								<input type="number" id="age" name="age" ng-model="user.age" class="edit_input">
+								<input type="number" id="age" name="age" ng-model="filter.age" class="edit_input">
 						</div>
 						<div class="form_input">
 							<label for="gender">Gender:</label>
-							<select id="gender" name="gender" ng-model="user.gender" class="edit_input">
+							<select id="gender" name="gender" ng-model="filter.gender" class="edit_input">
 								<option value="Unspecified"> Unspecified </option>
 								<option value="Male"> Male </option>
 								<option value="Female"> Female </option>
@@ -109,8 +109,8 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 						<div class="form_input">
 							<label for="city">Location:</label>
 							<div class="clear_fix"></div>
-							<input type="text" id="city" name="city" ng-model="user.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
-							<select id="state" name="state" ng-model="user.state" class="edit_input" ng-focus="generalUpdate = true">
+							<input type="text" id="city" name="city" ng-model="filter.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
+							<select id="state" name="state" ng-model="filter.state" class="edit_input" ng-focus="generalUpdate = true">
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
@@ -166,7 +166,7 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 						</div>
 						<div class="form_input">
 								<label for="radius">Search Radius:</label>
-								<select id="radius" name="radius" class="edit_input">
+								<select id="radius" name="radius" class="edit_input" ng-model="filter.radius">
 									<option value="10"> 10 miles</option>
 									<option value="20"> 20 miles</option>
 									<option value="30"> 30 miles</option>
@@ -186,27 +186,30 @@ ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> U
 				<fieldset>
 					<div class="filter_buttons">
 						<input type="submit" value="Save Filters">
-						<input type="submit" value="Use Once">
+						<input type="submit" value="Use Once" ng-click="filterResults()">
 					</div>
 				</fieldset>
 			</form>
 		</div>
 		<div class="clear_fix"></div>
 	</section>
-	<section id="search_results">
+
+	<section id="results">
 		<div class="container">
-			<div ng-repeat="user in results">
+			<div ng-repeat="user in filtered = (results | filter:filter)">
 				<div class="column one-5">
-					<div class="user_thumb">
-						<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
-						<h4>{{user.name}}</h4>
-						<p>{{user.city}}, {{user.state}}</p>
-					</div>
+					<a href="#/profile/{{user.id}}">
+						<div class="user_thumb">
+							<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
+							<h4>{{user.name}}</h4>
+						</div>
+					</a>
 				</div>
 			</div>
 			<div class="clear_fix"></div>
 		</div>
 	</section>
+
 </div>
 
 <div ng-include src="'views/footer.html'"></div>

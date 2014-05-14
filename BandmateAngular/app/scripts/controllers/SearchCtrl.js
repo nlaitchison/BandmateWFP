@@ -2,10 +2,15 @@
 
 /*global App*/
 
-App.controller('SearchCtrl', function ($scope) {
+App.controller('SearchCtrl', function ($scope, Restangular) {
 
-	$scope.keywords ='Guitar, Vocals';
+	$scope.filterResults = function(){
+		Restangular.all('users').getList().then(function(u){
 
-	// console.log($scope.users);
+	    	$scope.results = u;
+
+	    });
+	};
+
 
 });
