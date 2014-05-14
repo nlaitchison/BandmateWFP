@@ -12,5 +12,9 @@ App.controller('SearchCtrl', function ($scope, Restangular) {
 	    });
 	};
 
+	$scope.clearFilters = function(){
+		$scope.filter = '';
+	}
+
 
 });

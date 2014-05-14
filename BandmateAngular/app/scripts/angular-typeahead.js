@@ -7,7 +7,8 @@ angular.module('siyfion.sfTypeahead', [])
       require: '?ngModel',  // The two-way data bound value that is returned by the directive
       scope: {
         options: '=',       // The typeahead configuration options (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#options)
-        datasets: '='       // The typeahead datasets to use (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets)
+        datasets: '=',       // The typeahead datasets to use (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets)
+        instruments: '='
       },
       link: function (scope, element, attrs, ngModel) {
 
@@ -123,8 +124,13 @@ angular.module('siyfion.sfTypeahead', [])
 
         function updateScope (object, suggestion, dataset) {
           scope.$apply(function () {
-            ngModel.$setViewValue(suggestion);
-          });
+            scope.instruments.push(suggestion.i);
+            suggestion = '';
+            // ngModel.$setViewValue(suggestion);
+            scope.selectedInstrument = '';
+          });;
+
+
         }
 
         // Update the value binding when a value is manually selected from the dropdown.

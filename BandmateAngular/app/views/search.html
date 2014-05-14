@@ -185,6 +185,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 				</div>
 				<fieldset>
 					<div class="filter_buttons">
+						<input type="submit" value="Clear Filters" ng-click="clearFilters()">
 						<input type="submit" value="Save Filters">
 						<input type="submit" value="Use Once" ng-click="filterResults()">
 					</div>
@@ -208,6 +209,9 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 			</div>
 			<div class="clear_fix"></div>
 		</div>
+
+		<p ng-show="filtered.length == 0" class="no_results"> No users match your search, please try again. </p>
+
 	</section>
 
 </div>

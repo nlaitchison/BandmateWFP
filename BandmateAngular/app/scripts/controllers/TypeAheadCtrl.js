@@ -23,7 +23,9 @@ App.controller('TypeAheadCtrl', function ($scope) {
     source: instruments.ttAdapter()
   };
 
-  $scope.selectedNumber = null;
+  $scope.selectedInstrument = null;
+
+  $scope.array = ['keyboard'];
 
   // instantiate the bloodhound suggestion engine
   var numbers = new Bloodhound({

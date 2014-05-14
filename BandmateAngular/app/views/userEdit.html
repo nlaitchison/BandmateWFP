@@ -220,6 +220,21 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
 							</div>
 						</fieldset>
+							<div class="form_input">
+								<label for="instruments">Instruments:</label>
+
+								<div id="instrument_wrapper">
+									<label for="instruments">
+									<div class="instrument_container">
+										<span ng-repeat="i in instruments">{{i}}, </span>
+
+										<input type="text" name="instruments" id="instruments" type="text" sf-typeahead options="exampleOptions" datasets="iDataset" ng-model="selectedInstrument" instruments="instruments">
+									</div>
+									</label>
+								</div>
+							</div>
+						<fieldset>
+						</fieldset>
 						<div class="form_input">
 							<input type="submit" id="basic_info_submit" value="Update" ng-show="basicInfoUpdate" ng-click="scUrlUpdate = false">
 							<div class="clear_fix"></div>
