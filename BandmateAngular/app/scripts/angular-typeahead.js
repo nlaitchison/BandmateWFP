@@ -39,7 +39,9 @@ angular.module('siyfion.sfTypeahead', [])
                   displayKey = dataset.displayKey || 'value',
                   value = (angular.isFunction(displayKey) ? displayKey(fromModel) : fromModel[displayKey]) || '';
 
-              if (found) return false; // break
+              if (found) {
+                return false; // break
+              }
 
               if (!value) {
                 // Fakes a request just to use the same function logic

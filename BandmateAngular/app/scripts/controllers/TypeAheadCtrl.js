@@ -1,6 +1,27 @@
 'use strict';
 
-App.controller('TypeAheadCtrl', function($scope) {
+/*global App*/
+
+App.controller('TypeAheadCtrl', function ($scope) {
+
+  // instantiate the bloodhound suggestion engine
+  var instruments = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.i); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: [
+      { i: 'Guitar' },
+      { i: 'Electric Guitar' },
+      { i: 'Acoustic Guitar' },
+      { i: 'Bass Guitar' }
+    ]
+  });
+
+  instruments.initialize();
+
+  $scope.iDataset = {
+    displayKey: 'i',
+    source: instruments.ttAdapter()
+  };
 
   $scope.selectedNumber = null;
 

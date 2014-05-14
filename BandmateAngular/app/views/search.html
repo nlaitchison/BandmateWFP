@@ -1,14 +1,18 @@
 <div ng-include src="'views/header.html'"></div>
 
-<!-- 	<p>Model: {{selectedNumber|json}}</p>
-    <input ng-controller="TypeAheadCtrl" class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber"> -->
+<!-- 	<div ng-controller="TypeAheadCtrl">
+	<p>Model: {{selectedInstrument|json}}</p>
+    <input  class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="iDataset" ng-model="selectedInstrument">
+	</div> -->
 
 <div id="main_content">
 	<section id="search_header">
 		<div class="container">
 			<h2> Search Bandmate </h2>
 			<form id="search_page">
-				<input type="search" name="search_keywords" id="search_keywords" ng-model="keywords" placeholder="Ex. Guitar, Vocals">
+				<div ng-controller="TypeAheadCtrl">
+					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeahead options="exampleOptions" datasets="iDataset" ng-model="selectedInstrument" autofocus>
+				</div>
 				<div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
 ng-true-value="true" ng-false-value="false" checked="true" ng-model="checked"> Use my set search filters </label>
