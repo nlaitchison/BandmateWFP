@@ -826,6 +826,7 @@ span.label{
 	padding: 6px 3%;
 	width: 94%;
 	font-weight: lighter;
+	outline: none;
 }
 
 #edit_profile select.edit_input{
@@ -1018,6 +1019,11 @@ fieldset#location select#state{
 	width: 30px;
 	margin: 0px;
 	outline: none;
+}
+
+.hover_remove:hover{
+	opacity: .6;
+	text-decoration: line-through;
 }
 
 /* TypeAhead */

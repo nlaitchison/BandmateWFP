@@ -19,6 +19,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		$scope.user = u;
 
 		$scope.instruments = u.instruments;
+		$scope.genres = u.genres;
 
 	});
 
@@ -65,6 +66,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 
 		console.log('basicInfoSubmit');
 
+		$scope.user.genres = $scope.genres;
 		$scope.user.instruments = $scope.instruments;
 		console.log($scope.user.instruments);
 
@@ -124,36 +126,73 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		$scope.videos.urls.push({'url':'', 'code':''});
 	};
 
+	// when an item from the instruments array is clicked
+	$scope.removeI = function(index){
 
-	// Type Ahead
+		// removed it from the array
+		$scope.instruments.splice(index, 1);
+	};
 
-  // instantiate the bloodhound suggestion engine
-  var instruments = new Bloodhound({
-    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.i); },
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: [
-      { i: 'Guitar' },
-      { i: 'Electric Guitar' },
-      { i: 'Acoustic Guitar' },
-      { i: 'Bass Guitar' },
-      { i: 'Drums' },
-      { i: 'Keyboard' }
-    ]
-  });
+	// when an item from the genres array is clicked
+	$scope.removeG = function(index){
 
-  instruments.initialize();
-
-  $scope.iDataset = {
-    displayKey: 'i',
-    source: instruments.ttAdapter()
-  };
-
-  $scope.selectedInstrument = null;
+		// removed it from the array
+		$scope.genres.splice(index, 1);
+	};
 
 
-  // Typeahead options object
-  $scope.exampleOptions = {
-    highlight: true
-  };
+	// ------------------------ Type Ahead Instruments ------------------------------
+
+	// instantiate the bloodhound suggestion engine for instruments
+	var instruments = new Bloodhound({
+	datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.i); },
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	local: [
+		{ i: 'Guitar' },
+		{ i: 'Electric Guitar' },
+		{ i: 'Acoustic Guitar' },
+		{ i: 'Bass Guitar' },
+		{ i: 'Drums' },
+		{ i: 'Keyboard' }
+		]
+	});
+
+	instruments.initialize();
+
+	$scope.iDataset = {
+		displayKey: 'i',
+		source: instruments.ttAdapter()
+	};
+
+	$scope.selectedInstrument = null;
+
+
+	// ------------------------ Type Ahead Genres ------------------------------
+
+	// instantiate the bloodhound suggestion engine for instruments
+	var genres = new Bloodhound({
+	datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.g); },
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	local: [
+		{ g: 'Punk Rock' },
+		{ g: 'Pop Punk' },
+		{ g: 'Post-Hardcore' },
+		{ g: 'Hardcore' }
+		]
+	});
+
+	genres.initialize();
+
+	$scope.gDataset = {
+		displayKey: 'g',
+		source: genres.ttAdapter()
+	};
+
+	$scope.selectedGenre = null;
+
+	// Typeahead options object
+	$scope.exampleOptions = {
+		highlight: true
+	};
 
 });
