@@ -10,8 +10,9 @@
 		<div class="container">
 			<h2> Search Bandmate </h2>
 			<form id="search_page">
-				<div ng-controller="TypeAheadCtrl">
-					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeahead options="exampleOptions" datasets="iDataset" ng-model="selectedInstrument" autofocus>
+				<div>
+					<!-- <span class="hover_remove" ng-repeat="i in instruments" ng-init="indexI = $index" ng-click="removeI(indexI)"> {{i}},</span> -->
+					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="filter.instruments" instruments="instruments">
 				</div>
 				<div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
@@ -55,6 +56,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 							<div class="form_input">
 								<label for="gigsPlayed">Gigs Played:</label>
 								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input">
+									<option value=""> --- </option>
 									<option value="0 - 10"> 0 - 10 </option>
 									<option value="10 - 20"> 10 - 20 </option>
 									<option value="20 - 30"> 20 - 30 </option>
@@ -70,15 +72,17 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 							<div class="form_input">
 								<label for="commitment">Commitment:</label>
 								<select id="commitment" name="commitment" ng-model="filter.commitment" class="edit_input">
+									<option value=""> --- </option>
 									<option value="Just For Fun"> Just For Fun </option>
 									<option value="Somewhat Commited"> Somewhat Commited </option>
-										<option value="Commited"> Commited </option>
+									<option value="Commited"> Commited </option>
 									<option value="Very Commited"> Very Commited </option>
 								</select>
 							</div>
 							<div class="form_input">
 								<label for="availability">Availability:</label>
 								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input">
+									<option value=""> --- </option>
 									<option value="1 days per week"> 1 days per week </option>
 									<option value="2 days per week"> 2 days per week </option>
 									<option value="3 days per week"> 3 days per week </option>
@@ -101,6 +105,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 						<div class="form_input">
 							<label for="gender">Gender:</label>
 							<select id="gender" name="gender" ng-model="filter.gender" class="edit_input">
+								<option value=""> --- </option>
 								<option value="Unspecified"> Unspecified </option>
 								<option value="Male"> Male </option>
 								<option value="Female"> Female </option>
@@ -111,6 +116,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 							<div class="clear_fix"></div>
 							<input type="text" id="city" name="city" ng-model="filter.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
 							<select id="state" name="state" ng-model="filter.state" class="edit_input" ng-focus="generalUpdate = true">
+								<option value=""> --- </option>
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
@@ -167,6 +173,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 						<div class="form_input">
 								<label for="radius">Search Radius:</label>
 								<select id="radius" name="radius" class="edit_input" ng-model="filter.radius">
+									<option value=""> --- </option>
 									<option value="10"> 10 miles</option>
 									<option value="20"> 20 miles</option>
 									<option value="30"> 30 miles</option>
@@ -186,7 +193,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 				<fieldset>
 					<div class="filter_buttons">
 						<input type="submit" value="Clear Filters" ng-click="clearFilters()">
-						<input type="submit" value="Save Filters">
+						<input type="submit" value="Save Filters" ng-click="saveFilter()">
 						<input type="submit" value="Use Once" ng-click="filterResults()">
 					</div>
 				</fieldset>

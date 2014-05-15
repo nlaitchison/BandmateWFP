@@ -125,7 +125,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
         function updateScope (object, suggestion, dataset) {
           scope.$apply(function () {
             scope.instruments.push(suggestion.i);
-            ngModel.$setViewValue(suggestion);
+            ngModel.$setViewValue(suggestion.i);
           });
         }
 
@@ -294,7 +294,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
         function updateScope (object, suggestion, dataset) {
           scope.$apply(function () {
             scope.genres.push(suggestion.g);
-            ngModel.$setViewValue(suggestion);
+            ngModel.$setViewValue(suggestion.i);
             scope.selectedGenre = '';
           });
         }

@@ -113,6 +113,7 @@ button, input[type=submit]{
 	font: lighter 14px Helvetica, sans-serif;
 	cursor: pointer;
 	transition: background-color 0.5s ease;
+	outline: none;
 }
 
 #edit_profile .edit_input{
@@ -1030,6 +1031,19 @@ fieldset#location select#state{
 	cursor: pointer;
 }
 
+#video_section input.edit_input.ytUrl{
+	width: 84%;
+}
+
+#video_section button.remove_yt, #video_section button.add_yt{
+	padding: 4px 9px;
+}
+
+#video_section button.add_yt{
+	padding: 4px 8px;
+}
+
+
 /* TypeAhead */
 
 #instrument_wrapper .tt-hint {
@@ -1308,6 +1322,7 @@ footer a:hover{
 	fieldset#birthday select#birthMonth { width: 45%; }
 	fieldset#location input#city { width: 48%; }
 	.inbox_msg ul{ width: 75%; }
+	#video_section input.edit_input.ytUrl{width: 80%;}
 }
 
 @media (max-width:1024px) {
@@ -1324,6 +1339,6 @@ footer a:hover{
 	#social_urls input { width: 75%; }
 	#signup input { width: 155px; }
 	.inbox_msg ul{ width: 65%; }
-
+	#video_section input.edit_input.ytUrl{width: 78%;}
 }
 

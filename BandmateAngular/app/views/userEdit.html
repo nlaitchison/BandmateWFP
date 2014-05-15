@@ -316,12 +316,12 @@ ng-true-value="true" ng-false-value="false" ng-focus="checkboxUpdate = true"> Hi
 						<p>Add <img src="images/youtube-logo.png" alt="YouTube"> videos to your profile.</p>
 						<p>Copy the url for your video  and paste it below to add it to your profile. Click the ‘+ Video’ button to add more videos. </p>
 						<div class="form_input" ng-repeat="url in videos.urls">
-							<input type="url" name="ytUrl" placeholder="ex. http://www.youtube.com/embed/Oww-7cxOBUk" ng-focus="ytUrlUpdate = true" class="edit_input" ng-model="url.url">
-							<button ng-init="indexY = $index" ng-click="removeInput(indexY)">-</button>
+							<input type="url" name="ytUrl" placeholder="ex. http://www.youtube.com/embed/Oww-7cxOBUk"  class="edit_input ytUrl" ng-model="url.url">
+							<button ng-init="indexY = $index" ng-click="removeInput(indexY)" class="remove_yt">-</button>
 							<div class="clear_fix"></div>
 						</div>
 						<div class="form_input">
-							<button ng-click="addInput()">+</button>
+							<button ng-click="addInput()" class="add_yt">+</button>
 							<input type="submit" value="Update">
 							<div class="clear_fix"></div>
 						</div>
