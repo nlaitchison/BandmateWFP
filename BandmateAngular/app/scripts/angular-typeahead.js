@@ -8,7 +8,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
       scope: {
         options: '=',       // The typeahead configuration options (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#options)
         datasets: '=',       // The typeahead datasets to use (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets)
-        instruments: '=',
+        instruments: '='
       },
       link: function (scope, element, attrs, ngModel) {
 
@@ -126,10 +126,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
           scope.$apply(function () {
             scope.instruments.push(suggestion.i);
             ngModel.$setViewValue(suggestion);
-            scope.selectedInstrument = '';
-          });;
-
-
+          });
         }
 
         // Update the value binding when a value is manually selected from the dropdown.
@@ -172,6 +169,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
       }
     };
   });
+
   type.directive('sfTypeaheadgenres', function () {
     return {
       restrict: 'AC',       // Only apply on an attribute or class
@@ -298,9 +296,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
             scope.genres.push(suggestion.g);
             ngModel.$setViewValue(suggestion);
             scope.selectedGenre = '';
-          });;
-
-
+          });
         }
 
         // Update the value binding when a value is manually selected from the dropdown.

@@ -48,7 +48,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		$http({method: 'GET', url: url}).success(function(data, status, headers, config) {
 
 			// set user loc
-      		$scope.user.loc = { 'type' : "Point", 'coordinates': [ data.results[0].geometry.location.lng, data.results[0].geometry.location.lng ] }
+      		$scope.user.loc = { 'type' : 'Point', 'coordinates': [ data.results[0].geometry.location.lng, data.results[0].geometry.location.lng ] };
 
     		// update the user data
 			$scope.user.put().then(function(){});
@@ -68,7 +68,6 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 
 		$scope.user.genres = $scope.genres;
 		$scope.user.instruments = $scope.instruments;
-		console.log($scope.user.instruments);
 
 		// update the user data
 		$scope.user.put().then(function(){});

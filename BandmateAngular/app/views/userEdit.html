@@ -216,33 +216,33 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 						</fieldset>
 						<fieldset>
 							<div class="form_input">
-								<label for="equipment">Equipment:</label>
-								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
-							</div>
-						</fieldset>
-							<div class="form_input">
 								<label for="instruments">Instruments:</label>
 								<div id="instrument_wrapper">
 									<label for="instruments">
 									<div class="instrument_container">
-										<span class="hover_remove" ng-repeat="i in instruments" ng-init="index = $index" ng-click="removeI(index)"> {{i}},</span>
+										<span class="hover_remove" ng-repeat="i in instruments" ng-init="indexI = $index" ng-click="removeI(indexI)"> {{i}},</span>
 										<input type="text" name="instruments" id="instruments" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="selectedInstrument" instruments="instruments" ng-focus="basicInfoUpdate = true">
 									</div>
 									</label>
 								</div>
 							</div>
 							<div class="form_input">
-								<label for="genres">Instruments:</label>
+								<label for="genres">Genres:</label>
 								<div id="instrument_wrapper">
 									<label for="genres">
 									<div class="instrument_container">
-										<span class="hover_remove" ng-repeat="i in genres" ng-init="index = $index" ng-click="removeG(index)"> {{i}},</span>
+										<span class="hover_remove" ng-repeat="g in genres" ng-init="indexG = $index" ng-click="removeG(indexG)"> {{g}},</span>
 										<input type="text" name="genres" id="genres" type="text" sf-typeaheadgenres options="exampleOptions" datasets="gDataset" ng-model="selectedGenre" genres="genres" ng-focus="basicInfoUpdate = true">
 									</div>
 									</label>
 								</div>
 							</div>
+						</fieldset>
 						<fieldset>
+							<div class="form_input">
+								<label for="equipment">Equipment:</label>
+								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
+							</div>
 						</fieldset>
 						<div class="form_input">
 							<input type="submit" id="basic_info_submit" value="Update" ng-show="basicInfoUpdate" ng-click="basicInfoUpdate = false">
