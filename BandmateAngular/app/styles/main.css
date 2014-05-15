@@ -1017,8 +1017,10 @@ fieldset#location select#state{
 #instrument_wrapper .instrument_container input{
 	border: none;
 	width: 30px;
-	margin: 0px;
+	margin: 0;
+	padding: 0;
 	outline: none;
+	font-size: 12px;
 }
 
 .hover_remove:hover{
@@ -1028,44 +1030,16 @@ fieldset#location select#state{
 
 /* TypeAhead */
 
-.typeahead,
-.tt-query{
-  width: 396px;
-  height: 30px;
-  padding: 8px 12px;
-  font-size: 16px;
-  line-height: 22px;
-  border: 2px solid #ccc;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  outline: none;
-}
-
-/*.typeahead {
-  background-color: #F0F0F0;
-}
-
-.typeahead:focus {
-  border: 2px solid #0097cf;
-}*/
-
-.tt-query {
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.tt-hint {
+#instrument_wrapper .tt-hint {
   font: lighter 48px Helvetica, sans-serif;
   color: #383838;
-  opacity: .05;
+  opacity: 0;
   margin: 2px 0 0;
   padding: 0;
 }
 
-.tt-dropdown-menu {
-  width: 422px;
+#instrument_wrapper  .tt-dropdown-menu {
+  width: 300px;
   margin-top: 12px;
   padding: 8px 0;
   background-color: #F0F0F0;
@@ -1079,15 +1053,15 @@ fieldset#location select#state{
           box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
 
-.tt-suggestion {
-  padding: 3px 15px;
-  font-size: 16px;
-  line-height: 20px;
+#instrument_wrapper .tt-suggestion {
+  padding: 3px 10px;
+  font-size: 13px;
+  line-height: 15px;
 }
 
-.tt-suggestion.tt-cursor {
+#instrument_wrapper .tt-suggestion.tt-cursor {
   color: #383838;
-  background-color: #e9e9e9;
+  background-color: #e6e6e6;
 }
 
 .tt-suggestion p {
