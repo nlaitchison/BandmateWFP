@@ -216,11 +216,6 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 						</fieldset>
 						<fieldset>
 							<div class="form_input">
-								<label for="equipment">Equipment:</label>
-								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
-							</div>
-						</fieldset>
-							<div class="form_input">
 								<label for="instruments">Instruments:</label>
 								<div id="instrument_wrapper">
 									<label for="instruments">
@@ -232,7 +227,7 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 								</div>
 							</div>
 							<div class="form_input">
-								<label for="genres">Instruments:</label>
+								<label for="genres">Genres:</label>
 								<div id="instrument_wrapper">
 									<label for="genres">
 									<div class="instrument_container">
@@ -242,7 +237,12 @@ ng-true-value="true" ng-false-value="false" ng-focus="generalUpdate = true" ng-m
 									</label>
 								</div>
 							</div>
+						</fieldset>
 						<fieldset>
+							<div class="form_input">
+								<label for="equipment">Equipment:</label>
+								<textarea id="equipment" name="equipment" ng-model="user.equipment" class="edit_input" ng-focus="basicInfoUpdate = true">List Equipment you have here...</textarea>
+							</div>
 						</fieldset>
 						<div class="form_input">
 							<input type="submit" id="basic_info_submit" value="Update" ng-show="basicInfoUpdate" ng-click="basicInfoUpdate = false">
