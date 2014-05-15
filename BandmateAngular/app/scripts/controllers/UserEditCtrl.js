@@ -125,6 +125,11 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		$scope.videos.urls.push({'url':'', 'code':''});
 	};
 
+	// when remove input for videos is clicked
+	$scope.removeInput = function(index) {
+		$scope.videos.urls.splice(index, 1);
+	};
+
 	// when an item from the instruments array is clicked
 	$scope.removeI = function(index){
 

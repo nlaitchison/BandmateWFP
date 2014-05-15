@@ -1008,6 +1008,7 @@ fieldset#location select#state{
 	background-color: #e9e9e9;
 	width: 100%;
 	font-weight: lighter;
+	margin-top: 5px;
 }
 
 .instrument_container{
@@ -1026,6 +1027,7 @@ fieldset#location select#state{
 .hover_remove:hover{
 	opacity: .6;
 	text-decoration: line-through;
+	cursor: pointer;
 }
 
 /* TypeAhead */
@@ -1062,10 +1064,6 @@ fieldset#location select#state{
 #instrument_wrapper .tt-suggestion.tt-cursor {
   color: #383838;
   background-color: #e6e6e6;
-}
-
-.tt-suggestion p {
-  margin: 0;
 }
 
 
