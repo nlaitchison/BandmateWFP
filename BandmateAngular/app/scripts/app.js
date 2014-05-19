@@ -61,6 +61,48 @@ App.directive('myYoutube', function($sce) {
   };
 });
 
+App.filter('exact', function(){
+  return function(items, match){
+    var matching = [], matches, falsely = true;
+
+    // Return the items unchanged if all filtering attributes are falsy
+    angular.forEach(match, function(value, key){
+      falsely = falsely && !value;
+    });
+    if(falsely){
+      return items;
+    }
+
+    angular.forEach(items, function(item){ // e.g. { title: "ball" }
+      matches = true;
+      angular.forEach(match, function(value, key){ // e.g. 'all', 'title'
+        if(!!value){ // do not compare if value is empty
+          matches = matches && (item[key] === value);
+        }
+      });
+      if(matches){
+        matching.push(item);
+      }
+    });
+    return matching;
+  }
+});
+
+// directive to check if the enter key has been pressed
+// using for search field
+App.directive('ngEnter', function() {
+  return function(scope, element, attrs) {
+    element.bind('keydown keypress', function(event) {
+      if(event.which === 13) {
+        scope.$apply(function(){
+          scope.$eval(attrs.ngEnter, {'event': event});
+        });
+        event.preventDefault();
+      }
+    });
+  };
+});
+
 App.config(['RestangularProvider', function(RestangularProvider){
   RestangularProvider.setBaseUrl('http://localhost:1337');
   RestangularProvider.setRestangularFields({

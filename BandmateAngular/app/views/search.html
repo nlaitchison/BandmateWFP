@@ -12,14 +12,14 @@
 			<form id="search_page">
 				<div>
 					<!-- <span class="hover_remove" ng-repeat="i in instruments" ng-init="indexI = $index" ng-click="removeI(indexI)"> {{i}},</span> -->
-					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="filter.instruments" instruments="instruments">
+					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="filter.instruments" instruments="instruments" placeholder="Start typing an instrument..." ng-enter="filterResults()">
 				</div>
 				<div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
-ng-true-value="true" ng-false-value="false" checked="true" > Use my set search filters </label>
+ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use my set search filters </label>
 				</div>
 			</form>
-			<form id="search_filter" ng-hide="checked">
+			<form id="search_filter" ng-hide="savedFilter">
 				<h3> Refine Search </h3>
 				<div class="column one-3">
 					<div class="filter_one">
@@ -51,12 +51,12 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 						<fieldset>
 							<div class="form_input">
 								<label for="yearsOfExp">Years of Experience:</label>
-								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="filter.yearsOfExp" class="edit_input">
+								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="filter.yearsOfExp" class="edit_input" placeholder="ex. 5">
 							</div>
 							<div class="form_input">
 								<label for="gigsPlayed">Gigs Played:</label>
 								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input">
-									<option value=""> --- </option>
+									<option value=""> # - # </option>
 									<option value="0 - 10"> 0 - 10 </option>
 									<option value="10 - 20"> 10 - 20 </option>
 									<option value="20 - 30"> 20 - 30 </option>
@@ -82,7 +82,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 							<div class="form_input">
 								<label for="availability">Availability:</label>
 								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input">
-									<option value=""> --- </option>
+									<option value=""> # days per week </option>
 									<option value="1 days per week"> 1 days per week </option>
 									<option value="2 days per week"> 2 days per week </option>
 									<option value="3 days per week"> 3 days per week </option>
@@ -100,7 +100,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 					<fieldset>
 						<div class="form_input">
 								<label for="age">Age:</label>
-								<input type="number" id="age" name="age" ng-model="filter.age" class="edit_input">
+								<input type="number" id="age" name="age" ng-model="filter.age" class="edit_input" placeholder="ex. 21">
 						</div>
 						<div class="form_input">
 							<label for="gender">Gender:</label>
@@ -204,7 +204,7 @@ ng-true-value="true" ng-false-value="false" checked="true" > Use my set search f
 
 	<section id="results">
 		<div class="container">
-			<div ng-repeat="user in filtered = (results | filter:filter)">
+			<div ng-repeat="user in filtered = (results | filter:filter )">
 				<div class="column one-5">
 					<a href="#/profile/{{user.id}}">
 						<div class="user_thumb">

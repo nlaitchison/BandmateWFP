@@ -11,20 +11,25 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	var userId = $cookieStore.get('userId');
 
 	$scope.filter = '';
+	$scope.savedFilter = 'false';
 
-	// get user from db
-	Restangular.one('users', userId).get().then(function(u){
+	if($scope.loggedIn == true){
+		// get user from db
+		Restangular.one('users', userId).get().then(function(u){
 
-		// set user for posting to db later
-		$scope.user = u;
+			// set user for posting to db later
+			$scope.user = u;
 
-		// if the user has a filter saved
-		if(u.filter !== null){
-			//set filter
-			$scope.filter = u.filter;
-		}
+			// if the user has a filter saved
+			if(u.filter !== null){
+				//set filter
+				$scope.filter = u.filter;
+				$scope.savedFilter = 'true';
+			}
 
-	});
+		});
+	}
+
 
 	// when the user clicks save filter button
 	$scope.saveFilter = function() {
