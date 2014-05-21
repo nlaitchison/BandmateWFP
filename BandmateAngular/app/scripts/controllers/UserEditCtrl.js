@@ -207,7 +207,14 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	// image upload
 
 	$scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
-  		console.log('meow', flowFile);
+  		var fileReader = new FileReader();
+  		fileReader.readAsDataURL(flowFile.file);
+  		fileReader.onload = function (event) {
+            console.log('file data', event.target.result);
+            $scope.user.profileImg = event.target.result;
+            // update the user data
+			$scope.user.put().then(function(){});
+        };
 	});
 
 });
