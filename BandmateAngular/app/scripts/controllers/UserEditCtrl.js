@@ -10,8 +10,6 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
-	console.log(userId);
-
 	// get user from db
 	Restangular.one('users', userId).get().then(function(u){
 
@@ -58,6 +56,8 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
       	// called asynchronously if an error occurs
       	// or server returns response with an error status.
     	});
+
+    	console.log($scope.img);
 
 	};
 
@@ -144,6 +144,10 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		$scope.genres.splice(index, 1);
 	};
 
+	$scope.uploadImg = function(){
+		console.log('ffhdjfhgdk');
+	};
+
 
 	// ------------------------ Type Ahead Instruments ------------------------------
 
@@ -198,5 +202,12 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	$scope.exampleOptions = {
 		highlight: true
 	};
+
+
+	// image upload
+
+	$scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+  		console.log('meow', flowFile);
+	});
 
 });

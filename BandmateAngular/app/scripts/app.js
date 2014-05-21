@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead']);
+var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead', 'flow']);
 
 App.config(function ($routeProvider) {
     $routeProvider
@@ -45,6 +45,21 @@ App.config(function ($routeProvider) {
       });
   });
 
+  App.config(['flowFactoryProvider', function (flowFactoryProvider) {
+    flowFactoryProvider.defaults = {
+      target: '',
+      permanentErrors: [500, 501],
+      maxChunkRetries: 1,
+      chunkRetryInterval: 5000,
+      simultaneousUploads: 1
+    };
+    flowFactoryProvider.on('catchAll', function (event) {
+      console.log('catchAll', arguments);
+    });
+    // Can be used with different implementations of Flow.js
+    // flowFactoryProvider.factory = fustyFlowFactory;
+  }]);
+
 App.directive('myYoutube', function($sce) {
   return {
     restrict: 'EA',
@@ -85,7 +100,7 @@ App.filter('exact', function(){
       }
     });
     return matching;
-  }
+  };
 });
 
 // directive to check if the enter key has been pressed

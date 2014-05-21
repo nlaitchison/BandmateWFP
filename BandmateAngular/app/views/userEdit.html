@@ -1,6 +1,26 @@
 <div ng-include src="'views/header.html'"></div>
 
 <div id="edit_profile" class="container">
+
+	<section>
+		<div flow-init="{singleFile:true}" flow-name="obj.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" ng-controller="UserEditCtrl">
+			<div class="thumbnail" ng-show="!obj.flow.files.length">
+			 	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+			</div>
+			<div class="thumbnail" ng-show="obj.flow.files.length">
+				<img flow-img="obj.flow.files[0]" />
+			</div>
+			<div>
+				<span class="btn btn-primary" ng-show="!obj.flow.files.length" flow-btn>Select image</span>
+				<span class="btn btn-info" ng-show="obj.flow.files.length" flow-btn>Change</span>
+				<span class="btn btn-danger" ng-show="obj.flow.files.length" ng-click="obj.flow.cancel()"> Remove </span>
+			</div>
+<!-- 			<p>
+				Only PNG,GIF,JPG,JEPG files allowed.
+			</p> -->
+		</div>
+	</section>
+
 	<section id="user_sidebar_left" class="column one-5">
 		<div class="profile_pic">
 			<img ng-src="{{user.profileImg}}">
