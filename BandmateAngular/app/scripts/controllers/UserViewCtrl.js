@@ -11,23 +11,6 @@ App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $loc
 	$scope.user = user;
 	$scope.videos = videos;
 
-	// function to change user birthday to an age
-	function getAge(dateString) {
-	  var today = new Date();
-	  var birthDate = new Date(dateString);
-	  var age = today.getFullYear() - birthDate.getFullYear();
-	  var m = today.getMonth() - birthDate.getMonth();
-	  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-	    age--;
-	  }
-	  return age;
-	}
-
-	// change user birthday into proper format
-	var birthday = $scope.user.birthYear + '-' + $scope.user.birthMonth + '-' + $scope.user.birthDay;
-	// call function to get age
-	$scope.user.age = getAge(birthday);
-
 	// use soundcloud api to insert soundcloud iframe
 	$.get(
 		'http://api.soundcloud.com/resolve.json?url=' + $scope.user.scPlayerUrl + '&client_id=dfc5f1fa84c13d3d8888d1fb9c094f89',

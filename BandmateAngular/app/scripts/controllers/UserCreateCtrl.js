@@ -26,6 +26,12 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
         'instructor' : 'false'
       };
 
+      //set default genres
+      $scope.signup.genres = [];
+
+      //set default instruments
+      $scope.signup.instruments = [];
+
       //set default email User
       $scope.signup.emailUser = 'true';
 
