@@ -294,8 +294,7 @@ var type = angular.module('siyfion.sfTypeahead', []);
         function updateScope (object, suggestion, dataset) {
           scope.$apply(function () {
             scope.genres.push(suggestion.g);
-            ngModel.$setViewValue(suggestion.i);
-            scope.selectedGenre = '';
+            ngModel.$setViewValue(suggestion.g);
           });
         }
 

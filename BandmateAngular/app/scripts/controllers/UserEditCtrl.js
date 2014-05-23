@@ -44,7 +44,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 			age--;
 		}
 		return age;
-	};
+	}
 
 	// when the account_info form is submmitted
 	$scope.accountInfoSubmit = function() {

@@ -26,21 +26,22 @@ ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use my set s
 						<fieldset>
 							<label>Looking For:</label>
 							<div class="bg_related_input first">
-								<label for="musician"> <input type="checkbox" id="musician" name="musician"
-		ng-true-value="Musician" ng-false-value="" > Musician </label>
-							</div>
-							<div class="bg_related_input">
-								<label for="band"> <input type="checkbox" id="band" name="band"
-		ng-true-value="Band" ng-false-value="" > Band </label>
-							</div>
-							<div class="bg_related_input last">
-								<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
-		ng-true-value="Instructor" ng-false-value="" > Instructor </label>
-							</div>
+						<label for="musician"> <input type="checkbox" id="musician" name="musician"
+ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.musician"> Musician </label>
+					</div>
+					<div class="bg_related_input">
+						<label for="band"> <input type="checkbox" id="band" name="band"
+ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.band"> Band </label>
+					</div>
+					<div class="bg_related_input last">
+						<label for="instructor"> <input type="checkbox" id="instructor" name="instructor"
+ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.instructor"> Instructor </label>
+					</div>
 							<div class="form_input">
-								<label for="genre"> Genres:
-									<textarea id="genre" name="genre" class="edit_input"> </textarea>
-								</label>
+								<label for="genres"> Genre: </label>
+								<div id="genres_filter">
+									<input type="text" name="genres" id="genres" type="text" sf-typeaheadgenres options="exampleOptions" datasets="gDataset" ng-model="filter.genres" genres="genres">
+								</div>
 							</div>
 
 						</fieldset>
@@ -56,7 +57,7 @@ ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use my set s
 							<div class="form_input">
 								<label for="gigsPlayed">Gigs Played:</label>
 								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input">
-									<option value=""> # - # </option>
+									<option value=""> --- </option>
 									<option value="0 - 10"> 0 - 10 </option>
 									<option value="10 - 20"> 10 - 20 </option>
 									<option value="20 - 30"> 20 - 30 </option>
@@ -82,7 +83,7 @@ ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use my set s
 							<div class="form_input">
 								<label for="availability">Availability:</label>
 								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input">
-									<option value=""> # days per week </option>
+									<option value=""> --- </option>
 									<option value="1 days per week"> 1 days per week </option>
 									<option value="2 days per week"> 2 days per week </option>
 									<option value="3 days per week"> 3 days per week </option>

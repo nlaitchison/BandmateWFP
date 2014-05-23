@@ -10,9 +10,9 @@
 			<h2> {{user.name}} </h2>
 			<ul class="account_info">
 				<li class="account_type"> <span class="text_repeat" ng-repeat="string in user.account">{{string}} <span class="text_divider"> / </span> </span> </li>
-				<li> {{user.city}}, {{user.state}} </li>
-				<li> {{user.age}} years old</li>
-				<li> {{user.gender}} </li>
+				<li ng-show="user.city"> {{user.city}}, {{user.state}} </li>
+				<li ng-show="user.age"> {{user.age}} years old</li>
+				<li ng-show="user.gender"> {{user.gender}} </li>
 				<li class="active_within"> Last Active on {{user.updatedAt | date:'mediumDate'}} </li>
 			</ul>
 			<ul class="user_buttons">

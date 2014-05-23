@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookieStore) {
+App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookieStore, $filter, $http) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -30,7 +30,6 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 		});
 	}
 
-
 	// when the user clicks save filter button
 	$scope.saveFilter = function() {
 
@@ -52,6 +51,21 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 
 	    	$scope.results = u;
 
+	    	// $scope.results = $filter('filter')(u, {accountType: {'instructor': 'true'}});
+
+	    });
+
+	    $http({method: 'GET', url: 'http://localhost:1337/location/near'}).
+	    success(function(data, status, headers, config) {
+	      // this callback will be called asynchronously
+	      // when the response is available
+
+	      console.log(data);
+
+	    }).
+	    error(function(data, status, headers, config) {
+	      // called asynchronously if an error occurs
+	      // or server returns response with an error status.
 	    });
 
 	    console.log($scope.filter);
@@ -117,7 +131,7 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	};
 
 	$scope.genres = [];
-	$scope.selectedGenre = null;
+	$scope.filter.genres = null;
 
 	// Typeahead options object
 	$scope.exampleOptions = {

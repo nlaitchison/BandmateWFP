@@ -22,13 +22,13 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     	for (var i=0;i<m.length;i++)
 		{
 			if(m[i].userOneId === userId){
-				console.log('one match');
+				// console.log('one match');
 				getUserOne(m[i]);
 
 			}
 
 			if(m[i].userTwoId === userId){
-				console.log('two match');
+				// console.log('two match');
 				getUserTwo(m[i]);
 			}
 		}
@@ -52,7 +52,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			$scope.allMsg.push(c);
 
 			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
-				console.log($scope.allMsg.length);
+				// console.log($scope.allMsg.length);
 				$scope.loadMsg($scope.allMsg[0].id);
 			}
 
@@ -80,14 +80,14 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 		});
 
 			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
-				console.log($scope.allMsg.length);
+				// console.log($scope.allMsg.length);
 				$scope.loadMsg($scope.allMsg[0].id);
 			}
     };
 
     var getUserInfo = function(){
 
-    	console.log('console.log', $scope.currentMsg);
+    	// console.log('console.log', $scope.currentMsg);
 
     	Restangular.one('users', $scope.currentMsg.userOneId).get().then(function(u){
 
@@ -109,8 +109,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     		var testingOne = $filter('filter')(m, {userOneId: id, userTwoId: userId});
     		var testingTwo = $filter('filter')(m, {userOneId: userId, userTwoId: id});
 
-    		console.log(testingOne);
-    		console.log(testingTwo);
+    		// console.log(testingOne);
+    		// console.log(testingTwo);
 
     		if(testingOne.length > 0 && testingTwo.length < 1){
     			$location.path('/messages');
@@ -140,7 +140,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     		$scope.newMsg.text = '';
     	});
 
-    	console.log($scope.newMsg.text);
+    	// console.log($scope.newMsg.text);
     };
 
     var newMsg = function(id){
@@ -161,7 +161,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     };
 
     $scope.loadMsg = function(id){
-    	console.log(id);
+    	// console.log(id);
 
     	Restangular.one('messages', id).get().then(function(m){
 
