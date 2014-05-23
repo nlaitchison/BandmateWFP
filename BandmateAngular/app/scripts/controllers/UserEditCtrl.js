@@ -60,7 +60,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		}
 
 		// if the user has a location set, then get their lng and lat
-		if($scope.user.city !== null && $scope.user.state !== null){
+		if($scope.user.city && $scope.user.state){
 
 			// set url for geocoding request
 			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.user.city +','+'+'+ $scope.user.state +'&sensor=true_or_false&key=AIzaSyBbKDdBIm2VtMBr5Xdq1slh0IU39dm33tM';
@@ -69,7 +69,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 			$http({method: 'GET', url: url}).success(function(data, status, headers, config) {
 
 				// set user loc
-	      		$scope.user.loc = { 'type' : 'Point', 'coordinates': [ data.results[0].geometry.location.lng, data.results[0].geometry.location.lng ] };
+	      		$scope.user.loc = { 'type' : 'Point', 'coordinates': [ data.results[0].geometry.location.lng, data.results[0].geometry.location.lat ] };
 
 	    		// update the user data
 				$scope.user.put().then(function(){});

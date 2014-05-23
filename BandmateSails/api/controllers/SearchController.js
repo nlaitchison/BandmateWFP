@@ -1,5 +1,5 @@
 /**
- * LocationController
+ * SearchController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -20,8 +20,44 @@ module.exports = {
 
   /**
    * Action blueprints:
-   *    `/location/near`
+   *    `/search/advance`
    */
+   advance: function (req, res) {
+    var lat = parseFloat(req.param('lat'));
+    var lng = parseFloat(req.param('lng'));
+    if (lat && lng){
+    var maxD = parseFloat(req.param('maxDistance')) || 30
+    Users.native(function(err, collection) {
+      collection.geoNear(lng, lat, {
+        distanceMultiplier: 3959,
+        spherical: true
+      }, function(mongoErr, docs){
+        if (mongoErr) {
+          console.error(mongoErr);
+          res.send('error!' + mongoErr)
+        } else {
+          var results = [];
+          for(var i = 0; i < docs.results.length; i++) {
+           if(docs.results[i].dis < maxD){
+            results.push(docs.results[i].obj)
+           }
+          }
+          res.json(results)
+        }
+      })
+    })
+  }else {
+    // Users.Find()
+    Users.find(function(err, users) {
+      if(err){
+        console.error(err);
+        res.send('error!' + err)
+      } else{
+        res.json(users)
+      }
+    });
+  }
+
 
     // Users.findOne('53630c5932c0536477c042a0', function(err, user) {
 
@@ -36,14 +72,11 @@ module.exports = {
     // return res.json({
     //   hello: 'world'
     // });
-  // },
-
-
-
+  },
 
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to LocationController)
+   * (specific to SearchController)
    */
   _config: {}
 

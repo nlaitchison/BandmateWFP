@@ -173,7 +173,7 @@ ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.instruc
 						</div>
 						<div class="form_input">
 								<label for="radius">Search Radius:</label>
-								<select id="radius" name="radius" class="edit_input" ng-model="filter.radius">
+								<select id="radius" name="radius" class="edit_input" ng-model="filter.maxDistance">
 									<option value=""> --- </option>
 									<option value="10"> 10 miles</option>
 									<option value="20"> 20 miles</option>
@@ -205,7 +205,7 @@ ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.instruc
 
 	<section id="results">
 		<div class="container">
-			<div ng-repeat="user in filtered = (results | filter:filter )">
+			<div ng-repeat="user in filtered = (results | filter:filter )"">
 				<div class="column one-5">
 					<a href="#/profile/{{user.id}}">
 						<div class="user_thumb">
