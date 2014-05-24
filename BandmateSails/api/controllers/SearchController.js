@@ -37,16 +37,16 @@ module.exports = {
           res.send('error!' + mongoErr)
         } else {
           var results = [];
-          for(var i = 0; i < docs.results.length; i++) {
-           if(docs.results[i].dis < maxD){
-            docs.results[i].obj.id = docs.results[i].obj._id;
-            results.push(docs.results[i].obj);
-           }
-          }
+          // for(var i = 0; i < docs.results.length; i++) {
+          //  if(docs.results[i].dis < maxD){
+          //   docs.results[i].obj.id = docs.results[i].obj._id;
+          //   results.push(docs.results[i].obj);
+          //  }
+          // }
           res.json(results)
         }
       })
-    })
+    });
   }else {
     // Users.Find()
     Users.find(req, function(err, users) {

@@ -41,6 +41,23 @@ module.exports = {
         }
       });
     });
+  },
+  beforeUpdate: function(valuesToUpdate, cb) {
+    var diff = require('deep-diff').diff;
+
+    Users.findOne({email: valuesToUpdate.email}, function(err, user) {
+      if(err){
+        console.error(err);
+
+      } else{
+        var current = user;
+        var differences = diff(current, valuesToUpdate);
+        console.log('differences', differences);
+      }
+    });
+
+    // console.log('new', valuesToUpdate.about);
+    // cb(null, valuesToUpdate);
   }
 };
 
