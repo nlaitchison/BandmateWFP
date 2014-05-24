@@ -97,6 +97,11 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		// update the user data
 		$scope.user.put().then(function(){});
 
+		var n = Restangular.all('newsfeed');
+		var obj = { id : userId, changes : []};
+	     n.post(obj).then(function(item){
+	     });
+
 	};
 
 	// when the audio form is submitted

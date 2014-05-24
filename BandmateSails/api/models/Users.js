@@ -48,11 +48,26 @@ module.exports = {
     Users.findOne({email: valuesToUpdate.email}, function(err, user) {
       if(err){
         console.error(err);
-
       } else{
         var current = user;
+        var changes = [];
         var differences = diff(current, valuesToUpdate);
         console.log('differences', differences);
+        console.log('---------------');
+        for(var i = 0; i < differences.length; i++) {
+          if(differences[i].kind === 'N' || differences[i].kind === 'E'){
+            if(differences[i].path[0] != 'updatedAt'){
+              var c = { time : new Date(), type : differences[i].path[0], change : differences[i].rhs };
+            //{ differences[i].path[0] : differences[i].rhs };
+              changes.push(c);
+            }
+          }else if(differences[i].kind === 'A'){
+            var c = { time : new Date(), type : differences[i].path[0], change : differences[i].item.rhs };
+            changes.push(c);
+          }
+
+        }
+        console.log(changes);
       }
     });
 
