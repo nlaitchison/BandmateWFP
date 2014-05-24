@@ -179,12 +179,6 @@ ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.instruc
 									<option value="20"> 20 miles</option>
 									<option value="30"> 30 miles</option>
 									<option value="40"> 40 miles</option>
-									<option value="50"> 50 miles</option>
-									<option value="60"> 60 miles</option>
-									<option value="70"> 70 miles</option>
-									<option value="80"> 80 miles</option>
-									<option value="90"> 90 miles</option>
-									<option value="100"> 100 miles</option>
 								</select>
 					</fieldset>
 					</div>
@@ -205,7 +199,8 @@ ng-true-value="true" ng-false-value="false" ng-model="filter.accountType.instruc
 
 	<section id="results">
 		<div class="container">
-			<div ng-repeat="user in filtered = (results | filter:filter )"">
+			<!-- <div ng-repeat="user in filtered = (results | filter:filter.commitment | filter:filter.availability | filter:filter.genres | filter:filter.instruments | filter:filter.age | filter:filter.gigsPlayed | filter:filter.yearsOfExp | filter:filter.gender )"> -->
+			<div ng-repeat="user in results">
 				<div class="column one-5">
 					<a href="#/profile/{{user.id}}">
 						<div class="user_thumb">

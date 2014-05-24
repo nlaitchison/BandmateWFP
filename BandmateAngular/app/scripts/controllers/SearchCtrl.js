@@ -13,7 +13,7 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	$scope.filter = '';
 	$scope.savedFilter = 'false';
 
-	if($scope.loggedIn == true){
+	if($scope.loggedIn === true){
 		// get user from db
 		Restangular.one('users', userId).get().then(function(u){
 

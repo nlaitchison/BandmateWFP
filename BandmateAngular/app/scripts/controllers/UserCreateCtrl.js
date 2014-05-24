@@ -62,7 +62,7 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
               createObjects(data.user.id);
 
               // take user to account page
-              $location.path('/account/' + data.user.id);
+              $location.path('/account/');
 
               // set scope var for nav show and hide ul
               $scope.loggedIn = AuthService.isLoggedIn();

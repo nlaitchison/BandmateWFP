@@ -39,7 +39,8 @@ module.exports = {
           var results = [];
           for(var i = 0; i < docs.results.length; i++) {
            if(docs.results[i].dis < maxD){
-            results.push(docs.results[i].obj)
+            docs.results[i].obj.id = docs.results[i].obj._id;
+            results.push(docs.results[i].obj);
            }
           }
           res.json(results)
@@ -48,7 +49,7 @@ module.exports = {
     })
   }else {
     // Users.Find()
-    Users.find(function(err, users) {
+    Users.find(req, function(err, users) {
       if(err){
         console.error(err);
         res.send('error!' + err)
