@@ -49,30 +49,35 @@ module.exports = {
       if(err){
         console.error(err);
       } else{
-        var current = user;
-        var changes = [];
-        var differences = diff(current, valuesToUpdate);
-        console.log('differences', differences);
-        console.log('---------------');
-        for(var i = 0; i < differences.length; i++) {
-          if(differences[i].kind === 'N' || differences[i].kind === 'E'){
-            if(differences[i].path[0] != 'updatedAt'){
-              var c = { time : new Date(), type : differences[i].path[0], change : differences[i].rhs };
-            //{ differences[i].path[0] : differences[i].rhs };
-              changes.push(c);
+          var current = user;
+          var changes = [];
+          var differences = diff(current, valuesToUpdate);
+          // console.log('differences', differences);
+          // console.log('---------------');
+          var u = '';
+          Newsfeed.findOne({id: current.id}).done(function(err, updates) {
+            for(var i = 0; i < differences.length; i++) {
+              if(differences[i].kind === 'N' || differences[i].kind === 'E'){
+                if(differences[i].path[0] != 'updatedAt'){
+                  var c = { time : new Date(), type : differences[i].path[0], change : differences[i].rhs };
+                //{ differences[i].path[0] : differences[i].rhs };
+                  updates.changes.push(c);
+                }
+              }else if(differences[i].kind === 'A'){
+                var c = { time : new Date(), type : differences[i].path[0], change : differences[i].item.rhs };
+                updates.changes.push(c);
+              }
             }
-          }else if(differences[i].kind === 'A'){
-            var c = { time : new Date(), type : differences[i].path[0], change : differences[i].item.rhs };
-            changes.push(c);
-          }
+            updates.save(function(err){
+
+            });
+            console.log(updates);
+          });
 
         }
-        console.log(changes);
-      }
     });
-
     // console.log('new', valuesToUpdate.about);
-    // cb(null, valuesToUpdate);
+    cb(null, valuesToUpdate);
   }
 };
 
