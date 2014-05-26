@@ -2,6 +2,9 @@
 
 <div id="main_content">
 	<div ng-repeat="obj in newsfeed">
+		{{obj.userName}}
+		<img src="{{obj.userPic}}">
+		{{obj.type}}
 		{{obj.change}}
 	</div>
 </div>
