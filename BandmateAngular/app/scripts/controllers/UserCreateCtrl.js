@@ -105,6 +105,10 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
     v.post($scope.videos).then(function(videos){
       console.log(videos);
     });
+
+   var n = Restangular.all('newsfeed');
+   $scope.newsFeed = { id : id, changes : []};
+    n.post($scope.newsFeed).then(function(item){});
   };
 
 });

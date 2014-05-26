@@ -40,6 +40,10 @@ App.config(function ($routeProvider) {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl'
       })
+      .when('/newsfeed', {
+        templateUrl: 'views/newsfeed.html',
+        controller: 'NewsfeedCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
