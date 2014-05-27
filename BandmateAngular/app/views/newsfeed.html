@@ -2,7 +2,7 @@
 
 <div id="main_content" class="container">
 	<section id="newsfeed" class="two-5">
-		<div ng-repeat="obj in newsfeed" class="nf_container">
+		<div ng-repeat="obj in newsfeed | orderBy:order" class="nf_container">
 			<div class="nf_header">
 				<div class="nf_img">
 					<a href="#/profile/{{obj.userId}}"><img src="{{obj.userPic}}"></a>
@@ -26,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 </div>
 

@@ -12,6 +12,8 @@ App.controller('NewsfeedCtrl', function ($scope, Restangular, $location, AuthSer
 
 	$scope.newsfeed = [];
 
+	$scope.order = '-timeStamp';
+
 	//get user studio from db
 	Restangular.one('studios', userId).get().then(function(s){
 
