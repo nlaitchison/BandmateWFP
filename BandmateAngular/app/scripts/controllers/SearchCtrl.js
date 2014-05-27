@@ -48,91 +48,20 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 		console.log($scope.filter);
 
 		console.log('useOnce');
-		// users/search?lat=-11&lng=11
-		// var searchModel={
-		// 	lat: '-11',
-		// 	lng: '11',
-		// 	position: 'drummer',
-		// 	name: 'kyle'
-		// }
 
-		// if the filter has a location set, then get their lng and lat
-		if($scope.filter.city && $scope.filter.state){
-			console.log('working');
+		$http({method: 'GET', url: 'http://localhost:1337/search/advance', params: $scope.filter}).
+			success(function(data, status, headers, config) {
+			  // this callback will be called asynchronously
+			  // when the response is available
 
-			// set url for geocoding request
-			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.filter.city +','+'+'+ $scope.filter.state +'&sensor=true_or_false&key=AIzaSyBbKDdBIm2VtMBr5Xdq1slh0IU39dm33tM';
+			  $scope.results = data;
+			  console.log('results normal', $scope.results);
 
-			// call to google geocoding api to get lng and lat
-			$http({method: 'GET', url: url}).success(function(data, status, headers, config) {
-
-				// set filter lat and lng
-	      		$scope.filter.lat = data.results[0].geometry.location.lat;
-	      		$scope.filter.lng = data.results[0].geometry.location.lng;
-
-	      		$http({method: 'GET', url: 'http://localhost:1337/search/advance', params: $scope.filter}).
-					success(function(data, status, headers, config) {
-					  // this callback will be called asynchronously
-					  // when the response is available
-
-					  $scope.results = data;
-					  console.log('results near', $scope.results);
-
-					}).
-					error(function(data, status, headers, config) {
-					  // called asynchronously if an error occurs
-					  // or server returns response with an error status.
-					});
-
-
-	    	}).
-	    	error(function(data, status, headers, config) {
-	      	// called asynchronously if an error occurs
-	      	// or server returns response with an error status.
-	    	});
-		}else{
-			// update the user data
-			// $scope.user.put().then(function(){});
-
-			$http({method: 'GET', url: 'http://localhost:1337/search/advance', params: $scope.filter}).
-				success(function(data, status, headers, config) {
-				  // this callback will be called asynchronously
-				  // when the response is available
-
-				  $scope.results = data;
-				  console.log('results normal', $scope.results);
-
-				}).
-				error(function(data, status, headers, config) {
-				  // called asynchronously if an error occurs
-				  // or server returns response with an error status.
-				});
-
-		}
-
-		// Restangular.all('users').getList("search", searchModel).then(function(u){
-
-	 //    	$scope.results = u;
-
-	 //    	// $scope.results = $filter('filter')(u, {accountType: {'instructor': 'true'}});
-
-	 //    });
-
-	 //    $http({method: 'GET', url: 'http://localhost:1337/location/near', params:searchModel}).
-	 //    success(function(data, status, headers, config) {
-	 //      // this callback will be called asynchronously
-	 //      // when the response is available
-
-	 //      console.log(data);
-
-	 //    }).
-	 //    error(function(data, status, headers, config) {
-	 //      // called asynchronously if an error occurs
-	 //      // or server returns response with an error status.
-	 //    });
-
-
-
+			}).
+			error(function(data, status, headers, config) {
+			  // called asynchronously if an error occurs
+			  // or server returns response with an error status.
+			});
 	};
 
 	// when the user clicks the filter button
@@ -201,6 +130,4 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	$scope.exampleOptions = {
 		highlight: true
 	};
-
-
 });

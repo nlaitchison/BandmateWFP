@@ -15,7 +15,7 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-module.exports = {
+ module.exports = {
 
 
   /**
@@ -23,38 +23,55 @@ module.exports = {
    *    `/search/advance`
    */
    advance: function (req, res) {
-    var lat = parseFloat(req.param('lat'));
-    var lng = parseFloat(req.param('lng'));
-    if (lat && lng){
-    var maxD = parseFloat(req.param('maxDistance')) || 30
-    Users.native(function(err, collection) {
-      collection.geoNear(lng, lat, {
-        distanceMultiplier: 3959,
-        spherical: true
-      }, function(mongoErr, docs){
-        if (mongoErr) {
-          console.error(mongoErr);
-          res.send('error!' + mongoErr)
-        } else {
-          var results = [];
-          for(var i = 0; i < docs.results.length; i++) {
-           if(docs.results[i].dis < maxD){
-            docs.results[i].obj.id = docs.results[i].obj._id;
-            results.push(docs.results[i].obj);
-           }
-          }
-          res.json(results)
-        }
-      })
-    });
-  }else {
+    var city = req.param('city');
+    var state = req.param('state');
+
+    var searchQuery = req.query;
+    searchQuery = _.omit(searchQuery, ['city', 'state', 'lat', 'lng', 'maxDistance']);
+    if(searchQuery.age)
+        searchQuery.age = parseInt(searchQuery.age);
+    if(searchQuery.yearsOfExp)
+        searchQuery.yearsOfExp = +searchQuery.yearsOfExp;
+    console.log(searchQuery);
+    if (city && state){
+      var self = this;
+      LocationService.getGeo(city, state, function(err, lat, lng){
+         var maxD = parseFloat(req.param('maxDistance')) || 30
+
+        Users.native(function(err, collection) {
+          collection.geoNear(lng, lat, {
+            maxDistance: maxD / 3959,
+            // distanceMultiplier: 3959,
+            spherical: true,
+            query: searchQuery
+          }, function(mongoErr, docs){
+            if (mongoErr) {
+              console.error(mongoErr);
+              res.send('error!' + mongoErr)
+            } else {
+            //   var results = [];
+            //   for(var i = 0; i < docs.results.length; i++) {
+            //    if(docs.results[i].dis < maxD){
+            //     docs.results[i].obj.id = docs.results[i].obj._id;
+            //     results.push(docs.results[i].obj);
+            //   }
+            // }
+            // return res.json(results);
+              return res.json(_.pluck(docs.results, 'obj'));
+              // return res.json(docs);
+            }
+          })
+        });
+      });
+    } else {
+      console.log('test3');
     // Users.Find()
-    Users.find(req, function(err, users) {
+    Users.find(searchQuery, function(err, users) {
       if(err){
         console.error(err);
-        res.send('error!' + err)
+        return res.send('error!' + err)
       } else{
-        res.json(users)
+        return res.json(users);
       }
     });
   }
@@ -73,13 +90,13 @@ module.exports = {
     // return res.json({
     //   hello: 'world'
     // });
-  },
+},
 
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to SearchController)
    */
-  _config: {}
+   _config: {}
 
 
-};
+ };

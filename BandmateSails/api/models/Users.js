@@ -44,7 +44,6 @@ module.exports = {
   },
   beforeUpdate: function(valuesToUpdate, cb) {
     var diff = require('deep-diff').diff;
-
     Users.findOne({email: valuesToUpdate.email}, function(err, user) {
       if(err){
         console.error(err);
@@ -71,7 +70,7 @@ module.exports = {
             updates.save(function(err){
 
             });
-            console.log(updates);
+            // console.log(updates);
           });
 
         }
@@ -80,4 +79,3 @@ module.exports = {
     cb(null, valuesToUpdate);
   }
 };
-
