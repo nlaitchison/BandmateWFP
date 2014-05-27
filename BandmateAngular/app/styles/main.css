@@ -349,8 +349,6 @@ nav li.user_img a{
 	background-color: #1d1c67;
 }
 
-
-
 #settings_menu{
 	position: absolute;
 	top: 50px;
@@ -1171,8 +1169,58 @@ fieldset#location select#state{
 
 
 /* ---------------------------------------------------------------------------------------------------
+		∆ Newsfeed
+---------------------------------------------------------------------------------------------------*/
+
+.nf_container{
+	padding: 10px;
+	margin-bottom: 20px;
+	background-color: #e9e9e9;
+}
+
+.nf_header{
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.nf_header ul{
+	padding-top: 6px;
+}
+
+.nf_header ul li{
+	float: none;
+}
+
+.nf_img{
+	width: 45px;
+	height: 45px;
+	margin-right: 10px;
+	overflow: hidden;
+	cursor: pointer;
+	float: left;
+}
+
+.nf_img img{
+	height: 100%;
+}
+
+.nf_name{
+	color: #05959a;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding-bottom: 4px;
+}
+
+.nf_date{
+	font-size: 12px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
 		∆ Messaging
 ---------------------------------------------------------------------------------------------------*/
+
 
 .inbox_msg{
 	max-width: 100%;

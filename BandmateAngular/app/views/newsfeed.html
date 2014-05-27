@@ -1,17 +1,32 @@
 <div ng-include src="'views/header.html'"></div>
 
-<div id="main_content">
-	<div ng-repeat="obj in newsfeed">
-		{{obj.userName}}
-		{{obj.timeStamp}}
-		<!-- <img src="{{obj.userPic}}"> -->
-		<!-- {{obj.type}}
-		{{obj.change}} -->
-		<div ng-repeat="u in obj.updates">
-			{{u.type}}
-			{{u.change}}
+<div id="main_content" class="container">
+	<section id="newsfeed" class="two-5">
+		<div ng-repeat="obj in newsfeed" class="nf_container">
+			<div class="nf_header">
+				<div class="nf_img">
+					<a href="#/profile/{{obj.userId}}"><img src="{{obj.userPic}}"></a>
+				</div>
+				<ul>
+					<li class="nf_name">{{obj.userName}}</li>
+					<li class="nf_date">{{ obj.timeStamp | date : 'MMM d'}}</li>
+				</ul>
+				<div class="clear_fix"></div>
+			</div>
+			<div ng-repeat="u in obj.updates">
+				<!-- {{u.type}}
+				{{u.change}} -->
+				<div ng-if="u.type == 'scPlayerUrl'">
+					<p> {{obj.userName}} updated their playlist. </p>
+					<div sc-player url="u.change"></div>
+				</div>
+				<div ng-if="u.type == 'profileImg'">
+					<p> {{obj.userName}} changed their profile picture. </p>
+					<img src="{{u.change}}">
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
 </div>
 
 <div ng-include src="'views/footer.html'"></div>
