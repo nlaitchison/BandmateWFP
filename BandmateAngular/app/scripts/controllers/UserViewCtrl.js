@@ -25,20 +25,20 @@ App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $loc
 		);
 	}
 
-	function getAccountType() {
-		$scope.user.account = [];
-		if($scope.user.accountType.musician === 'true'){
-			$scope.user.account.push('Musician');
-		}
-		if($scope.user.accountType.band === 'true'){
-			$scope.user.account.push('Band');
-		}
-		if($scope.user.accountType.instructor === 'true'){
-			$scope.user.account.push('Instructor');
-		}
-	}
+	// function getAccountType() {
+	// 	$scope.user.account = [];
+	// 	if($scope.user.accountType.musician === 'true'){
+	// 		$scope.user.account.push('Musician');
+	// 	}
+	// 	if($scope.user.accountType.band === 'true'){
+	// 		$scope.user.account.push('Band');
+	// 	}
+	// 	if($scope.user.accountType.instructor === 'true'){
+	// 		$scope.user.account.push('Instructor');
+	// 	}
+	// }
 
-	getAccountType();
+	// getAccountType();
 
 	// for(var i=0; i < $scope.user.ytUrl.length; i++){
 	// 	console.log($scope.user.ytUrl[i]);

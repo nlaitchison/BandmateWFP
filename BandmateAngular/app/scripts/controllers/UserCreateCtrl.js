@@ -20,11 +20,11 @@ App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthServi
       $scope.signup.profileImg = 'images/default-user-lrg.png';
 
       //set default accountType
-      $scope.signup.accountType = {
-        'musician' : 'false',
-        'band' : 'false',
-        'instructor' : 'false'
-      };
+      // $scope.signup.accountType = {
+      //   'musician' : 'false',
+      //   'band' : 'false',
+      //   'instructor' : 'false'
+      // };
 
       //set default genres
       $scope.signup.genres = [];

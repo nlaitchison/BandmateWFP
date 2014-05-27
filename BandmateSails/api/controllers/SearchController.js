@@ -32,7 +32,7 @@
         searchQuery.age = parseInt(searchQuery.age);
     if(searchQuery.yearsOfExp)
         searchQuery.yearsOfExp = +searchQuery.yearsOfExp;
-    console.log(searchQuery);
+    console.log(_.isBoolean(searchQuery.musician));
     if (city && state){
       var self = this;
       LocationService.getGeo(city, state, function(err, lat, lng){

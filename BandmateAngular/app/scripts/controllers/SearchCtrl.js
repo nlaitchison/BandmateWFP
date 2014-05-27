@@ -49,6 +49,16 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 
 		console.log('useOnce');
 
+		if($scope.filter.instrument === '') $scope.filter.instrument = null;
+		if($scope.filter.genre === '') $scope.filter.genre = null;
+		if($scope.filter.musician === '') $scope.filter.musician = null;
+		if($scope.filter.band === '') $scope.filter.band = null;
+		if($scope.filter.instructor === '') $scope.filter.instructor = null;
+		if($scope.filter.commitment === '') $scope.filter.commitment = null;
+		if($scope.filter.availability === '') $scope.filter.availability = null;
+		if($scope.filter.gigsPlayed === '') $scope.filter.gigsPlayed = null;
+		if($scope.filter.gender === '') $scope.filter.gender = null;
+
 		$http({method: 'GET', url: 'http://localhost:1337/search/advance', params: $scope.filter}).
 			success(function(data, status, headers, config) {
 			  // this callback will be called asynchronously
