@@ -53,24 +53,64 @@ module.exports = {
           var differences = diff(current, valuesToUpdate);
           // console.log('differences', differences);
           // console.log('---------------');
-          var u = '';
           Newsfeed.findOne({id: current.id}).done(function(err, updates) {
-            for(var i = 0; i < differences.length; i++) {
-              if(differences[i].kind === 'N' || differences[i].kind === 'E'){
-                if(differences[i].path[0] != 'updatedAt'){
-                  var c = { time : new Date(), type : differences[i].path[0], change : differences[i].rhs };
-                //{ differences[i].path[0] : differences[i].rhs };
-                  updates.changes.push(c);
-                }
-              }else if(differences[i].kind === 'A'){
-                var c = { time : new Date(), type : differences[i].path[0], change : differences[i].item.rhs };
-                updates.changes.push(c);
-              }
-            }
-            updates.save(function(err){
+            var cObj = { timeStamp: new Date(), updates: [] };
+            var scObj = { timeStamp: new Date(), updates: [] };
+            var pObj = { timeStamp: new Date(), updates: [] };
+            // c = _.filter(differences, function(item){
+            //   if((item.kind == 'N' || item.kind == 'E') && item.path[0] != 'updatedAt' && item.path[0] != 'scPlayerUrl') {
+            //     obj = { type : item.path[0], change : item.rhs };
+            //     changes.updates.push(obj);
+            //     // return item;
+            //   }else if(item.kind == 'A') {
+            //     obj = { type : item.path[0], change : item.item.rhs };
+            //     changes.updates.push(obj);
+            //     // return item;
+            //   }else if(item.path[0] == 'scPlayerUrl') {
+            //     obj = { type : item.path[0], change : item.rhs };
+            //     sc.updates.push(obj);
+            //     // return item;
+            //   }
 
-            });
+            //   updates.changes.push(changes);
+            //   //  updates.changes.push(sc);
+            // });
             // console.log(updates);
+            d = _.filter(differences, function(item){
+              if((item.kind == 'N' || item.kind == 'E' || item.kind == 'A') && item.path[0] != 'updatedAt' && item.path[0] != 'createdAt') {
+                return item;
+              }
+            });
+            // console.log(d);
+            for(var i = 0; i < d.length; i++) {
+              if(d[i].path[0] != 'scPlayerUrl' && d[i].path[0] != 'profileImg'){
+                if(d[i].kind != 'A'){
+                  obj = { type : d[i].path[0], change : d[i].rhs };
+                  cObj.updates.push(obj);
+                }else if(d[i].kind == 'A'){
+                  obj = { type : d[i].path[0], change : d[i].item.rhs };
+                  cObj.updates.push(obj);
+                }
+              }else if(d[i].path[0] == 'scPlayerUrl'){
+                obj = { type : d[i].path[0], change : d[i].rhs };
+                scObj.updates.push(obj);
+              }else if(d[i].path[0] == 'profileImg'){
+                obj = { type : d[i].path[0], change : d[i].rhs };
+                scObj.updates.push(obj);
+              }
+              console.log(obj);
+            }
+            if(cObj.updates.length > 0){
+              updates.changes.push(cObj);
+            }
+            if(scObj.updates.length > 0){
+              updates.changes.push(scObj);
+            }
+            if(pObj.updates.length > 0){
+              updates.changes.push(pObj);
+            }
+            updates.save(function(err){});
+            // console.log(updates.changes);
           });
 
         }

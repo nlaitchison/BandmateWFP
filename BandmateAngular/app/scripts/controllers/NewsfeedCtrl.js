@@ -30,13 +30,15 @@ App.controller('NewsfeedCtrl', function ($scope, Restangular, $location, AuthSer
 						// console.log(n);
 						for (var i=0;i<n.changes.length;i++)
 						{
-							var obj = { 'userId': u.id, 'userName': u.name, 'userPic' : u.profileImg, 'timeStamp': n.changes[i].time, 'type': n.changes[i].type, 'change': n.changes[i].change};
+							var obj = { 'userId': u.id, 'userName': u.name, 'userPic' : u.profileImg, 'timeStamp': n.changes[i].timeStamp, updates: n.changes[i].updates};
 							$scope.newsfeed.push(obj);
+							console.log($scope.newsfeed);
 						}
 					});
 
 				});
 			}
+			console.log('newsfeed', $scope.newsfeed);
 		}else{
 			console.log('dont run');
 		}

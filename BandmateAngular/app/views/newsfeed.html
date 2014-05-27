@@ -3,9 +3,14 @@
 <div id="main_content">
 	<div ng-repeat="obj in newsfeed">
 		{{obj.userName}}
-		<img src="{{obj.userPic}}">
-		{{obj.type}}
-		{{obj.change}}
+		{{obj.timeStamp}}
+		<!-- <img src="{{obj.userPic}}"> -->
+		<!-- {{obj.type}}
+		{{obj.change}} -->
+		<div ng-repeat="u in obj.updates">
+			{{u.type}}
+			{{u.change}}
+		</div>
 	</div>
 </div>
 
