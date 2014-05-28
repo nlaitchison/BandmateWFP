@@ -52,7 +52,8 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 				});
 
             }else{
-             	alert('Invalid Username or Password!');
+             	// alert('Invalid Username or Password!');
+             	 $scope.loginErr = 'Invalid Username or Password!';
             }
           });
 	};

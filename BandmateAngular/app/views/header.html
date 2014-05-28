@@ -35,6 +35,9 @@
 		<div class="form_input">
 			<input type="password" name="login_password" id="login_password" placeholder="Password" ng-model="login.password">
 		</div>
+		<div ng-if="loginErr" class="login_err">
+			{{loginErr}}
+		</div>
 		<input type="submit" id="login_button" value="login" ng-click="!$root.loginClicked">
 		<div clas="clear_fix"></div>
 	</form>

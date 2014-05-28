@@ -93,6 +93,7 @@ li{
 
 input{
 	border-radius: 2px;
+	outline: none;
 }
 
 section{
@@ -185,8 +186,13 @@ fieldset{
    color: #ddd;
 }
 
-::-webkit-input-placeholder {
-   /*color: red;*/
+#signup input::-webkit-input-placeholder {
+   color: #666;
+}
+
+#search_cta input::-webkit-input-placeholder {
+   color: #666;
+   font-weight: lighter;
 }
 
 :-moz-placeholder { /* Firefox 18- */
@@ -306,6 +312,10 @@ nav li.user_img a{
 	padding: 8px 0;
 }
 
+#login_form .form_input{
+	padding-bottom: 10px;
+}
+
 #login_form{
 	position: absolute;
 	top: 50px;
@@ -324,6 +334,7 @@ nav li.user_img a{
 	padding: 10px 2.3%;
 	border: 1px solid #aaaaaa;
 	background-color: #F0F0F0;
+	outline: none;
 }
 
 #login_form h3{
@@ -334,7 +345,7 @@ nav li.user_img a{
 #login_form input[type=submit]{
 	float: right;
 	width: 100px;
-	padding: 11px 6px 7px;
+	padding: 11px 6px 9px;
 	text-transform: uppercase;
 	border-radius: 2px;
 	border: 1px solid #aaaaaa;
@@ -375,6 +386,11 @@ nav li.user_img a{
 	cursor: pointer;
 }
 
+.login_err{
+	color: #05959a;
+	margin-bottom: 5px;
+}
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Landing
 ---------------------------------------------------------------------------------------------------*/
@@ -402,9 +418,9 @@ nav li.user_img a{
 }
 
 #search_cta input[type=search]{
-	background: url(../images/cta-search-icon.png) no-repeat 445px #929292;
+	background: url(../images/cta-search-icon.png) no-repeat 424px #929292;
 	border: 1px solid #282828;
-	padding: 11px 8px 6px;
+	padding: 9px 8px 8px;
 	font: 18px Helvetica, sans-serif;
 	width: 480px;
 	border-radius: 3px;

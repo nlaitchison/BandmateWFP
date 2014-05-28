@@ -18,7 +18,8 @@ App.controller('LoginCtrl', function ($scope, Restangular, $http, AuthService, B
         $location.path('/');
 
       }else{
-        alert('Invalid Username or Password!');
+        // alert('Invalid Username or Password!');
+        $scope.loginErr = 'Invalid Username or Password!';
       }
     });
 
