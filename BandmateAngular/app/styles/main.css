@@ -687,6 +687,42 @@ nav li.user_img a{
   margin: 0;
 }
 
+/* TypeAhead genres*/
+
+#genres_filter .tt-hint {
+  font: lighter 48px Helvetica, sans-serif;
+  color: #383838;
+  opacity: 0;
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+#genres_filter  .tt-dropdown-menu {
+  width: 300px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #F0F0F0;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.1);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.1);
+          box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+#genres_filter .tt-suggestion {
+  padding: 3px 10px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+#genres_filter .tt-suggestion.tt-cursor {
+  color: #383838;
+  background-color: #e6e6e6;
+}
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Profile
 ---------------------------------------------------------------------------------------------------*/
