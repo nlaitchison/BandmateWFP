@@ -1,7 +1,10 @@
 <header ng-controller="NavCtrl">
 	<div class="container">
-		<div id="logo">
+		<div ng-if="!loggedIn" id="logo">
 			<a href="#"><h1> Bandmate </h1></a>
+		</div>
+		<div ng-if="loggedIn" id="logo">
+			<a href="#/newsfeed"><h1> Bandmate </h1></a>
 		</div>
 
 		<nav>

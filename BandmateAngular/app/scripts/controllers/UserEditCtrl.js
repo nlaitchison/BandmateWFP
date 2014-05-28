@@ -139,6 +139,8 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 			}
 		}
 
+		$scope.videos.currentId = userId;
+
 		// update the video data
 		$scope.videos.put().then(function(){
 			console.log('meow');

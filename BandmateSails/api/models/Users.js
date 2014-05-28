@@ -51,33 +51,15 @@ module.exports = {
           var current = user;
           var changes = [];
           var differences = diff(current, valuesToUpdate);
-          // console.log('differences', differences);
-          // console.log('---------------');
           Newsfeed.findOne({id: current.id}).done(function(err, updates) {
             var cObj = { timeStamp: new Date(), updates: [] };
             var scObj = { timeStamp: new Date(), updates: [] };
             var pObj = { timeStamp: new Date(), updates: [] };
-            // c = _.filter(differences, function(item){
-            //   if((item.kind == 'N' || item.kind == 'E') && item.path[0] != 'updatedAt' && item.path[0] != 'scPlayerUrl') {
-            //     obj = { type : item.path[0], change : item.rhs };
-            //     changes.updates.push(obj);
-            //     // return item;
-            //   }else if(item.kind == 'A') {
-            //     obj = { type : item.path[0], change : item.item.rhs };
-            //     changes.updates.push(obj);
-            //     // return item;
-            //   }else if(item.path[0] == 'scPlayerUrl') {
-            //     obj = { type : item.path[0], change : item.rhs };
-            //     sc.updates.push(obj);
-            //     // return item;
-            //   }
-
-            //   updates.changes.push(changes);
-            //   //  updates.changes.push(sc);
-            // });
-            // console.log(updates);
             d = _.filter(differences, function(item){
-              if((item.kind == 'N' || item.kind == 'E' || item.kind == 'A') && item.path[0] != 'updatedAt' && item.path[0] != 'createdAt') {
+              if((item.kind == 'N' || item.kind == 'E' || item.kind == 'A')
+                && item.path[0] != 'updatedAt' && item.path[0] != 'createdAt'
+                && item.path[0] != 'birthMonth' && item.path[0] != 'birthDay' && item.path[0] != 'birthYear'
+                && item.path[0] != 'loc') {
                 return item;
               }
             });

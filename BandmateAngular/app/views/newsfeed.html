@@ -1,33 +1,131 @@
 <div ng-include src="'views/header.html'"></div>
 
 <div id="main_content" class="container">
-	<section id="newsfeed" class="two-5">
-		<div ng-repeat="obj in newsfeed | orderBy:order" class="nf_container">
-			<div class="nf_header">
-				<div class="nf_img">
-					<a href="#/profile/{{obj.userId}}"><img src="{{obj.userPic}}"></a>
-				</div>
-				<ul>
-					<li class="nf_name">{{obj.userName}}</li>
-					<li class="nf_date">{{ obj.timeStamp | date : 'MMM d'}}</li>
-				</ul>
-				<div class="clear_fix"></div>
-			</div>
-			<div ng-repeat="u in obj.updates">
-				<!-- {{u.type}}
-				{{u.change}} -->
-				<div ng-if="u.type == 'scPlayerUrl'">
-					<p> {{obj.userName}} updated their playlist. </p>
-					<div sc-player url="u.change"></div>
-				</div>
-				<div ng-if="u.type == 'profileImg'">
-					<p> {{obj.userName}} changed their profile picture. </p>
-					<img src="{{u.change}}">
-				</div>
-			</div>
-		</div>
 
+	<section id="newsfeed" class="column one-5">
+		<h2> Nearby Users </h2>
 	</section>
+
+	<section id="newsfeed" class="column four-5">
+		<div class="nf_container">
+			<h2> Newsfeed </h2>
+			<div>
+				<article ng-repeat="obj in newsfeed | orderBy:order" class="nf_item two-5">
+					<div class="nf_header">
+						<div class="nf_img">
+							<a href="#/profile/{{obj.userId}}"><img src="{{obj.userPic}}"></a>
+						</div>
+						<ul>
+							<li><span class="nf_name"><a href="#/profile/{{obj.userId}}">{{obj.userName}}</a></span> updated their profile. </span></li>
+							<li class="nf_date">{{ obj.timeStamp | date : 'MMM d'}}</li>
+						</ul>
+						<div class="clear_fix"></div>
+					</div>
+					<div class="nf_body" ng-repeat="u in obj.updates">
+
+						<div>
+							<p ng-if="u.type == 'facebookUrl'">
+								<span class="nf_label">Facebook: </span>
+								<a href="{{u.change}}">{{u.change}}</a>
+							</p>
+
+							<p ng-if="u.type == 'twitterUrl'">
+								<span class="nf_label">Twitter: </span>
+								<a href="{{u.change}}">{{u.change}}</a>
+							</p>
+
+							<p ng-if="u.type == 'soundcloudUrl'">
+								<span class="nf_label">Soundcloud: </span>
+								<a href="{{u.change}}">{{u.change}}</a>
+							</p>
+
+							<p ng-if="u.type == 'youtubeUrl'">
+								<span class="nf_label">YouTube: </span>
+								<a href="{{u.change}}">{{u.change}}</a>
+							</p>
+
+							<p ng-if="u.type == 'lookingFor'">
+								<span class="nf_label">Looking For: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'gigsPlayed'">
+								<span class="nf_label">Gigs Played: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'commitment'">
+								<span class="nf_label">Commitment: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'availability'">
+								<span class="nf_label">Availability: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'name'">
+								<span class="nf_label">Name: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'genres'">
+								<span class="nf_label">Genres: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'instruments'">
+								<span class="nf_label">Instruments: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'equipment'">
+								<span class="nf_label">Equipment: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'about'">
+								<span class="nf_label">About: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'city'">
+								<span class="nf_label">City: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'state'">
+								<span class="nf_label">State: </span>
+								{{u.change}}
+							</p>
+
+							<p ng-if="u.type == 'musician' || u.type == 'band' || u.type == 'instructor'">
+								<span class="nf_label">Account Type: </span>
+								{{u.change}}
+							</p>
+
+						</div>
+
+						<div ng-if="u.type == 'scPlayerUrl'">
+							<div sc-player url="u.change"></div>
+						</div>
+
+						<div class="nf_img_container" ng-if="u.type == 'profileImg'">
+							<img src="{{u.change}}">
+						</div>
+
+						<div ng-if="u.type == 'video'">
+							<div class="nf_vido_box">
+								<div class="video_box" my-youtube code="u.change"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
 </div>
 
 <div ng-include src="'views/footer.html'"></div>
