@@ -5,79 +5,96 @@
 App.controller('UserCreateCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location) {
   $scope.submit = function() {
 
+    //if the passwords in the signup match
+    if($scope.signup.password === $scope.validate.password){
+
+      //check to see if the password contain both numbers and letter
+      var regExp = /^(?=.*\d).{6,20}$/;
+      var match = $scope.signup.password.match(regExp);
+
+      if(match != null){
+        createUser();
+        $scope.signUpErr = '';
+      }else{
+        $scope.signUpErr = 'Your password must be 6-20 characters and contain both numbers and letters.';
+      }
+
+    }else{
+      // if they don't match, do nothing yet.
+      console.log('dont match');
+      $scope.signUpErr = 'Your password must be 6-20 characters and contain both numbers and letters.';
+    }
+  };
+
+  var createUser = function(){
+
+    console.log('createUser');
+
     // get users db
     var u = Restangular.all('users');
 
-    // if the passwords in the signup match
-    if($scope.signup.password === $scope.validate.password){
+    //set email to also equal the username field
+    $scope.signup.email = $scope.signup.username;
 
-      console.log('match');
+    //set default profile img
+    $scope.signup.profileImg = 'images/default-user-lrg.png';
 
-      //set email to also equal the username field
-      $scope.signup.email = $scope.signup.username;
+    //set default accountType
+    // $scope.signup.accountType = {
+    //   'musician' : 'false',
+    //   'band' : 'false',
+    //   'instructor' : 'false'
+    // };
 
-      //set default profile img
-      $scope.signup.profileImg = 'images/default-user-lrg.png';
+    //set default genres
+    $scope.signup.genres = [];
 
-      //set default accountType
-      // $scope.signup.accountType = {
-      //   'musician' : 'false',
-      //   'band' : 'false',
-      //   'instructor' : 'false'
-      // };
+    //set default instruments
+    $scope.signup.instruments = [];
 
-      //set default genres
-      $scope.signup.genres = [];
+    //set default email User
+    $scope.signup.emailUser = 'true';
 
-      //set default instruments
-      $scope.signup.instruments = [];
+    //set default hide profile
+    $scope.signup.hideUser = 'false';
 
-      //set default email User
-      $scope.signup.emailUser = 'true';
+    // add the user to the database then login the new user
+    u.post($scope.signup).then(function(user){
 
-      //set default hide profile
-      $scope.signup.hideUser = 'false';
+      console.log(user);
 
-      // add the user to the database then login the new user
-      u.post($scope.signup).then(function(user){
+      // encode for login
+      var encoded = Base64.encode($scope.signup.username + ':' + $scope.signup.password);
 
-        console.log(user);
+      // login the user
+      $http({method: 'POST', url: 'http://localhost:1337/auth/login', headers: {'Authorization': 'Basic ' + encoded}}).
+        success(function(data, status, headers, config){
 
-        // encode for login
-        var encoded = Base64.encode($scope.signup.username + ':' + $scope.signup.password);
+          // if the user logged in
+          if (data.message === 'login successful'){
 
-        // login the user
-        $http({method: 'POST', url: 'http://localhost:1337/auth/login', headers: {'Authorization': 'Basic ' + encoded}}).
-          success(function(data, status, headers, config){
+            // set all the data for the user
+            AuthService.setLoggedIn($scope.signup.username, encoded, data.user);
 
-            // if the user logged in
-            if (data.message === 'login successful'){
+            console.log('nav ctrl:', AuthService.isLoggedIn());
 
-              // set all the data for the user
-              AuthService.setLoggedIn($scope.signup.username, encoded, data.user);
+            // create studio and video object for user
+            createObjects(data.user.id);
 
-              console.log('nav ctrl:', AuthService.isLoggedIn());
+            // take user to account page
+            $location.path('/account/');
 
-              // create studio and video object for user
-              createObjects(data.user.id);
+            // set scope var for nav show and hide ul
+            $scope.loggedIn = AuthService.isLoggedIn();
 
-              // take user to account page
-              $location.path('/account/');
+          }else{
+            alert('Invalid Username or Password!');
+          }
+        });
 
-              // set scope var for nav show and hide ul
-              $scope.loggedIn = AuthService.isLoggedIn();
-
-            }else{
-              alert('Invalid Username or Password!');
-            }
-          });
-
-      });
-    }else{
-
-      // if they don't match, do nothing yet.
-      console.log('dont match');
-    }
+    }, function errorCallback(err) {
+      $scope.signUpErr = 'A user with that email address already exists';
+    });
   };
 
   var createObjects = function(id){

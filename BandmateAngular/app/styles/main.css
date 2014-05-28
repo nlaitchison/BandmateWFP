@@ -463,6 +463,14 @@ nav li.user_img a{
 	background-color: #1d1c67;
 }
 
+#signup_form p.signup_error{
+	font-size: 18px;
+
+}
+#signup_form span.notice{
+	color: #2a258e;
+}
+
 #featured_users{
 	background-color: #e9e9e9;
 }

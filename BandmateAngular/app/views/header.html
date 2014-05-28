@@ -9,7 +9,7 @@
 
 		<nav>
 			<form id="search_nav">
-				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search" ng-model="filter.instruments" ng-focus="searchPage()" ng-enter="filterResults()">
+				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search" ng-model="filter.instruments" ng-focus="searchPage()" ng-enter="filterResults">
 			</form>
 			<ul ng-hide="loggedIn">
 				<li ng-click="$root.loginClicked = !$root.loginClicked">LOGIN</li>
