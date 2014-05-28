@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookieStore, $filter, $http) {
+App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookieStore, $filter, $http, $location) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -10,28 +10,12 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
+	$scope.filter = '';
 
 	var c = $cookieStore.get('filter');
 	console.log('cookie', c);
-
-	$scope.filter = $cookieStore.get('filter');
-	$scope.savedFilter = 'false';
-
-	if($scope.loggedIn === true){
-		// get user from db
-		Restangular.one('users', userId).get().then(function(u){
-
-			// set user for posting to db later
-			$scope.user = u;
-
-			// if the user has a filter saved
-			// if(u.filter !== null){
-			// 	//set filter
-			// 	$scope.filter = u.filter;
-			// 	$scope.savedFilter = 'true';
-			// }
-
-		});
+	if(c != null){
+		$scope.filter = c;
 	}
 
 	// when the user clicks save filter button
@@ -91,6 +75,12 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 		$scope.results = '';
 		$cookieStore.put('filter', '');
 
+	};
+
+	//when landing search is submitted
+	$scope.toSearch = function(filter){
+		$location.path('/search');
+		$cookieStore.put('filter', filter);
 	};
 
 

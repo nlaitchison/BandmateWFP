@@ -418,8 +418,8 @@ nav li.user_img a{
     padding: 15px 0;
 }
 
-#search_cta input[type=search]{
-	background: url(../images/cta-search-icon.png) no-repeat 424px #929292;
+form#search_cta input#cta_search_input{
+	background: url(../images/cta-search-icon.png) no-repeat 444px #929292;
 	border: 1px solid #282828;
 	padding: 9px 8px 8px;
 	font: 18px Helvetica, sans-serif;

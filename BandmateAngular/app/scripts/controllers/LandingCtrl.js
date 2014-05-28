@@ -2,66 +2,23 @@
 
 /*global App*/
 
-App.controller('LandingCtrl', function ($scope) {
+App.controller('LandingCtrl', function ($scope, $http) {
 
-	$scope.users = [
-		{
-			'id' : 1,
-			'profileImg' : 'images/user-img-lrg.png',
-			'name' : 'Rou Reynolds',
-			'accountType' : 'Musician / Instructor',
-			'city' : 'Orlando',
-			'state' : 'FL',
-			'birthday' : '1994-03-01',
-			'gender' : 'Male',
-			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
-		},
-		{
-			'id' : 2,
-			'profileImg' : 'images/user-img-lrg.png',
-			'name' : 'Rou Reynolds',
-			'accountType' : 'Musician / Instructor',
-			'city' : 'Orlando',
-			'state' : 'FL',
-			'birthday' : '1994-03-01',
-			'gender' : 'Male',
-			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
-		},
-		{
-			'id' : 3,
-			'profileImg' : 'images/user-img-lrg.png',
-			'name' : 'Rou Reynolds',
-			'accountType' : 'Musician / Instructor',
-			'city' : 'Orlando',
-			'state' : 'FL',
-			'birthday' : '1994-03-01',
-			'gender' : 'Male',
-			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
-		},
-		{
-			'id' : 4,
-			'profileImg' : 'images/user-img-lrg.png',
-			'name' : 'Rou Reynolds',
-			'accountType' : 'Musician / Instructor',
-			'city' : 'Orlando',
-			'state' : 'FL',
-			'birthday' : '1994-03-01',
-			'gender' : 'Male',
-			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
-		},
-		{
-			'id' : 5,
-			'profileImg' : 'images/user-img-lrg.png',
-			'name' : 'Rou Reynolds',
-			'accountType' : 'Musician / Instructor',
-			'city' : 'Orlando',
-			'state' : 'FL',
-			'birthday' : '1994-03-01',
-			'gender' : 'Male',
-			'lastActive' : 'Tue Apr 01 2014 18:26:05 GMT-0400 (EDT)'
-		}
-	];
+	$scope.users = '';
 
-	// console.log($scope.users);
+	$http({method: 'GET', url: 'http://localhost:1337/users/'}).
+			success(function(data, status, headers, config) {
+			  // this callback will be called asynchronously
+			  // when the response is available
+
+			  $scope.users = data;
+			  console.log('results normal', $scope.results);
+
+			}).
+			error(function(data, status, headers, config) {
+			  // called asynchronously if an error occurs
+			  // or server returns response with an error status.
+			});
+
 
 });

@@ -9,13 +9,13 @@
 
 		<nav>
 			<form id="search_nav">
-				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search" ng-model="filter.instruments" ng-focus="searchPage()" ng-enter="filterResults">
+				<input type="search" placeholder="Search for skill(s)...  ex. guitar, vocals" name="nav_search" ng-model="filter.instruments" ng-focus="searchPage()" ng-enter="filterResults()">
 			</form>
-			<ul ng-hide="loggedIn">
+			<ul ng-if="!loggedIn">
 				<li ng-click="$root.loginClicked = !$root.loginClicked">LOGIN</li>
 				<li ng-click="$root.signupClicked = !$root.signupClicked"><a href="#">SIGNUP</a></li>
 			</ul>
-			<ul ng-show="loggedIn">
+			<ul ng-if="loggedIn">
 				<li><a href="#/studio">Studio</a></li>
 				<li class="messages_icon"><a href="#/messages"><img src="images/messages-icon.png"></a></li>
 				<li class="settings_icon" ng-click="$root.settingsClicked = !$root.settingsClicked"><img src="images/settings-icon.png"></li>
@@ -26,7 +26,7 @@
 	</div>
 </header>
 
-<div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}" ng-controller="NavCtrl" ng-hide="loggedIn">
+<div id="login_form" class="animated" ng-class="{'slideInDown' : $root.loginClicked, 'slideOutUp' : !$root.loginClicked}" ng-controller="NavCtrl" ng-if="!loggedIn">
 	<h3> Login to Bandmate </h3>
 	<form name="login" ng-submit="submit()">
 		<div class="form_input">
@@ -43,7 +43,7 @@
 	</form>
 </div>
 
-<div id="settings_menu" ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked">
+<div ng-if='loggedIn' id="settings_menu" ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked">
 	<ul>
 		<li> <a href="#/account"> Edit Account </a> </li>
 		<li class="logout_link" ng-controller="NavCtrl" ng-click="logout()" > Logout </li>
