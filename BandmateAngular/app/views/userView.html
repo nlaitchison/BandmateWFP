@@ -11,8 +11,8 @@
 			<ul class="account_info">
 				<!-- <li class="account_type"> <span class="text_repeat" ng-repeat="string in user.account">{{string}} <span class="text_divider"> / </span> </span> </li> -->
 				<li class="account_type">
-					<span ng-if="user.musician"> Musician <span class="text_divider"> / </span></span>
-					<span ng-if="user.band"> Band <span class="text_divider"> / </span></span>
+					<span ng-if="user.musician"> Musician <span ng-if="user.band || user.instructor" class="text_divider"> / </span></span>
+					<span ng-if="user.band"> Band <span ng-if="user.instructor" class="text_divider"> / </span></span>
 					<span ng-if="user.instructor"> Instructor </span>
 				</li>
 				<li ng-show="user.city"> {{user.city}}, {{user.state}} </li>
@@ -49,6 +49,9 @@
 
 		<section class="user_video">
 			<h3> Videos </h3>
+			<div ng-if="videos.urls.length == 0" class="no_results">
+				<p>{{user.name}} doesn't have any videos yet.</p>
+			</div>
 			<div class="video_repeat" ng-repeat="url in videos.urls">
 				<div class="video_box" my-youtube code="url.code"></div>
 			<div>

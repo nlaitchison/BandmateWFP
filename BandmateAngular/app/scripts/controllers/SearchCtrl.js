@@ -10,7 +10,11 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 	// get cuurent user's id
 	var userId = $cookieStore.get('userId');
 
-	$scope.filter = '';
+
+	var c = $cookieStore.get('filter');
+	console.log('cookie', c);
+
+	$scope.filter = $cookieStore.get('filter');
 	$scope.savedFilter = 'false';
 
 	if($scope.loggedIn === true){
@@ -21,11 +25,11 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 			$scope.user = u;
 
 			// if the user has a filter saved
-			if(u.filter !== null){
-				//set filter
-				$scope.filter = u.filter;
-				$scope.savedFilter = 'true';
-			}
+			// if(u.filter !== null){
+			// 	//set filter
+			// 	$scope.filter = u.filter;
+			// 	$scope.savedFilter = 'true';
+			// }
 
 		});
 	}
@@ -72,6 +76,10 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 			  // called asynchronously if an error occurs
 			  // or server returns response with an error status.
 			});
+
+		$cookieStore.put('filter', $scope.filter);
+		var c = $cookieStore.get('filter');
+		console.log('cookie', c);
 	};
 
 	// when the user clicks the filter button
@@ -81,6 +89,7 @@ App.controller('SearchCtrl', function ($scope, Restangular, AuthService, $cookie
 
 		$scope.filter = '';
 		$scope.results = '';
+		$cookieStore.put('filter', '');
 
 	};
 

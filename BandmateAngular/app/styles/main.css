@@ -196,15 +196,15 @@ fieldset{
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: red;
+   /*color: red;*/
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: red;
+   /*color: red;*/
 }
 
 :-ms-input-placeholder {
-   color: red;
+   /*color: red;*/
 }
 
 /* ---------------------------------------------------------------------------------------------------
@@ -250,6 +250,7 @@ nav form#search_nav input{
 	width: 340px;
 	border: 1px solid #202020;
 	background: url(../images/nav-search-icon.png) 97% 60% no-repeat #363636;
+	color: #a3a3a3;
 }
 
 nav ul a, nav ul li{
@@ -737,6 +738,10 @@ nav li.user_img a{
 #genres_filter .tt-suggestion.tt-cursor {
   color: #383838;
   background-color: #e6e6e6;
+}
+
+.no_results{
+	text-align: center;
 }
 
 /* ---------------------------------------------------------------------------------------------------

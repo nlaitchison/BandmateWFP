@@ -36,8 +36,8 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 
 				console.log('nav ctrl:', AuthService.isLoggedIn());
 
-				// take user to account page
-				$location.path('/account');
+				// take user to newsfeed page
+				$location.path('/newsfeed');
 
 				// set scope var for nav show and hide ul
 				$scope.loggedIn = AuthService.isLoggedIn();
@@ -71,6 +71,11 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 
 		// take user back to landing page
 		$location.path('/');
+	};
+
+	$scope.searchPage = function(){
+		// $cookieStore.put('filter', $scope.filter);
+		$location.path('/search');
 	};
 
 });

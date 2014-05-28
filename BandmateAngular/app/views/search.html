@@ -13,12 +13,12 @@
 				<div>
 					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="filter.instruments" instruments="instruments" placeholder="Start typing an instrument..." ng-enter="filterResults()">
 				</div>
-				<div class="form_input">
+				<!-- <div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
 ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use saved search filters </label>
-				</div>
+				</div> -->
 			</form>
-			<form id="search_filter" ng-hide="savedFilter">
+			<form id="search_filter">
 				<h3> Refine Search </h3>
 				<div class="column one-3">
 					<div class="filter_one">
@@ -187,7 +187,7 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 				<fieldset>
 					<div class="filter_buttons">
 						<button ng-click="clearFilters()"> Clear Filters </button>
-						<button ng-click="saveFilter()"> Save Filters </button>
+						<!-- <button ng-click="saveFilter()"> Save Filters </button> -->
 						<input type="submit" value="Search" ng-click="filterResults()">
 					</div>
 				</fieldset>
@@ -201,7 +201,14 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 			<!-- <div ng-repeat="user in filtered = (results | filter:filter.commitment | filter:filter.availability | filter:filter.genres | filter:filter.instruments | filter:filter.age | filter:filter.gigsPlayed | filter:filter.yearsOfExp | filter:filter.gender )"> -->
 			<div ng-repeat="user in results">
 				<div class="column one-5">
-					<a href="#/profile/{{user.id}}">
+					<a ng-if="user.id" href="#/profile/{{user.id}}">
+						<div class="user_thumb">
+							<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
+							<h4>{{user.name}} - {{user.city}}</h4>
+
+						</div>
+					</a>
+					<a ng-if="user._id" href="#/profile/{{user._id}}">
 						<div class="user_thumb">
 							<div class="user_thumb_img"><img ng-src="{{user.profileImg}}" alt="{{user.name}}'s Profile Picture"></div>
 							<h4>{{user.name}} - {{user.city}}</h4>
@@ -213,7 +220,8 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 			<div class="clear_fix"></div>
 		</div>
 
-		<p ng-show="filtered.length == 0" class="no_results"> No users match your search, please try again. </p>
+		<p ng-show="results.length == 0" class="no_results"> No users match your search, please try again... </p>
+		<p ng-show="results == null" class="no_results"> Start searching Bandmate to find talented musicians, bands and instructors!</p>
 
 	</section>
 

@@ -10,6 +10,9 @@
 		<div class="nf_container">
 			<h2> Newsfeed </h2>
 			<div>
+				<div ng-if="newsfeed.length == 0" class="no_results">
+					<p> You currently don't have any activity in your newsfeed. Start searching Bandmate to add users to your studio. </p>
+				</div>
 				<article ng-repeat="obj in newsfeed | orderBy:order" class="nf_item two-5">
 					<div class="nf_header">
 						<div class="nf_img">

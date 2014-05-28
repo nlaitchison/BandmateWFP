@@ -1,14 +1,14 @@
 'use strict';
 
-var type = angular.module('siyfion.sfTypeahead', []);
-  type.directive('sfTypeaheadinstruments', function () {
+var type = angular.module('siyfion.sfTypeahead', ['ngCookies']);
+  type.directive('sfTypeaheadinstruments', function ($cookieStore) {
     return {
       restrict: 'AC',       // Only apply on an attribute or class
       require: '?ngModel',  // The two-way data bound value that is returned by the directive
       scope: {
         options: '=',       // The typeahead configuration options (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#options)
         datasets: '=',       // The typeahead datasets to use (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets)
-        instruments: '='
+        instruments: '=',
       },
       link: function (scope, element, attrs, ngModel) {
 
