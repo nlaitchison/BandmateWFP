@@ -61,6 +61,7 @@ ng-true-value="instructor" ng-false-value="false" ng-focus="generalUpdate = true
 						<div class="clear_fix"></div>
 						<input type="text" id="city" name="city" ng-model="user.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
 						<select id="state" name="state" ng-model="user.state" class="edit_input" ng-focus="generalUpdate = true">
+							<option value=""> State </option>
 							<option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -120,6 +121,7 @@ ng-true-value="instructor" ng-false-value="false" ng-focus="generalUpdate = true
 						<label for="birthMonth">Birthday:</label>
 						<div class="clear_fix"></div>
 						<select id="birthMonth" name="birthMonth" ng-model="user.birthMonth" class="edit_input" ng-focus="generalUpdate = true">
+							<option value=""> Month </option>
 							<option value="01"> January </option>
 							<option value="02"> February </option>
 							<option value="03"> March </option>
@@ -193,17 +195,20 @@ ng-true-value="instructor" ng-false-value="false" ng-focus="generalUpdate = true
 								<div class="form_input">
 									<label for="lookingFor">Looking For:</label>
 									<select id="lookingFor" name="lookingFor" ng-model="user.lookingFor" class="edit_input" ng-focus="basicInfoUpdate = true">
-										<option value="Guitarist"> Guitarist </option>
+										<option value=""> --- </option>
+										<option value="Musician"> Musician </option>
+										<option value="Instructor"> Instructor </option>
 										<option value="Band"> Band </option>
 									</select>
 								</div>
 								<div class="form_input">
 									<label for="yearsOfExp">Years of Experience:</label>
-									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input" ng-focus="basicInfoUpdate = true">
+									<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="user.yearsOfExp" class="edit_input" ng-focus="basicInfoUpdate = true" placeholder="ex. 5">
 								</div>
 								<div class="form_input">
 									<label for="gigsPlayed">Gigs Played:</label>
 									<select id="gigsPlayed" name="gigsPlayed" ng-model="user.gigsPlayed" class="edit_input" ng-focus="basicInfoUpdate = true">
+										<option value=""> --- </option>
 										<option value="0 - 10"> 0 - 10 </option>
 										<option value="10 - 20"> 10 - 20 </option>
 										<option value="20 - 30"> 20 - 30 </option>
@@ -221,6 +226,7 @@ ng-true-value="instructor" ng-false-value="false" ng-focus="generalUpdate = true
 								<div class="form_input">
 									<label for="commitment">Commitment:</label>
 									<select id="commitment" name="commitment" ng-model="user.commitment" class="edit_input" ng-focus="basicInfoUpdate = true">
+										<option value=""> --- </option>
 										<option value="Just For Fun"> Just For Fun </option>
 										<option value="Somewhat Commited"> Somewhat Commited </option>
 											<option value="Commited"> Commited </option>
@@ -230,6 +236,7 @@ ng-true-value="instructor" ng-false-value="false" ng-focus="generalUpdate = true
 								<div class="form_input">
 									<label for="availability">Availability:</label>
 									<select id="availability" name="availability" ng-model="user.availability" class="edit_input" ng-focus="basicInfoUpdate = true">
+										<option value=""> --- </option>
 										<option value="1 days per week"> 1 days per week </option>
 										<option value="2 days per week"> 2 days per week </option>
 										<option value="3 days per week"> 3 days per week </option>

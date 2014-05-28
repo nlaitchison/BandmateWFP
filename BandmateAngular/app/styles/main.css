@@ -853,6 +853,7 @@ span.label{
 	margin-top: 5px;
 }
 
+
 #edit_profile fieldset{
 	border-bottom: 1px solid #D5D5D5;
 	border-top: none;
@@ -879,7 +880,7 @@ span.label{
 
 #edit_profile select.edit_input{
 	width: 100%;
-	padding: 4px 3%;
+	padding: 6px 3%;
 }
 
 #edit_profile input, #edit_profile select, #edit_profile textarea{
