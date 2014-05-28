@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead', 'flow']);
+var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead', 'flow', 'wu.masonry']);
 
 App.config(function ($routeProvider) {
     $routeProvider

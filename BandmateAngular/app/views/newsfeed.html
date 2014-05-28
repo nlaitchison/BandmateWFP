@@ -9,11 +9,12 @@
 	<section id="newsfeed" class="column four-5">
 		<div class="nf_container">
 			<h2> Newsfeed </h2>
-			<div>
+			<div id="masonry_container">
 				<div ng-if="newsfeed.length == 0" class="no_results">
 					<p> You currently don't have any activity in your newsfeed. Start searching Bandmate to add users to your studio. </p>
 				</div>
-				<article ng-repeat="obj in newsfeed | orderBy:order" class="nf_item two-5">
+				<div masonry preserve-order >
+				<article ng-repeat="obj in newsfeed | orderBy:order" class="nf_item masonry-brick">
 					<div class="nf_header">
 						<div class="nf_img">
 							<a href="#/profile/{{obj.userId}}"><img src="{{obj.userPic}}"></a>
@@ -29,22 +30,22 @@
 						<div>
 							<p ng-if="u.type == 'facebookUrl'">
 								<span class="nf_label">Facebook: </span>
-								<a href="{{u.change}}">{{u.change}}</a>
+								<a href="{{u.change}}">{{u.change | limitTo:25}}...</a>
 							</p>
 
 							<p ng-if="u.type == 'twitterUrl'">
 								<span class="nf_label">Twitter: </span>
-								<a href="{{u.change}}">{{u.change}}</a>
+								<a href="{{u.change}}">{{u.change | limitTo:25}}...</a>
 							</p>
 
 							<p ng-if="u.type == 'soundcloudUrl'">
 								<span class="nf_label">Soundcloud: </span>
-								<a href="{{u.change}}">{{u.change}}</a>
+								<a href="{{u.change}}">{{u.change | limitTo:25}}...</a>
 							</p>
 
 							<p ng-if="u.type == 'youtubeUrl'">
 								<span class="nf_label">YouTube: </span>
-								<a href="{{u.change}}">{{u.change}}</a>
+								<a href="{{u.change}}">{{u.change | limitTo:25}}...</a>
 							</p>
 
 							<p ng-if="u.type == 'lookingFor'">
@@ -127,6 +128,7 @@
 				</div>
 			</div>
 		</article>
+		</div>
 	</section>
 
 </div>
