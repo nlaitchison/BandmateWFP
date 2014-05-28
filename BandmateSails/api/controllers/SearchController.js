@@ -32,7 +32,6 @@
         searchQuery.age = parseInt(searchQuery.age);
     if(searchQuery.yearsOfExp)
         searchQuery.yearsOfExp = +searchQuery.yearsOfExp;
-    console.log(_.isBoolean(searchQuery.musician));
     if (city && state){
       var self = this;
       LocationService.getGeo(city, state, function(err, lat, lng){
@@ -49,22 +48,12 @@
               console.error(mongoErr);
               res.send('error!' + mongoErr)
             } else {
-            //   var results = [];
-            //   for(var i = 0; i < docs.results.length; i++) {
-            //    if(docs.results[i].dis < maxD){
-            //     docs.results[i].obj.id = docs.results[i].obj._id;
-            //     results.push(docs.results[i].obj);
-            //   }
-            // }
-            // return res.json(results);
               return res.json(_.pluck(docs.results, 'obj'));
-              // return res.json(docs);
             }
           })
         });
       });
     } else {
-      console.log('test3');
     // Users.Find()
     Users.find(searchQuery, function(err, users) {
       if(err){

@@ -587,7 +587,7 @@ nav li.user_img a{
 }
 
 #search_header select.edit_input{
-	width: 100%
+	width: 100%;
 }
 
 .filter_three input#city{
@@ -1142,17 +1142,11 @@ fieldset#location select#state{
 
 .update_container{
 	position: absolute;
-	opacity: 0;
 	top: 0px;
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
-	transition: opacity 0.5s ease;
 	font-size: 11px;
-}
-
-.update_container:hover{
-	opacity: 1;
 }
 
 .update_txt{

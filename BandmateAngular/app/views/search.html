@@ -11,12 +11,11 @@
 			<h2> Search Bandmate </h2>
 			<form id="search_page">
 				<div>
-					<!-- <span class="hover_remove" ng-repeat="i in instruments" ng-init="indexI = $index" ng-click="removeI(indexI)"> {{i}},</span> -->
 					<input type="text" name="search_keywords" id="search_keywords" type="text" sf-typeaheadinstruments options="exampleOptions" datasets="iDataset" ng-model="filter.instruments" instruments="instruments" placeholder="Start typing an instrument..." ng-enter="filterResults()">
 				</div>
 				<div class="form_input">
 						<label for="use_filter"> <input type="checkbox" id="use_filter" name="use_filter"
-ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use my set search filters </label>
+ng-true-value="true" ng-false-value="false" ng-model="savedFilter"> Use saved search filters </label>
 				</div>
 			</form>
 			<form id="search_filter" ng-hide="savedFilter">
@@ -40,7 +39,7 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 							<div class="form_input">
 								<label for="genres"> Genre: </label>
 								<div id="genres_filter">
-									<input type="text" name="genres" id="genres" type="text" sf-typeaheadgenres options="exampleOptions" datasets="gDataset" ng-model="filter.genres" genres="genres">
+									<input type="text" name="genres" id="genres" type="text" sf-typeaheadgenres options="exampleOptions" datasets="gDataset" ng-model="filter.genres" genres="genres" ng-enter="filterResults()">
 								</div>
 							</div>
 
@@ -52,11 +51,11 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 						<fieldset>
 							<div class="form_input">
 								<label for="yearsOfExp">Years of Experience:</label>
-								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="filter.yearsOfExp" class="edit_input" placeholder="ex. 5">
+								<input type="number" id="yearsOfExp" name="yearsOfExp" ng-model="filter.yearsOfExp" class="edit_input" placeholder="ex. 5" ng-enter="filterResults()">
 							</div>
 							<div class="form_input">
 								<label for="gigsPlayed">Gigs Played:</label>
-								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input">
+								<select id="gigsPlayed" name="gigsPlayed" ng-model="filter.gigsPlayed" class="edit_input" ng-enter="filterResults()">
 									<option value=""> --- </option>
 									<option value="0 - 10"> 0 - 10 </option>
 									<option value="10 - 20"> 10 - 20 </option>
@@ -72,7 +71,7 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 							</div>
 							<div class="form_input">
 								<label for="commitment">Commitment:</label>
-								<select id="commitment" name="commitment" ng-model="filter.commitment" class="edit_input">
+								<select id="commitment" name="commitment" ng-model="filter.commitment" class="edit_input" ng-enter="filterResults()">
 									<option value=""> --- </option>
 									<option value="Just For Fun"> Just For Fun </option>
 									<option value="Somewhat Commited"> Somewhat Commited </option>
@@ -82,7 +81,7 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 							</div>
 							<div class="form_input">
 								<label for="availability">Availability:</label>
-								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input">
+								<select id="availability" name="availability" ng-model="filter.availability" class="edit_input" ng-enter="filterResults()">
 									<option value=""> --- </option>
 									<option value="1 days per week"> 1 days per week </option>
 									<option value="2 days per week"> 2 days per week </option>
@@ -101,11 +100,11 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 					<fieldset>
 						<div class="form_input">
 								<label for="age">Age:</label>
-								<input type="number" id="age" name="age" ng-model="filter.age" class="edit_input" placeholder="ex. 21">
+								<input type="number" id="age" name="age" ng-model="filter.age" class="edit_input" placeholder="ex. 21" ng-enter="filterResults()">
 						</div>
 						<div class="form_input">
 							<label for="gender">Gender:</label>
-							<select id="gender" name="gender" ng-model="filter.gender" class="edit_input">
+							<select id="gender" name="gender" ng-model="filter.gender" class="edit_input" ng-enter="filterResults()">
 								<option value=""> --- </option>
 								<option value="Unspecified"> Unspecified </option>
 								<option value="Male"> Male </option>
@@ -115,8 +114,8 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 						<div class="form_input">
 							<label for="city">Location:</label>
 							<div class="clear_fix"></div>
-							<input type="text" id="city" name="city" ng-model="filter.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true">
-							<select id="state" name="state" ng-model="filter.state" class="edit_input" ng-focus="generalUpdate = true">
+							<input type="text" id="city" name="city" ng-model="filter.city" placeholder="City" class="edit_input" ng-focus="generalUpdate = true" ng-enter="filterResults()">
+							<select id="state" name="state" ng-model="filter.state" class="edit_input" ng-focus="generalUpdate = true" ng-enter="filterResults()">
 								<option value=""> --- </option>
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
@@ -173,7 +172,7 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 						</div>
 						<div class="form_input">
 								<label for="radius">Search Radius:</label>
-								<select id="radius" name="radius" class="edit_input" ng-model="filter.maxDistance">
+								<select id="radius" name="radius" class="edit_input" ng-model="filter.maxDistance" ng-enter="filterResults()">
 									<option value=""> --- </option>
 									<option value="10"> 10 miles</option>
 									<option value="20"> 20 miles</option>
@@ -187,9 +186,9 @@ ng-true-value="instructor" ng-false-value="false" ng-model="filter.instructor"> 
 				</div>
 				<fieldset>
 					<div class="filter_buttons">
-						<input type="submit" value="Clear Filters" ng-click="clearFilters()">
-						<input type="submit" value="Save Filters" ng-click="saveFilter()">
-						<input type="submit" value="Use Once" ng-click="filterResults()">
+						<button ng-click="clearFilters()"> Clear Filters </button>
+						<button ng-click="saveFilter()"> Save Filters </button>
+						<input type="submit" value="Search" ng-click="filterResults()">
 					</div>
 				</fieldset>
 			</form>
