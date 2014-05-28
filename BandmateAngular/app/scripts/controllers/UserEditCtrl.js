@@ -84,6 +84,8 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 			$scope.user.put().then(function(){});
 		}
 
+		$scope.currentUser.name = $scope.user.name;
+
 	};
 
 	// when the audio form is submitted

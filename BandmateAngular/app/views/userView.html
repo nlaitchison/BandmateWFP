@@ -20,13 +20,24 @@
 				<li ng-show="user.gender"> {{user.gender}} </li>
 				<li class="active_within"> Last Active on {{user.updatedAt | date:'mediumDate'}} </li>
 			</ul>
-			<ul class="user_buttons">
-				<p>{{exists}}</p>
-				<div class="clear_fix"></div>
-				<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
-				<li><button class="{{user.id}}" name="message" ng-controller="MessageCtrl" ng-click="clickMsg(user.id)"> Message </button></li>
-				<div class="clear_fix"></div>
-			</ul>
+			<div ng-if="loggedIn">
+				<ul class="user_buttons">
+					<p></p>
+					<div class="clear_fix"></div>
+					<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
+					<li><button class="{{user.id}}" name="message" ng-controller="MessageCtrl" ng-click="clickMsg(user.id)"> Message </button></li>
+					<div class="clear_fix"></div>
+				</ul>
+			</div>
+			<div ng-if="!loggedIn" id="hide_user_button">
+				<ul class="user_buttons">
+					<div class="no_results"> Login or Signup to use these features. </div>
+					<div class="clear_fix"></div>
+					<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
+					<li><button class="{{user.id}}" name="message" ng-controller="MessageCtrl"> Message </button></li>
+					<div class="clear_fix"></div>
+				</ul>
+			</div>
 			<ul class="social_icons">
 				<li ng-show="user.facebookUrl"><a href="{{user.facebookUrl}}" target="_blank"><img ng-src="images/facebook-icon2.png"></a></li>
 				<li ng-show="user.twitterUrl"><a href="{{user.twitterUrl}}" target="_blank"><img ng-src="images/twitter-icon2.png"></a></li>
@@ -44,6 +55,9 @@
 
 		<section class="user_about">
 			<h3> About </h3>
+			<div ng-if="!user.about" class="no_results">
+				<p>{{user.name}} hasn't added an about section yet.</p>
+			</div>
 			<p> {{user.about}} </p>
 		</section>
 

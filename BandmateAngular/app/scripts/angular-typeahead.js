@@ -8,7 +8,7 @@ var type = angular.module('siyfion.sfTypeahead', ['ngCookies']);
       scope: {
         options: '=',       // The typeahead configuration options (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#options)
         datasets: '=',       // The typeahead datasets to use (https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets)
-        instruments: '=',
+        instruments: '='
       },
       link: function (scope, element, attrs, ngModel) {
 
