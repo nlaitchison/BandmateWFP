@@ -12,6 +12,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     // set scope for conversations
     $scope.conversations = [];
+    $scope.currentConversation = '';
 
     // objects that make up messaging
     // messages match up to conversations
@@ -38,19 +39,43 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     	});
 
-    // $scope.loadMsgs('53876be59f94850a4532df79');
-
     // load all the messages for a conversation
     $scope.loadMsgs = function(id){
 
         console.log('loadMsgs');
 
+        // get all the messages for that conversation
         $sails.get('/messages', {conversationId : id})
-        .success(function(m) {
+            .success(function(m) {
 
-            console.log(m);
+                // set the scope for the current conversation
+                $scope.currentConversation = {
+                    id: id,
+                    messages: []
+                };
 
-        });
+                // loop through all the messages
+                for (var i=0;i<m.length;i++) {
+
+                    var msg = m[i];
+
+                    // get the user info for each message
+                    $sails.get('/users', {id : msg.senderId})
+                    .success(function(u) {
+
+                        // set key values
+                        msg.name = u.name;
+                        msg.profileImg = u.profileImg;
+
+                        console.log('updated msg', msg);
+
+                        // push all message to the current conversation object
+                        $scope.currentConversation.messages.push(msg);
+                    });
+
+                }
+
+            });
 
     };
 
