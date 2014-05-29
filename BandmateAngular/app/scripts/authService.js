@@ -21,6 +21,7 @@
       $http.defaults.headers.common['Authorization'] = cookie;
 
       loggedIn = true;
+      console.log('logged in');
     };
 
     this.checkCookie = function(){
@@ -34,6 +35,7 @@
       $cookieStore.put('authData', encoded);
       $cookieStore.put('userId', user.id);
       this.setHeader();
+
     };
 
     this.setloggedOut = function(){
@@ -46,9 +48,7 @@
     this.isLoggedIn = function(){
       var user = $cookieStore.get('authData');
 
-      // console.log('auth loggedIn', loggedIn);
-
-      if(user !== ''){
+      if(!_.isEmpty(user)){
         loggedIn = true;
       }else{
         loggedIn = false;
