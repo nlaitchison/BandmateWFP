@@ -50,7 +50,9 @@ App.config(function ($routeProvider) {
   });
 
 App.config(['$sailsProvider', function ($sailsProvider) {
+    console.log($sailsProvider);
     $sailsProvider.url = 'http://localhost:1337';
+     console.log($sailsProvider);
 }]);
 
   App.config(['flowFactoryProvider', function (flowFactoryProvider) {
