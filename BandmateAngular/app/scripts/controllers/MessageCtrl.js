@@ -34,10 +34,15 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     // check for new messages
     $sails.on('message', function(data) {
+
         console.log('New message received :: ', data);
-        if(data.data.conversationId == $scope.currentConversation.id){
+
+        // if the message is in the current conversation
+        if(data.data.conversationId === $scope.currentConversation.id){
+            // call function to update scope
             getUserInfo(data.data);
-        };
+        }
+
     });
 
     // get all conversations where current user is a participant
@@ -46,6 +51,16 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
             // set scope
             $scope.conversations = c;
+
+            // get the user info for other participant
+            for (var i=0;i<c.length;i++) {
+
+                var convo = c[i];
+                // get user info
+                getConvoUserInfo(convo, i);
+                getConvoMsg(convo, i);
+
+            }
 
     	});
 
@@ -72,6 +87,54 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                     getUserInfo(msg);
 
                 }
+
+            });
+
+    };
+
+    // function to get user info for the convo
+    var getConvoUserInfo = function(convo, pos){
+
+        var getUser = '';
+        if(convo.participants[0] === userId){
+            getUser = convo.participants[1];
+        }else{
+            getUser = convo.participants[0];
+        }
+
+        // get the user info for the other participant
+        $sails.get('/users', {id : getUser})
+        .success(function(u) {
+
+            // set key values
+            $scope.conversations[pos].name = u.name;
+            $scope.conversations[pos].profileImg = u.profileImg;
+
+        });
+
+        // get last message in convo
+        $sails.get('/messages', {conversationId : convo.id})
+            .success(function(m) {
+
+
+            });
+
+    };
+
+    // function to get last msg for the convo
+    var getConvoMsg = function(convo, pos){
+
+        // get messages in the convo
+        $sails.get('/messages', {conversationId : convo.id})
+            .success(function(m) {
+
+                // get the msgs in the right order
+                var time = 'time';
+                var reverse = true;
+                var msgs = $filter('orderBy')(m, time, reverse);
+
+                $scope.conversations[pos].lastMsg = msgs[0].text;
+                $scope.conversations[pos].time = msgs[0].time;
 
             });
 
