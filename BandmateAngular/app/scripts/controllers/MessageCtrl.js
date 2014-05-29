@@ -12,32 +12,13 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
 	$scope.currentUser = userId;
 
-	// $scope.testing = $filter('filter')(t, {userOneId: userId});
-	// console.log('filter', $scope.testing);
 
 	$scope.allMsg = [];
 
-	// Restangular.all('messages').getList().then(function(m){
-
-	// 	for (var i=0;i<m.length;i++)
-	// 	{
-	// 		if(m[i].userOneId === userId){
-	// 			// console.log('one match');
-	// 			getUserOne(m[i]);
-
-	// 		}
-
-	// 		if(m[i].userTwoId === userId){
-	// 			// console.log('two match');
-	// 			getUserTwo(m[i]);
-	// 		}
-	// 	}
-
-	// });$scope.$on('sailsSocket:connect', function(ev, data){
 	$sails.get('/messages')
-		.success(function(m) {
-			for (var i=0;i<m.length;i++) {
-				if(m[i].userOneId === userId){
+	.success(function(m) {
+		for (var i=0;i<m.length;i++) {
+			if(m[i].userOneId === userId){
 					// console.log('one match');
 					getUserOne(m[i]);
 
@@ -50,20 +31,9 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 			}
 		});
 	$sails.on("message", function(data) {
-    // Example messages:
-    //   {model: "todo", verb: "create", data: Object, id: 25}
-    //   {model: "todo", verb: "update", data: Object, id: 3}
-    //   {model: "todo", verb: "destroy", id: 20}
-    console.log('New comet message received :: ', data);
-
-    // if (data.model === 'message') {
-    // 	switch(data.verb) {
-    // 		case 'update':
-
-    // 	}
-    // }
-});
-var getUserOne = function(m){
+		console.log('New comet message received :: ', data);
+	});
+	var getUserOne = function(m){
 
     	// get their user data from the users db
     	Restangular.one('users', m.userTwoId).get().then(function(u){
@@ -163,12 +133,13 @@ var getUserOne = function(m){
     		'text' : $scope.newMsg.text
     	};
 
-    	// $scope.currentMsg.conversation.push(m);
-    	// $scope.currentMsg.put().then(function(){
+  	// $scope.currentMsg.put().then(function(){
     	// 	$scope.newMsg.text = '';
     	// });
-var cm = $scope.currentMsg;
-sailsSocket.put('/messages/' + cm.id, cm);
+   	// $scope.currentMsg.conversation.push(m);
+   var cm = $scope.currentMsg;
+   console.log($scope.currentMsg);
+$sails.put('/messages/' + cm.id, cm);
 $scope.newMsg.text = '';
 
 
@@ -205,10 +176,15 @@ $scope.newMsg.text = '';
 		// 	getUserInfo();
 
 		// });
-sailsSocket.get('/messages/' + id, {}, function(res){
-	$scope.currentMsg = res;
-	getUserInfo();
-});
+	$sails.get('/messages/' + id)
+		.success(function(data){
+			$scope.currentMsg = data
+			getUserInfo();
+		});
+// sailsSocket.get('/messages/' + id, {}, function(res){
+// 	$scope.currentMsg = res;
+// 	getUserInfo();
+// });
 
 };
 
