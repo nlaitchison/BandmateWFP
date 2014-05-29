@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead', 'flow', 'wu.masonry']);
+var App = angular.module('bandmateProjectApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'restangular', 'siyfion.sfTypeahead', 'flow', 'wu.masonry', 'ngSails']);
 
 App.config(function ($routeProvider) {
     $routeProvider
@@ -48,6 +48,10 @@ App.config(function ($routeProvider) {
         redirectTo: '/'
       });
   });
+
+App.config(['$sailsProvider', function ($sailsProvider) {
+    $sailsProvider.url = 'http://localhost:1337';
+}]);
 
   App.config(['flowFactoryProvider', function (flowFactoryProvider) {
     flowFactoryProvider.defaults = {

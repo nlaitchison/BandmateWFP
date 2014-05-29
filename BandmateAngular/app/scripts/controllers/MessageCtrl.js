@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $filter) {
+App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthService, $cookieStore, $filter, $sails) {
 
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
@@ -17,41 +17,69 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
 	$scope.allMsg = [];
 
-	Restangular.all('messages').getList().then(function(m){
+	// Restangular.all('messages').getList().then(function(m){
 
-    	for (var i=0;i<m.length;i++)
-		{
-			if(m[i].userOneId === userId){
-				// console.log('one match');
-				getUserOne(m[i]);
+	// 	for (var i=0;i<m.length;i++)
+	// 	{
+	// 		if(m[i].userOneId === userId){
+	// 			// console.log('one match');
+	// 			getUserOne(m[i]);
 
+	// 		}
+
+	// 		if(m[i].userTwoId === userId){
+	// 			// console.log('two match');
+	// 			getUserTwo(m[i]);
+	// 		}
+	// 	}
+
+	// });$scope.$on('sailsSocket:connect', function(ev, data){
+	$sails.get('/messages')
+		.success(function(m) {
+			for (var i=0;i<m.length;i++) {
+				if(m[i].userOneId === userId){
+					// console.log('one match');
+					getUserOne(m[i]);
+
+				}
+
+				if(m[i].userTwoId === userId){
+					// console.log('two match');
+					getUserTwo(m[i]);
+				}
 			}
+		});
+	$sails.on("message", function(data) {
+    // Example messages:
+    //   {model: "todo", verb: "create", data: Object, id: 25}
+    //   {model: "todo", verb: "update", data: Object, id: 3}
+    //   {model: "todo", verb: "destroy", id: 20}
+    console.log('New comet message received :: ', data);
 
-			if(m[i].userTwoId === userId){
-				// console.log('two match');
-				getUserTwo(m[i]);
-			}
-		}
+    // if (data.model === 'message') {
+    // 	switch(data.verb) {
+    // 		case 'update':
 
-    });
-
-    var getUserOne = function(m){
+    // 	}
+    // }
+});
+var getUserOne = function(m){
 
     	// get their user data from the users db
-		Restangular.one('users', m.userTwoId).get().then(function(u){
+    	Restangular.one('users', m.userTwoId).get().then(function(u){
 
-			var c = {
-				'id' : m.id,
-				'recipientId' : u.id,
-				'recipientName' : u.name,
-				'recipientImg' : u.profileImg,
-				'updated' : m.updatedAt,
-				'conversation' : m.conversation[m.conversation.length - 1]
-			};
+    		var c = {
+    			'id' : m.id,
+    			'recipientId' : u.id,
+    			'recipientName' : u.name,
+    			'recipientImg' : u.profileImg,
+    			'updated' : m.updatedAt,
+    			'conversation' : m.conversation[m.conversation.length - 1]
+    		};
 
-			$scope.allMsg.push(c);
+    		$scope.allMsg.push(c);
 
-			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
+    		if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
 				// console.log($scope.allMsg.length);
 				$scope.loadMsg($scope.allMsg[0].id);
 			}
@@ -64,42 +92,42 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     var getUserTwo = function(m){
 
     	// get their user data from the users db
-		Restangular.one('users', m.userOneId).get().then(function(u){
+    	Restangular.one('users', m.userOneId).get().then(function(u){
 
-			var c = {
-				'id' : m.id,
-				'recipientId' : u.id,
-				'recipientName' : u.name,
-				'recipientImg' : u.profileImg,
-				'updated' : m.updatedAt,
-				'conversation' : m.conversation[m.conversation.length - 1]
-			};
+    		var c = {
+    			'id' : m.id,
+    			'recipientId' : u.id,
+    			'recipientName' : u.name,
+    			'recipientImg' : u.profileImg,
+    			'updated' : m.updatedAt,
+    			'conversation' : m.conversation[m.conversation.length - 1]
+    		};
 
-			$scope.allMsg.push(c);
+    		$scope.allMsg.push(c);
 
-		});
+    	});
 
-			if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
+    	if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
 				// console.log($scope.allMsg.length);
 				$scope.loadMsg($scope.allMsg[0].id);
 			}
-    };
+		};
 
-    var getUserInfo = function(){
+		var getUserInfo = function(){
 
     	// console.log('console.log', $scope.currentMsg);
 
     	Restangular.one('users', $scope.currentMsg.userOneId).get().then(function(u){
 
-			$scope.userOne = u;
+    		$scope.userOne = u;
 
-		});
+    	});
 
-		Restangular.one('users', $scope.currentMsg.userTwoId).get().then(function(u){
+    	Restangular.one('users', $scope.currentMsg.userTwoId).get().then(function(u){
 
-			$scope.userTwo = u;
+    		$scope.userTwo = u;
 
-		});
+    	});
 
     };
 
@@ -126,7 +154,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     };
 
     $scope.sendMsg = function(){
-    	 var t = new Date();
+    	var t = new Date();
 
     	console.log('month', t);
     	var m = {
@@ -135,10 +163,14 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     		'text' : $scope.newMsg.text
     	};
 
-    	$scope.currentMsg.conversation.push(m);
-    	$scope.currentMsg.put().then(function(){
-    		$scope.newMsg.text = '';
-    	});
+    	// $scope.currentMsg.conversation.push(m);
+    	// $scope.currentMsg.put().then(function(){
+    	// 	$scope.newMsg.text = '';
+    	// });
+var cm = $scope.currentMsg;
+sailsSocket.put('/messages/' + cm.id, cm);
+$scope.newMsg.text = '';
+
 
     	// console.log($scope.newMsg.text);
     };
@@ -147,39 +179,46 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     	console.log('newMsg');
 
     	var m = Restangular.all('messages');
-		var newMsg =
-				{
-			'userOneId' : userId,
-			'userTwoId' : id,
-			'conversation' : []
-		};
+    	var newMsg =
+    	{
+    		'userOneId' : userId,
+    		'userTwoId' : id,
+    		'conversation' : []
+    	};
 
-		m.post(newMsg).then(function(item){
-			$location.path('/messages');
-			$scope.loadMsg(item.id);
- 	  	});
+    	m.post(newMsg).then(function(item){
+    		$location.path('/messages');
+    		$scope.loadMsg(item.id);
+    	});
+
+
+
     };
 
     $scope.loadMsg = function(id){
     	// console.log(id);
 
-    	Restangular.one('messages', id).get().then(function(m){
+  //   	Restangular.one('messages', id).get().then(function(m){
 
-			$scope.currentMsg = m;
+		// 	$scope.currentMsg = m;
 
-			getUserInfo();
+		// 	getUserInfo();
 
-		});
+		// });
+sailsSocket.get('/messages/' + id, {}, function(res){
+	$scope.currentMsg = res;
+	getUserInfo();
+});
 
-    };
+};
 
-    $scope.deleteMsg = function(id){
-    	console.log('delete');
+$scope.deleteMsg = function(id){
+	console.log('delete');
 
-    	$scope.currentMsg.remove().then(function(){
-      	});
+	$scope.currentMsg.remove().then(function(){
+	});
 
-    };
+};
 
 
 

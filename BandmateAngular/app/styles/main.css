@@ -1247,7 +1247,7 @@ fieldset#location select#state{
 	padding: 0 10px;
 }
 .nf_container{
-	padding: 0 0 0 30px;
+	padding: 0 30px 0 0;
 }
 
 .nf_item{
@@ -1268,7 +1268,7 @@ fieldset#location select#state{
 }
 
 .nf_header ul{
-	padding-top: 6px;
+	padding-top: 2px;
 }
 
 .nf_header ul li{
@@ -1327,6 +1327,44 @@ fieldset#location select#state{
 
 .nf_vido_box{
 	height: 255px;
+}
+
+.ng_nearby_img{
+	float: left;
+	width: 55px;
+	height: 55px;
+	overflow: hidden;
+	padding-left: 2px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+.ng_nearby_img img{
+	width: 100%;
+}
+
+ul.nf_nearby{
+	float: left;
+	padding-top: 10px;
+}
+ul.nf_nearby li{
+	float: none;
+}
+
+.nf_nearby_name a{
+	color: #05959a;
+	font-size: 14px;
+	padding-bottom: 3px;
+	text-decoration: none;
+}
+
+.nf_nearby_name a:hover{
+	text-decoration: underline;
+}
+
+.nf_nearby_loc{
+	font-size: 12px;
+	opacity: .8;
 }
 
 /* ---------------------------------------------------------------------------------------------------

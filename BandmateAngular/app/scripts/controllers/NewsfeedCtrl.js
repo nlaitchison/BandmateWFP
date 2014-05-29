@@ -32,7 +32,7 @@ App.controller('NewsfeedCtrl', function ($scope, Restangular, $location, AuthSer
 						// console.log(n);
 						for (var i=0;i<n.changes.length;i++)
 						{
-							var obj = { 'userId': u.id, 'userName': u.name, 'userPic' : u.profileImg, 'timeStamp': n.changes[i].timeStamp, updates: n.changes[i].updates};
+							var obj = { 'userId': u.id, 'userName': u.name, 'userPic' : u.profileImg, 'gender' : u.gender, 'timeStamp': n.changes[i].timeStamp, updates: n.changes[i].updates};
 							$scope.newsfeed.push(obj);
 						}
 					});
@@ -41,6 +41,31 @@ App.controller('NewsfeedCtrl', function ($scope, Restangular, $location, AuthSer
 			}
 		}else{
 			console.log('dont run');
+		}
+	});
+
+	Restangular.one('users', userId).get().then(function(u){
+
+		if(u.city && u.state){
+
+			var filter = {
+				'city' : u.city,
+				'state' : u.state,
+			};
+
+			$http({method: 'GET', url: 'http://localhost:1337/search/advance', params: filter}).
+			success(function(data, status, headers, config) {
+			  // this callback will be called asynchronously
+			  // when the response is available
+
+			  $scope.nearbyUsers = data;
+			  console.log('results', $scope.results);
+
+			}).
+			error(function(data, status, headers, config) {
+			  // called asynchronously if an error occurs
+			  // or server returns response with an error status.
+			});
 		}
 	});
 
