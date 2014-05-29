@@ -58,24 +58,48 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                 for (var i=0;i<m.length;i++) {
 
                     var msg = m[i];
-
-                    // get the user info for each message
-                    $sails.get('/users', {id : msg.senderId})
-                    .success(function(u) {
-
-                        // set key values
-                        msg.name = u.name;
-                        msg.profileImg = u.profileImg;
-
-                        console.log('updated msg', msg);
-
-                        // push all message to the current conversation object
-                        $scope.currentConversation.messages.push(msg);
-                    });
+                    // get user info
+                    getUserInfo(msg);
 
                 }
 
             });
+
+    };
+
+    // function to get user info for each msg
+    var getUserInfo = function(msg){
+
+        // get the user info for each message
+        $sails.get('/users', {id : msg.senderId})
+        .success(function(u) {
+
+            console.log(msg);
+
+            // set key values
+            msg.name = u.name;
+            msg.profileImg = u.profileImg;
+
+            // push all message to the current conversation object
+            $scope.currentConversation.messages.push(msg);
+
+        });
+
+    };
+
+    // send a messsage
+    $scope.sendMsg = function(id){
+
+        var m = {
+            conversationId: id,
+            senderId: userId,
+            time: new Date(),
+            text: $scope.newMsg.text
+        };
+
+        $sails.post('/messages/', m, function (response) {
+            console.log('sent message', response);
+        });
 
     };
 
