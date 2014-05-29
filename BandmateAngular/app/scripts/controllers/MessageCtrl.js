@@ -14,6 +14,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     $scope.conversations = [];
     $scope.currentConversation = '';
 
+    $scope.order = 'time';
+
     // objects that make up messaging
     // messages match up to conversations
 
@@ -29,6 +31,14 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     //     time: timestamp,
     //     text: 'message text'
     // }
+
+    // check for new messages
+    $sails.on('message', function(data) {
+        console.log('New message received :: ', data);
+        if(data.data.conversationId == $scope.currentConversation.id){
+            getUserInfo(data.data);
+        };
+    });
 
     // get all conversations where current user is a participant
 	$sails.get('/conversations', {participants : userId})
@@ -74,8 +84,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
         $sails.get('/users', {id : msg.senderId})
         .success(function(u) {
 
-            console.log(msg);
-
             // set key values
             msg.name = u.name;
             msg.profileImg = u.profileImg;
@@ -101,6 +109,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
             console.log('sent message', response);
         });
 
+        $scope.newMsg.text = '';
+
     };
 
     // post a conversation
@@ -123,16 +133,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     // $sails.post('/messages/', m, function (response) {
     //     console.log(response);
     // });
-
-
-
-
-    // check for new messages
-	// $sails.on('message', function(data) {
-	// 	console.log('New message received :: ', data.data.conversation);
-	// });
-
-
 
  //    $scope.clickMsg = function(id){
 

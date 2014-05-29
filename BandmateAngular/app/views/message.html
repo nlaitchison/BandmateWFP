@@ -5,7 +5,7 @@
 	<section id="inbox" class="column three-10">
  		<h2> Inbox </h2>
  		<div>
-	 		<div class="inbox_msg" ng-repeat="c in conversations">
+	 		<div class="inbox_msg" ng-repeat="c in conversations | orderBy:order">
 	 			<div ng-click="loadMsgs(c.id)">
 	 				<p>{{c.id}}</p>
 		 			<!-- <div class="thumb_img"><img ng-src="{{m.recipientImg}}"></div>
@@ -27,7 +27,7 @@
 
 	 		<div id="msg_container">
 
-		 		<div class="msg" ng-repeat="m in currentConversation.messages">
+		 		<div class="msg" ng-repeat="m in currentConversation.messages | orderBy:order">
 
 		 			<div class="convo_img_left">
 		 				<a ng-href="#/profile/{{m.senderId}}"><img ng-src="{{m.profileImg}}"></a>
