@@ -91,7 +91,7 @@
 			</div>
 			<form id="send_msg" name="send_msg" ng-submit="sendMsg()">
 				<div class="send_container">
-					<textarea name="newMsg" id="newMsg" class="edit_input" ng-model="newMsg.text"> Type your reply... </textarea>
+					<textarea name="newMsg" id="newMsg" class="edit_input" ng-model="newMsg.text" ng-enter="sendMsg()"> Type your reply... </textarea>
 				</div>
 				<div class="send_container">
 					<input type="submit" name="submit_message" value="Send">

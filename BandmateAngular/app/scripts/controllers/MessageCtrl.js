@@ -54,7 +54,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 				$scope.loadMsg($scope.allMsg[0].id);
 			}
 
-
 		});
 
     };
@@ -78,12 +77,12 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     	});
 
     	if($scope.allMsg.length > 0 && $scope.currentMsg !== null){
-				// console.log($scope.allMsg.length);
-				$scope.loadMsg($scope.allMsg[0].id);
-			}
-		};
+			// console.log($scope.allMsg.length);
+			$scope.loadMsg($scope.allMsg[0].id);
+		}
+	};
 
-		var getUserInfo = function(){
+	var getUserInfo = function(){
 
     	// console.log('console.log', $scope.currentMsg);
 
@@ -126,7 +125,8 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     $scope.sendMsg = function(){
     	var t = new Date();
 
-    	console.log('month', t);
+    	// console.log('month', t);
+
     	var m = {
     		'userId' : userId,
     		'timeSent' : t,
@@ -136,11 +136,17 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
   	// $scope.currentMsg.put().then(function(){
     	// 	$scope.newMsg.text = '';
     	// });
-   	// $scope.currentMsg.conversation.push(m);
-   var cm = $scope.currentMsg;
-   console.log($scope.currentMsg);
-$sails.put('/messages/' + cm.id, cm);
-$scope.newMsg.text = '';
+   	    $scope.currentMsg.conversation.push(m);
+        var cm = $scope.currentMsg;
+        console.log(cm.id);
+
+        // $sails.put('/messages/' + cm.id, cm);{conversation: cm.conversation}
+
+         $sails.put('messages/' + cm.id, cm, function (response) {
+            console.log(response);
+        });
+
+        $scope.newMsg.text = '';
 
 
     	// console.log($scope.newMsg.text);
