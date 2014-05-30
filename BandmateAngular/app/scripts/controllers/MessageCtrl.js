@@ -44,7 +44,13 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
             case 'conversations':
                 // reload conversations in the inbox
-                loadConversations(function(){});
+                // loadConversations(function(){});
+                if (data.verb === 'create') {
+
+                    $scope.conversations.push(data.data);
+                    getConvoUserInfo(data.data, $scope.conversations.length -1);
+                    getConvoMsg(data.data, $scope.conversations.length -1);
+                }
                 break;
         }
 
@@ -283,47 +289,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     };
 
     init();
-
-
-    // post a conversation
-    // var c = {
-    //     participants: ['5384dec90b41607a2f3a3ca3', '53851fb3e38a20892f2d1cfe']
-    // }
-
-    // $sails.post('/conversations/', c, function (response) {
-    //     console.log(response);
-    // });
-
-    // post a message
-    // var m = {
-    //     conversationId: id,
-    //     senderId: userId,
-    //     time: new Date(),
-    //     text: 'message text'
-    // }
-
-    // $sails.post('/messages/', m, function (response) {
-    //     console.log(response);
-    // });
-
- //    $scope.clickMsg = function(id){
-
-
- //    };
-
- //    $scope.sendMsg = function(){
-
- //    };
-
- //    var newMsg = function(id){
-
-
- //    };
-
- //    $scope.deleteMsg = function(id){
-
-
- //    };
 
 
 });
