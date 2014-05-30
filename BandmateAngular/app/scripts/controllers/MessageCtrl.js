@@ -279,6 +279,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
                     $sails.post('/conversations/', c, function (response) {
                         console.log(response);
+                        $scope.loadMsgs(response.id);
                     });
                 }
 

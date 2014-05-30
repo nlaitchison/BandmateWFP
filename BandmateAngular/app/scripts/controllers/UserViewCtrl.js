@@ -11,8 +11,8 @@ App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $loc
 	$scope.user = user;
 	$scope.videos = videos;
 
-	$scope.clickMsg = function() {
-		$location.path('/messages').search({user: user.id});
+	$scope.clickMsg = function(id) {
+		$location.path('/messages').search({user: id});
 	};
 
 	// get cuurent user's id
