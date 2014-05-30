@@ -25,6 +25,10 @@ App.controller('UserViewCtrl', function ($scope, Restangular, $routeParams, $loc
 		);
 	}
 
+	$scope.clickMsg = function() {
+		$location.path('/messages').search({user: user.id});
+	}
+
 	// function getAccountType() {
 	// 	$scope.user.account = [];
 	// 	if($scope.user.accountType.musician === 'true'){
