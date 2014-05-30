@@ -7,32 +7,40 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
 
-	// get cuurent user's id
-	var userId = $cookieStore.get('userId');
+	if(!$scope.loggedIn){
+        $location.path('/');
+    }else{
+    	init();
+    }
 
-	// get user from db
-	Restangular.one('users', userId).get().then(function(u){
+    function init(){
+    	// get cuurent user's id
+		var userId = $cookieStore.get('userId');
 
-		//set scope to db
-		$scope.user = u;
+		// get user from db
+		Restangular.one('users', userId).get().then(function(u){
 
-		$scope.instruments = u.instruments;
-		$scope.genres = u.genres;
+			//set scope to db
+			$scope.user = u;
 
-	});
+			$scope.instruments = u.instruments;
+			$scope.genres = u.genres;
 
-	// get video urls
-	// var v = Restangular.all('videos');
-	Restangular.one('videos', userId).get().then(function(v){
+		});
 
-		//set scope to db
-		$scope.videos = v;
+		// get video urls
+		// var v = Restangular.all('videos');
+		Restangular.one('videos', userId).get().then(function(v){
 
-		if($scope.videos.urls.length < 1){
-			$scope.videos.urls.push({'url':'', 'code':''});
-		}
+			//set scope to db
+			$scope.videos = v;
 
-	});
+			if($scope.videos.urls.length < 1){
+				$scope.videos.urls.push({'url':'', 'code':''});
+			}
+
+		});
+    };
 
 	// function to change user birthday to an age
 	function getAge(dateString) {

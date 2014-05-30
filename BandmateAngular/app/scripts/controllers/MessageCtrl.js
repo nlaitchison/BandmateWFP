@@ -291,7 +291,12 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
     };
 
-    init();
+
+    if(!$scope.loggedIn){
+        $location.path('/');
+    }else{
+        init();
+    }
 
 
 });

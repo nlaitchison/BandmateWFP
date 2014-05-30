@@ -24,7 +24,7 @@
 				<ul class="user_buttons">
 					<p></p>
 					<div class="clear_fix"></div>
-					<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
+					<li><button class="{{user.id}}" name="add_studio" ng-click="addRemoveStudio()"> <span ng-show="!exists">+</span> <span ng-hide="!exists">-</span> Studio </button></li>
 					<li><button class="{{user.id}}" name="message" ng-click="clickMsg(user.id)"> Message </button></li>
 					<div class="clear_fix"></div>
 				</ul>
@@ -33,8 +33,8 @@
 				<ul class="user_buttons">
 					<div class="no_results"> Login or Signup to use these features. </div>
 					<div class="clear_fix"></div>
-					<li><button class="{{user.id}}" name="add_studio" ng-controller="StudioCtrl"> <span ng-show="!exists">+ </span> <span ng-hide="!exists">- </span> Studio </button></li>
-					<li><button class="{{user.id}}" name="message" ng-controller="MessageCtrl"> Message </button></li>
+					<li><button class="{{user.id}}" name="add_studio"> +  Studio </button></li>
+					<li><button class="{{user.id}}" name="message"> Message </button></li>
 					<div class="clear_fix"></div>
 				</ul>
 			</div>
