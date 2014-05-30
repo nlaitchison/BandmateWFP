@@ -365,10 +365,9 @@ nav li.user_img a{
 #settings_menu{
 	position: absolute;
 	top: 50px;
-	right: 95px;
+	right: 110px;
 	background-color: #d6d6d6; /*363636*/
-	width: 85px;
-	padding: 20px;
+	width: 125px;
 	border: 1px solid #aaaaaa;
 	border-top: none;
 	border-radius: 2px;
@@ -378,10 +377,13 @@ nav li.user_img a{
 #settings_menu ul li{
 	clear: both;
 	width: 100%;
+	padding: 10px;
+	text-transform: uppercase;
+	text-align: center;
 }
 
 #settings_menu ul li:first-child{
-	padding-bottom: 10px;
+	border-bottom: 1px solid #aaaaaa;
 }
 
 .logout_link{
