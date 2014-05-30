@@ -2,7 +2,7 @@
 
 /*global App*/
 
-App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location, $cookieStore) {
+App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Base64, $location, $cookieStore, $sails) {
 
 	// console.log('nav', AuthService.isLoggedIn());
 
@@ -12,12 +12,34 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 
 	var currentUserId = $cookieStore.get('userId');
 
-	Restangular.one('users', currentUserId).get().then(function(u){
+	// Restangular.one('users', currentUserId).get().then(function(u){
 
-		//set scope to db
-		$scope.currentUser = u;
+	// 	//set scope to db
+	// 	$scope.currentUser = u;
 
-	});
+	// });
+
+	// check for new messages
+    $sails.on('message', function(data) {
+
+        console.log('New update received :: ', data);
+
+        switch(data.model){
+
+            case 'users':
+                $scope.currentUser = data.data;
+        }
+
+    });
+
+	$sails.get('/users', {id : currentUserId})
+	    .success(function(u) {
+
+	      	//set scope to db
+			$scope.currentUser = u;
+			console.log($scope.user);
+
+	    });
 
 	// on login submit
 	$scope.submit = function() {
@@ -44,13 +66,22 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 				$scope.loggedIn = AuthService.isLoggedIn();
 
 				// get user from db to set scope for nav info
-				Restangular.one('users', data.user.id).get().then(function(u){
+				// Restangular.one('users', data.user.id).get().then(function(u){
 
-					//set scope to db
-					$scope.user = u;
-					console.log($scope.user);
+				// 	//set scope to db
+				// 	$scope.user = u;
+				// 	console.log($scope.user);
 
-				});
+				// });
+
+				$sails.get('/users', {id : data.user.id})
+			        .success(function(u) {
+
+			          	//set scope to db
+						$scope.user = u;
+						console.log($scope.user);
+
+			        });
 
             }else{
              	// alert('Invalid Username or Password!');

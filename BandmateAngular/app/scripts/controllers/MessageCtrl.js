@@ -57,8 +57,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                 break;
         }
 
-        // TO DO: update inbox here
-
     });
 
     // get all conversations where current user is a participant
