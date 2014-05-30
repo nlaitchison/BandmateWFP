@@ -22,8 +22,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
         console.log('New message received :: ', data);
 
-        // if the message is in the current conversation
-
         switch(data.model){
 
             case 'messages':
@@ -34,11 +32,20 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                         data.data.profileImg = u.profileImg;
                     });
                     $scope.currentConversation.messages.push(data.data);
+                }else{
+
+                    // if the user isn't viewing the conversation that has a new message
+                    // set the newMsg var to true
+                    $sails.put('/conversations/' + data.data.conversationId, {newMsg : true}, function (response) {
+                        console.log('updated', true);
+                    });
                 }
                 break;
 
             case 'conversations':
-                console.log(data.data);
+                // reload conversations in the inbox
+                loadConversations(function(){});
+                break;
         }
 
         // TO DO: update inbox here
@@ -74,16 +81,22 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
             });
     }
 
-    // load all the messages for a conversation
     var getOtherUser = function(convoId) {
         return getParticipants(convoId).then(function(ids){
             console.log('id', ids.participants);
             return _.without(ids.participants, userId);
         });
     };
+
+    // load all the messages for a conversation
     $scope.loadMsgs = function(id){
 
         console.log('loadMsgs');
+
+        // the conversation has been viewed so change newMsg var to false
+        $sails.put('/conversations/' + id, {newMsg : false}, function (response) {
+            console.log('updated', true);
+        });
 
         // get all the messages for that conversation
         $sails.get('/messages', {conversationId : id})
@@ -105,8 +118,10 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                     })
                     return o;
                 });
+
                 $scope.currentConversation.messages = msgs;
-                });
+
+            });
 
             getOtherUser(id).then(function(user){
                 getUserInfo(user[0], function(r){
@@ -114,39 +129,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                 })
                 //$scope.currentConversation.rName = user.name;
             });
-
-
-
-                // _.each(m, function(element, index, list){
-                //     // var msg = m[i];
-                //     var self = this;
-                //     console.log(this);
-                //     getUserInfo(element.senderId, function(u){
-
-                //         // set values
-
-                //         self.user = u;
-
-
-                //     });
-                //        console.log(self);
-                //         var msg = element;
-                //         msg.name = self.user.name;
-                //         msg.profileImg = self.user.profileImg;
-                //                               // push all message to the current conversation object
-                //         $scope.currentConversation.messages.push(msg);
-                //     // console.log(u);
-                //     // msg.profileImg = u.
-                //     // get user info
-                //     // getUserInfo(msg);
-                // })
-
-                // for (var i=0;i<m.length;i++) {
-
-
-
-                // }
-
 
     };
 

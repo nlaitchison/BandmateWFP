@@ -9,7 +9,7 @@
 	 			<div ng-click="loadMsgs(c.id, c.name)">
 		 			<div class="thumb_img"><img ng-src="{{c.profileImg}}"></div>
 		 			<ul>
-		 				<li class="msg_name"> {{c.name}} </li>
+		 				<li class="msg_name"> {{c.name}} <span class="msg_notif"ng-if="c.newMsg">NEW</span></li>
 		 				<li> {{ c.lastMsg | limitTo:40 }}...</li>
 		 				<li class="msg_date"> {{ c.time | date : 'MMM d'}}</li>
 		  			</ul>
