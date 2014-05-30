@@ -50,6 +50,10 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                     $scope.conversations.push(data.data);
                     getConvoUserInfo(data.data, $scope.conversations.length -1);
                     getConvoMsg(data.data, $scope.conversations.length -1);
+                } else if (data.verb === 'update') {
+                    var convo = $scope.conversations.indexOf(_.findWhere($scope.conversations, {id: data.data.id}));
+                    $scope.conversations[convo].newMsg = true;
+                    console.log(convo);
                 }
                 break;
         }
@@ -65,6 +69,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
 
             // set scope
             $scope.conversations = c;
+
 
             // get the user info for other participant
             for (var i=0;i<c.length;i++) {
@@ -98,8 +103,6 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     $scope.loadMsgs = function(id){
 
         console.log('loadMsgs');
-
-        // the conversation has been viewed so change newMsg var to false
         $sails.put('/conversations/' + id, {newMsg : false}, function (response) {
             console.log('updated', true);
         });
@@ -126,6 +129,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                 });
 
                 $scope.currentConversation.messages = msgs;
+
 
             });
 
