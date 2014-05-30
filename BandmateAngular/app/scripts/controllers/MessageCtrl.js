@@ -46,13 +46,12 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                 // reload conversations in the inbox
                 // loadConversations(function(){});
                 if (data.verb === 'create') {
-
                     $scope.conversations.push(data.data);
                     getConvoUserInfo(data.data, $scope.conversations.length -1);
                     getConvoMsg(data.data, $scope.conversations.length -1);
                 } else if (data.verb === 'update') {
                     var convo = $scope.conversations.indexOf(_.findWhere($scope.conversations, {id: data.data.id}));
-                    $scope.conversations[convo].newMsg = true;
+                    $scope.conversations[convo].newMsg = data.data.newMsg;
                     console.log(convo);
                 }
                 break;

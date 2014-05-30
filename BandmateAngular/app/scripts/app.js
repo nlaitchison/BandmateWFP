@@ -93,10 +93,10 @@ App.directive('scPlayer', function($sce) {
     replace: true,
     template: '<div><iframe width="100%" height="300" scrolling="no" frameborder="no"></iframe></div>',
     controller: function ($scope,$element) {
-      $scope.$watch('url', function (newVal) {
-        if (newVal) {
-          console.log(newVal);
-            $.get('http://api.soundcloud.com/resolve.json?url=' + newVal + '&client_id=dfc5f1fa84c13d3d8888d1fb9c094f89',
+      $scope.$watch('url', function (scVal) {
+        if (scVal) {
+          console.log(scVal);
+            $.get('http://api.soundcloud.com/resolve.json?url=' + scVal + '&client_id=dfc5f1fa84c13d3d8888d1fb9c094f89',
              function (result) {
 
                // $('.user_audio').html('<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' +  result.uri + '&amp;color=2a258e&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>');

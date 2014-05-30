@@ -362,28 +362,48 @@ nav li.user_img a{
 	background-color: #1d1c67;
 }
 
-#settings_menu{
-	position: absolute;
+#settings_menu_container #settings_menu{
+	/*position: absolute;*/
 	top: 50px;
-	right: 110px;
+	right: 8%;
+	position: absolute;
 	background-color: #d6d6d6; /*363636*/
-	width: 125px;
 	border: 1px solid #aaaaaa;
 	border-top: none;
 	border-radius: 2px;
 	z-index: 1;
+	width: 150px;
 }
 
-#settings_menu ul li{
+#settings_menu_container ul#settings_menu li{
 	clear: both;
-	width: 100%;
-	padding: 10px;
 	text-transform: uppercase;
 	text-align: center;
+	width: 100%;
+	padding: 10px 0;
+	transition: background-color 0.5s ease;
+	line-height: 15px;
+	color: #282828;
+	border-right: none;
 }
 
-#settings_menu ul li:first-child{
+#settings_menu_container ul#settings_menu li:hover{
+	background-color: #c6c6c6;
+	opacity: 1;
+}
+
+#settings_menu_container ul#settings_menu  li:first-child{
 	border-bottom: 1px solid #aaaaaa;
+}
+
+#settings_menu_container ul#settings_menu  li a{
+	color: #282828;
+	text-decoration: none;
+
+}
+
+#settings_menu_container .setting_menu_option{
+padding: 0 20px;
 }
 
 .logout_link{

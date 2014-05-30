@@ -21,6 +21,12 @@
 				<li class="settings_icon" ng-click="$root.settingsClicked = !$root.settingsClicked"><img src="images/settings-icon.png"></li>
 				<li class="user_img"><a href="#/profile/{{currentUser.id}}"><img ng-src="{{currentUser.profileImg}}" alt="user img"><span class="header_name">{{currentUser.name}}</span></a></li>
 			</ul>
+			<div ng-if='loggedIn'  ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked" id="settings_menu_container">
+				<ul id="settings_menu">
+					<li> <span class="setting_menu_option"><a href="#/account"> Edit Account </a> </span></li>
+					<li class="logout_link" ng-controller="NavCtrl" ng-click="logout()" > <span class="setting_menu_option">Logout </span></li>
+				</ul>
+			</div>
 		</nav>
 		<div class="clear_fix"></div>
 	</div>
@@ -43,12 +49,12 @@
 	</form>
 </div>
 
-<div ng-if='loggedIn' id="settings_menu" ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked">
-	<ul>
-		<li> <a href="#/account"> Edit Account </a> </li>
-		<li class="logout_link" ng-controller="NavCtrl" ng-click="logout()" > Logout </li>
+<!-- <div ng-if='loggedIn'  ng-show="settingsClicked" ng-click="$root.settingsClicked = !$root.settingsClicked" id="settings_menu_container"class="container">
+	<ul id="settings_menu">
+		<li> <span class="setting_menu_option"><a href="#/account"> Edit Account </a> </span></li>
+		<li class="logout_link" ng-controller="NavCtrl" ng-click="logout()" > <span class="setting_menu_option">Logout </span></li>
 	</ul>
-</div>
+</div> -->
 
 <!-- <header ng-controller="NavCtrl">
 	<div class="container">
