@@ -26,7 +26,7 @@
 
 	 		<div id="msg_container">
 
-		 		<div class="msg" ng-repeat="m in currentConversation.messages track by m.id| orderBy:order">
+		 		<div class="msg" ng-repeat="m in currentConversation.messages track by m.id | orderBy:order">
 
 		 			<div class="convo_img_left">
 		 				<a ng-href="#/profile/{{m.senderId}}"><img ng-src="{{m.profileImg}}"></a>

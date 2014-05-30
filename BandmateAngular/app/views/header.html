@@ -17,7 +17,7 @@
 			</ul>
 			<ul ng-if="loggedIn">
 				<li><a href="#/studio">Studio</a></li>
-				<li class="messages_icon"><a href="#/messages"><img src="images/messages-icon.png"> <span class="nav_msg_new" ng-if="msgNew > 0"> * </span></a></li>
+				<li class="messages_icon"><a href="#/messages"><img src="images/messages-icon.png" ng-if="msgNew == 0"> <img src="images/messages-icon-new.png" ng-if="msgNew > 0"></a></li>
 				<li class="settings_icon" ng-click="$root.settingsClicked = !$root.settingsClicked"><img src="images/settings-icon.png"></li>
 				<li class="user_img"><a href="#/profile/{{currentUser.id}}"><img ng-src="{{currentUser.profileImg}}" alt="user img"><span class="header_name">{{currentUser.name}}</span></a></li>
 			</ul>

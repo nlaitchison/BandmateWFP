@@ -131,19 +131,20 @@
 	</section>
 
 	<section id="newsfeed" class="column one-5">
-			<h2> Nearby Users </h2>
-			<div ng-if='nearbyUser .length == 0' class="no_results">
-				<p> There are no users near you. </p>
+		<h2> Nearby Users </h2>
+		<div ng-if="!nearbyUser.length" class="no_results">
+			<p> There are no users near you. </p>
+		</div>
+		<div ng-repeat="u in nearbyUsers | limitTo: 5">
+			<div class="ng_nearby_img">
+				<a href="#/profile/{{u._id}}"><img ng-src="{{u.profileImg}}"></a>
 			</div>
-			<div ng-repeat="u in nearbyUsers | limitTo: 5">
-				<div class="ng_nearby_img">
-					<a href="#/profile/{{u._id}}"><img ng-src="{{u.profileImg}}"></a>
-				</div>
-				<ul class="nf_nearby">
-					<li class="nf_nearby_name"><a href="#/profile/{{u._id}}">{{u.name}}</a></li>
-					<li class="nf_nearby_loc">{{u.city}}, {{u.state}}</li>
-				</ul>
-			</div>
+			<ul class="nf_nearby">
+				<li class="nf_nearby_name"><a href="#/profile/{{u._id}}">{{u.name}}</a></li>
+				<li class="nf_nearby_loc">{{u.city}}, {{u.state}}</li>
+			</ul>
+			<div class="clear_fix"></div>
+		</div>
 	</section>
 
 </div>

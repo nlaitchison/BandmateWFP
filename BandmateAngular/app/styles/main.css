@@ -424,6 +424,10 @@ padding: 0 20px;
 
 }
 
+nav li.messages_icon{
+	width: 28px;
+}
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Landing
 ---------------------------------------------------------------------------------------------------*/
@@ -1367,6 +1371,7 @@ fieldset#location select#state{
 	overflow: hidden;
 	padding-left: 2px;
 	padding-right: 10px;
+	margin-bottom: 10px;
 	cursor: pointer;
 }
 

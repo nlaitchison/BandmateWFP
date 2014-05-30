@@ -7,6 +7,8 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	//make sure logginVar is set
 	$scope.loggedIn = AuthService.isLoggedIn();
 
+	var userId = '';
+
 	if(!$scope.loggedIn){
         $location.path('/');
     }else{
@@ -15,7 +17,7 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 
     function init(){
     	// get cuurent user's id
-		var userId = $cookieStore.get('userId');
+		userId = $cookieStore.get('userId');
 
 		// get user from db
 		Restangular.one('users', userId).get().then(function(u){
