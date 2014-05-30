@@ -32,14 +32,14 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
                         data.data.profileImg = u.profileImg;
                     });
                     $scope.currentConversation.messages.push(data.data);
-                }else{
+                }
 
                     // if the user isn't viewing the conversation that has a new message
                     // set the newMsg var to true
                     $sails.put('/conversations/' + data.data.conversationId, {newMsg : true}, function (response) {
                         console.log('updated', true);
                     });
-                }
+
                 break;
 
             case 'conversations':

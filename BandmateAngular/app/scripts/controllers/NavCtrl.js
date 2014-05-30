@@ -28,6 +28,12 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 
             case 'users':
                 $scope.currentUser = data.data;
+
+            case 'conversations':
+	            if (data.verb === 'update') {
+	                countMsgs();
+	            }
+            break;
         }
 
     });
@@ -39,7 +45,34 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 			$scope.currentUser = u;
 			console.log($scope.user);
 
+			countMsgs();
+
 	    });
+
+	function countMsgs(){
+
+		$scope.msgNew = 0;
+
+		$sails.get('/conversations', {participants : currentUserId})
+	        .success(function(c) {
+
+	            // set scope
+	            $scope.conversations = c;
+
+
+	            // get the user info for other participant
+	            for (var i=0;i<c.length;i++) {
+
+	                if(c[i].newMsg){
+	                	$scope.msgNew++;
+	                }
+
+	                console.log($scope.msgNew);
+
+	            }
+
+	        });
+	};
 
 	// on login submit
 	$scope.submit = function() {
