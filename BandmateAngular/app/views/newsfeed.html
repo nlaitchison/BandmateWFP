@@ -132,9 +132,6 @@
 
 	<section id="newsfeed" class="column one-5">
 		<h2> Nearby Users </h2>
-		<div ng-if="!nearbyUser.length" class="no_results">
-			<p> There are no users near you. </p>
-		</div>
 		<div ng-repeat="u in nearbyUsers | limitTo: 5">
 			<div class="ng_nearby_img">
 				<a href="#/profile/{{u._id}}"><img ng-src="{{u.profileImg}}"></a>
@@ -144,6 +141,9 @@
 				<li class="nf_nearby_loc">{{u.city}}, {{u.state}}</li>
 			</ul>
 			<div class="clear_fix"></div>
+		</div>
+		<div ng-if="!nearbyUsers" class="no_results">
+			<p> There are no users near you. </p>
 		</div>
 	</section>
 

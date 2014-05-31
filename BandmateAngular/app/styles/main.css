@@ -444,6 +444,7 @@ nav li.messages_icon{
 	top: 190px;
 	text-align: center;
 	width: 100%;
+	z-index: 1;
 }
 
 #cta_info p, #signup_form p{
@@ -464,7 +465,13 @@ form#search_cta input#cta_search_input{
 	margin-right: 0px;
 }
 
-#cta_image{
+/*#cta_image{
+	z-index: -1;
+}*/
+
+#cta #cta_image video#video_bg{
+	width: 100%;
+	opacity: .93;
 	z-index: -1;
 }
 
@@ -1688,5 +1695,9 @@ footer a:hover{
 	#signup input { width: 155px; }
 	.inbox_msg ul{ width: 65%; }
 	#video_section input.edit_input.ytUrl{width: 78%;}
+}
+
+@media (max-width:820px) {
+	#cta_info{ top: 85px; }
 }
 

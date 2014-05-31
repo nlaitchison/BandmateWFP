@@ -20,7 +20,11 @@
 				<p class="signup_error" ng-if="signUpErr"> <span class='notice'>* * </span> {{signUpErr}} </p>
 			</form>
 		</div>
-		<div id="cta_image"><img src="images/landing-bg.jpg"></div>
+		<div id="cta_image"><!-- <img src="images/landing-bg.jpg"> -->
+			<video id="video_bg" preload autoplay muted loop poster="images/pantherCamp-poster.png">
+				<source src="video/pantherCamp-blackWhite-720.mp4" type="video/mp4" />
+			</video>
+		</div>
 	</section>
 
 	<section id="featured_users">
