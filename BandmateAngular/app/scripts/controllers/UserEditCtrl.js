@@ -190,11 +190,37 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 	queryTokenizer: Bloodhound.tokenizers.whitespace,
 	local: [
 		{ i: 'Guitar' },
+		{ i: 'Guitar - Beginner' },
+		{ i: 'Guitar - Intermediate' },
+		{ i: 'Guitar - Advanced' },
 		{ i: 'Electric Guitar' },
+		{ i: 'Electric Guitar - Beginner' },
+		{ i: 'Electric Guitar - Intermediate' },
+		{ i: 'Electric Guitar - Advanced' },
 		{ i: 'Acoustic Guitar' },
+		{ i: 'Acoustic Guitar - Beginner' },
+		{ i: 'Acoustic Guitar - Intermediate' },
+		{ i: 'Acoustic Guitar - Advanced' },
 		{ i: 'Bass Guitar' },
+		{ i: 'Bass Guitar - Beginner' },
+		{ i: 'Bass Guitar - Intermediate' },
+		{ i: 'Bass Guitar - Advanced' },
 		{ i: 'Drums' },
-		{ i: 'Keyboard' }
+		{ i: 'Drums - Beginner' },
+		{ i: 'Drums - Intermediate' },
+		{ i: 'Drums - Advanced' },
+		{ i: 'Keyboard' },
+		{ i: 'Keyboard - Beginner' },
+		{ i: 'Keyboard - Intermediate' },
+		{ i: 'Keyboard - Advanced' },
+		{ i: 'Piano' },
+		{ i: 'Piano - Beginner' },
+		{ i: 'Piano - Intermediate' },
+		{ i: 'Piano - Advanced' },
+		{ i: 'Vocals' },
+		{ i: 'Vocals - Beginner' },
+		{ i: 'Vocals - Intermediate' },
+		{ i: 'Vocals - Advanced' }
 		]
 	});
 
@@ -218,7 +244,14 @@ App.controller('UserEditCtrl', function ($scope, Restangular, $location, AuthSer
 		{ g: 'Punk Rock' },
 		{ g: 'Pop Punk' },
 		{ g: 'Post-Hardcore' },
-		{ g: 'Hardcore' }
+		{ g: 'Hardcore' },
+		{ g: 'Indie' },
+		{ g: 'Folk' },
+		{ g: 'Country' },
+		{ g: 'Pop' },
+		{ g: 'Alternative' },
+		{ g: 'Acoustic' },
+		{ g: 'Electronic' },
 		]
 	});
 

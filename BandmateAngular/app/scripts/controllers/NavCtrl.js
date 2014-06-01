@@ -22,7 +22,7 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 	// check for new messages
     $sails.on('message', function(data) {
 
-        console.log('New update received :: ', data);
+        // console.log('New update received :: ', data);
 
         switch(data.model){
 
@@ -43,7 +43,7 @@ App.controller('NavCtrl', function ($scope, Restangular, $http, AuthService, Bas
 
 	      	//set scope to db
 			$scope.currentUser = u;
-			console.log($scope.user);
+			// console.log($scope.user);
 
 			countMsgs();
 

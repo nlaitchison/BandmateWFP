@@ -152,7 +152,7 @@ button:hover, input[type=submit]:hover{
 	margin: 0 auto;
 }
 
-.user_thumb h4{
+#results .container a{
 	text-decoration: none;
 }
 

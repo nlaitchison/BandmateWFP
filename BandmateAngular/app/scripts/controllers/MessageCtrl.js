@@ -20,7 +20,7 @@ App.controller('MessageCtrl', function ($scope, Restangular, $location, AuthServ
     // check for new messages
     $sails.on('message', function(data) {
 
-        console.log('New message received :: ', data);
+        // console.log('New message received :: ', data);
 
         switch(data.model){
 
